@@ -1,0 +1,208 @@
+\documentclass{amsproc}
+\usepackage{subfiles}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{comment}
+\usepackage[alphabetic]{amsrefs}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{datetime2} 
+\usepackage[colorlinks=true,linkcolor=blue,]{hyperref}
+\usepackage{tcolorbox}
+\usepackage{xstring}
+
+\usepackage{stackengine}
+\usepackage{scalerel}
+\usepackage{mathtools}
+\usepackage{calc}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{euscript}
+% \def\EuScript#1{\mathscr#1}
+% \usepackage{fourier-otf}
+\usepackage{fourier}
+%\usepackage{palatino}
+% \usepackage[sc]{mathpazo} % add possibly `sc` and `osf` options
+%\usepackage{eulervm}
+%\usepackage{bbm}
+%\usepackage{latexsym}
+% \usepackage{mathrsfs}
+% \usepackage{stmaryrd}
+% \usepackage{stix}
+\def\dotminus{\stackon[.2ex]{$-$}{$.$}}
+% \def\wneg{\stackon[-.2ex]{$\neg$}{$\neg$}}
+\usepackage{dsfont}
+% \newcommand*{\TakeFourierOrnament}[1]{{%
+% \fontencoding{U}\fontfamily{futs}\selectfont\char#1}}
+% \renewcommand*{\danger}{\TakeFourierOrnament{66}}
+\parindent0ex
+\parskip1.2ex
+% \makeatletter
+% \DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+% \DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
+% \DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
+% \DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+% \DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
+% \DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
+% \DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+% \makeatother
+
+\def\P{\EuScript P}
+\def\D{\EuScript D}
+\def\Aa{\EuScript A}
+\def\Ee{\EuScript E}
+\def\T{\EuScript T}
+\def\X{\EuScript X}
+\def\Y{\EuScript Y}
+\def\Z{\EuScript Z}
+\def\C{\EuScript C}
+\def\U{\EuScript U}
+\def\Hh{\EuScript H}
+\def\I{\EuScript I}
+\def\V{\EuScript V}
+\def\W{\EuScript W}
+\def\R{\EuScript R}
+\def\F{\EuScript F}
+\def\G{\EuScript G}
+\def\B{\EuScript B}
+\def\M{\EuScript M}
+
+\def\LDelta{L\kern-.4ex^{\scriptscriptstyle\Delta}}
+\def\UDelta{\U\kern-.2ex^{\scriptscriptstyle\Delta}}
+\def\BDelta{\smash{\Delta\kern-.4ex\raisebox{0.9ex}{\sf\tiny B}}\kern-.1ex}
+
+\newcommand{\mylabel}[1]{{#1}\hfill}
+\renewenvironment{itemize}
+  {\begin{list}{$\triangleright$}{%
+  \setlength{\parskip}{0mm}
+  \setlength{\topsep}{.1\baselineskip}
+  \setlength{\rightmargin}{0mm}
+  \setlength{\listparindent}{0mm}
+  \setlength{\itemindent}{0mm}
+  \setlength{\labelwidth}{3ex}
+  \setlength{\itemsep}{.1\baselineskip}
+  \setlength{\parsep}{.1\baselineskip}
+  \setlength{\partopsep}{0mm}
+  \setlength{\labelsep}{1ex}
+  \setlength{\leftmargin}{\labelwidth+\labelsep}
+  \let\makelabel\mylabel}}{%
+\end{list}}
+
+
+\newtheoremstyle{mio}% name
+     {2\parskip}     % Space above
+     {2\parskip}     % Space below
+     {}%         Body font
+     {}%         Indent amount (empty = no indent, \parindent = para indent)
+     {\bfseries}% Thm head font
+     {}%        Punctuation after thm head
+     {1ex}%     Space after thm head: " " = normal interword space;
+           %   \newline = linebreak
+     {\llap{\thmnumber{#2}\hskip0.9ex}\thmname{#1}\thmnote{\bfseries{}#3}}% Thm head spec (can be left empty, meaning `normal')
+
+\newcounter{thm}
+
+\tcbset{
+  mythm/.style={
+    colback=black!5!white,
+    colframe=white!50!black,
+    extrude right by=2ex,
+    extrude left by=6.5ex,
+    % before=\par\noindent,
+    % after=\par\noindent,
+    top=0.7ex,
+    bottom=1.5ex,
+    right=2ex,
+    left=6.5ex,
+    boxsep=0pt,
+    % parbox=false,
+    before skip=\baselineskip,
+    after skip=\baselineskip,
+  },
+}
+\theoremstyle{mio}
+\newtheorem{theorem}[thm]{Theorem}\tcolorboxenvironment{theorem}{mythm}
+\newtheorem{corollary}[thm]{Corollary}\tcolorboxenvironment{corollary}{mythm}
+\newtheorem{proposition}[thm]{Proposition}\tcolorboxenvironment{proposition}{mythm}
+\newtheorem{lemma}[thm]{Lemma}\tcolorboxenvironment{lemma}{mythm}
+\newtheorem{fact}[thm]{Fact}\tcolorboxenvironment{fact}{mythm}
+\newtheorem{definition}[thm]{Definition}\tcolorboxenvironment{definition}{mythm}
+\newtheorem{assumption}[thm]{Assumption}\tcolorboxenvironment{assumption}{mythm}
+\newtheorem{void}[thm]{}\tcolorboxenvironment{void}{mythm}
+\newtheorem{notation}[thm]{Notation}\tcolorboxenvironment{notation}{mythm}
+\newtheorem{note}[thm]{Note}\tcolorboxenvironment{note}{mythm}
+\newtheorem{remark}[thm]{Remark}\tcolorboxenvironment{remark}{mythm}
+\newtheorem{definition_theorem}[thm]{Definition\,/\,Theorem}\tcolorboxenvironment{definition_theorem}{mythm}
+\newtheorem{exercise}[thm]{Exercise}
+\newtheorem{example}[thm]{Example}
+\newtheorem{question}[thm]{Question}
+
+
+\makeatletter
+\providecommand{\proofNameStyle}{\bfseries}
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont% \topsep6\p@\@plus6\p@\relax
+  % \vspace*{-\baselineskip}
+  \trivlist
+  \item[\hskip\labelsep
+        \proofNameStyle
+    #1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+
+
+
+\renewcommand*{\emph}[1]{%
+   \smash{\tikz[baseline]\node[rectangle, fill=teal!25, rounded corners, inner xsep=0.5ex, inner ysep=0.2ex, anchor=base, minimum height = 2.7ex]{\strut #1};}}
+
+%%%%%%% GETCOMMIT
+\newcommand\dotGitHEAD{}
+\newcommand\branch{}
+
+
+\makeatletter\let\myfilehandle\@inputcheck\makeatother
+
+\openin\myfilehandle=.git/HEAD\relax
+
+\begingroup\endlinechar-1
+  \global\read\myfilehandle to \dotGitHEAD
+\endgroup
+\closein\myfilehandle
+
+\newcommand\GetBranch{}
+\def\GetBranch ref: refs/heads/#1\relax{\renewcommand{\branch}{#1}}
+
+\expandafter\GetBranch\dotGitHEAD\relax
+
+\openin\myfilehandle=.git/refs/heads/\branch\relax
+
+\begingroup\endlinechar-1
+  \global\read\myfilehandle to \commit
+\endgroup
+\closein\myfilehandle
+
+\makeatother
+
+\linespread{1.1}
+\author{A. Polymath}
+% \author{Domenico Zambella}
+% \author{al.}
+\thanks{Dipartimento di Matematica, Universit\`a di Torino, via Carlo Alberto 10, 10123 Torino.}
+\begin{document}
+\title{Actions}
+% \hfill\texttt{~}
+\hfill\texttt{Branch \branch\ Last\_commit \StrLeft{\commit}{7}\ \DTMnow}\par
+\maketitle
+\raggedbottom
+
+\begin{abstract}
+\end{abstract}
+
+\subfile{first}
+\end{document}

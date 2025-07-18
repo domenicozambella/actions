@@ -1,0 +1,345 @@
+% !TEX root = actions.tex
+\section{Preliminaries}
+\label{actions}
+
+\def\ceq#1#2#3{\noindent\parbox[t]{15ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
+
+
+Let $\Delta\subseteq L_{x\,z}(\U)$.
+Given any \emph{$\X$\/} $\subseteq\U^x$ and \emph{$\Z$\/} $\subseteq\U^z$, we define the structure \emph{$\UDelta$\/} $=\big\langle\X\,;\Z\big\rangle$.
+This is a 2-sorted structure whose signature \emph{$\LDelta$\/} contains relation symbols for every formula $\varphi(x\,;z)\in\Delta$.
+As there is little risk of confusion, these relations symbols are also denoted by $\varphi(x\,;z)$, and we identify $\LDelta$ with a subset of $L$.
+
+When $\X$ and $\Z$ are type definable and $\Delta$ is small, $\UDelta$ is a saturated structure.
+As compactness is not always required, these sets are arbitrary unless explicitly required.
+
+In the first few sections we only work a subset of the quantifier-free fragment of $\LDelta$.
+Let $\BDelta(\Z)$ be the set of Boolean combinations of the sets $\varphi(\X\,;b)$, for $\varphi(x\,;z)\in\Delta$ and $b\in\Z$.
+The same symbol is also used to denote the collection of formulas defining these sets.
+A $\BDelta(\Z)$-type is a collection of $\BDelta(\Z)$-formulas.
+A $\BDelta(\Z)$-type-definable set is one defined by a $\BDelta(\Z)$-type of small cardinality.
+
+We write \emph{$S_\Delta(\Z)$\/} for the set of $\BDelta(\Z)$-types that are maximallyfinitely consistent (in $\X$)~--~which we may conveniently identify with a sets of $\Delta(\Z)$ and negated $\Delta(\Z)$-formulas.
+Note that the types in $S_\Delta(\Z)$ are required to be finitely consistent $\X$~--~a piece of information that we will not display in the notation.
+When the types are required to be finitely consistent in some $\Y\subseteq\X$ we write \emph{$S_{\Delta,\Y}(\Z)$.}
+
+% A set $\D\subseteq\X$ is \emph{$\BDelta({\Z})$-definable\/} if $\D=\varphi(\X)$ for some $\varphi(x)\in\BDelta({\Z})$.
+% In the literature these sets are sometime called \textit{relatively\/} definable to distinguish them from $\varphi(\U^x)$ and $\varphi(\U^z)$.
+% Similarly, we define \emph{$\BDelta({\Z})$-type-definable\/} sets.
+
+When $p(x)$ a type (i.e.\@ any set of formulas) and $\D\subseteq\X$ we write $p(x)\vdash x\in{\D}$ if the inclusion $\psi(\X)\subseteq{\D}$ holds for some $\psi(x)$ that is conjunctions of formulas in $p(x)$.
+
+Let \emph{$G$\/} $\le{\rm Aut}(\UDelta)$.
+We view $G$ as a group acting on $\UDelta$ and write ${\cdot}$ for such action.
+We write $g{\cdot}\D$ for the natural action of $g\in G$ on $\D\subseteq\X$.
+If $\Delta=\varphi(\X\,;b)$ then $g{\cdot}\D=\varphi(\X\,;g{\cdot}b)$.
+A formula is $G$-invariant if the set it defines is $G$-invariant (i.e.\@ fixed by the action of $G$).
+
+If $p(x)$ is a $\BDelta(\Z)$-type, we write $g{\cdot}p(x)$ for the set of formulas of the form $\varphi(\X\,;g{\cdot}b)$ for $\varphi(\X\,;b)\in p$.
+We say that the type $p(x)\subseteq\BDelta(\Z)$ is $G$-invariant accordingly.
+
+Let $\Y\subseteq\X$.
+We say that a set $\D\subseteq\X$ is \emph{syndetic\/} under the action of $G$ \emph{relative\/} to $\Y$, or \emph{$G$-syndetic\/} for short, if finitely many $G$-translates of $\D$ cover $\Y$.
+Dually, we say that $\D$ is \emph{thick\/} under the action of $G$ relative to $\Y$, or \emph{$G$-thick\/} for short, if the intersection of any finitely many $G$-translates of $\D$ is consistent with $\Y$.
+
+We omit reference to $\Y$ when this is $\X$ or if it is made crystal clear by the context.
+
+The same properties may be attributed to formulas (as these are identified with the set they define).
+When these properties are attributed to a type $p(x)$, we understand that they hold for every conjunction of formulas in $p(x)$.
+
+Our terminology is taken from topological dynamics.
+In similars context syndetic sets are called \textit{generic,} see eg.~\cite{N09}.
+In~\cite{CK} the authors write \textit{quasi-non-dividing\/} for \textit{thick\/} under the action of ${\rm Aut}(\U/A)$.
+
+Notation: for $\D\subseteq\X$ and $C\subseteq G$ we write \emph{$C{\cdot}\D$\/} for $\{h{\cdot}\D: h\in C\}$.
+
+In this chapter many proofs require some juggling with negations as epitomized by the following fact which is proved by spelling out the definitions
+
+\begin{fact}\label{fact_fip}
+  Work relative to some given $\Y\subseteq\X$.
+  The following are equivalent
+  \begin{itemize}
+    \item[1.] $\D$ is not $G$-syndetic
+    \item[2.] $\neg\D$ is $G$-thick.
+  \end{itemize}\smallskip
+\end{fact}
+
+% \begin{proof}
+%   Spelling out the definitions, (1) and (2) are, respectively, equivalent to
+%   \begin{itemize}
+%     \item[1$'$.] there are no finite $C\subseteq G$ such that $\Y\ \subseteq\ \cup\, C{\cdot}\D$.
+%     \item[2$'$.] $\varnothing\ \neq\ \Y\,\cap\,\big(\cap\, C{\cdot}\neg\D\big)$ for every finite $C\subseteq G$.
+%   \end{itemize} 
+%   Then the equivalence is evident.
+% \end{proof}
+
+
+% The following characterization is also useful (an is sometimes taken as the definition).
+
+% \begin{corollary}\label{fact_fip2}
+%   Work relative to some given $\Y\subseteq\X$.
+%   The following are equivalent
+%   \begin{itemize}
+%     \item[1.] $\D$ is $G$-thick
+%     \item[2.] $\D\cap\C\neq\varnothing$ for every set $\C$ that is $G$-syndetic.
+%   \end{itemize}
+% \end{corollary}
+
+% \begin{proof}
+%   1$\Rightarrow$2. 
+%   If $\D$ is $G$-thick and $\D\cap\C=\varnothing$ then $\D\subseteq\neg\C$.
+%   Then $\neg\C$ is also $G$-thick which, by Fact~\ref{fact_fip} implies that $\C$ is not $G$-syndetic.
+
+%   2$\Rightarrow$1. 
+%   If $\D$ is not $G$-thick then $\D$ is $G$-syndetic then $\neg$2.
+% \end{proof}
+
+
+Define the following type
+
+\ceq{\hfill\emph{$\Sigma_{G,\Y}(x)$}}{=}{\big\{\vartheta(x)\in \BDelta({\Z})\ :\ \vartheta(x)\textrm{ is }G\textrm{-syndetic relatve to }\Y\big\}.}
+
+We write $\Sigma_G(x)$ for $\Sigma_{G,\X}(x)$.
+
+% \begin{corollary}\label{corol_q_pers}
+%   Work relative to some given $\Y\subseteq\X$.
+%   Let $\D\in\BDelta(\Z)$ and assume that $\Sigma_{G,\Y}(x)\cup\{x\in\D\}$ is finitely consistent in $\Y$.
+%   Then $\D$ is $G$-thick.
+% \end{corollary}
+
+% \begin{proof}
+%   As $\Sigma_{G,\Y}(x)\cup\{x\in\D\}$ is finitely consistent in $\Y$, it cannot be that $\neg\D$ is $G$-syndetic.
+%   Then from Fact~\ref{fact_fip} we obtain that $\D$ is $G$-thick.
+% \end{proof}
+
+\begin{theorem}\label{thm_syndetic_invariant}
+  Work relative to some given $\Y\subseteq\X$.
+  For every $p(x)\in S_{\Delta,\Y}(\Z)$ the following are equivalent
+  \begin{itemize}
+    \item[1.] $p(x)$ is $G$-invariant
+    \item[2.] $p(x)\vdash\Sigma_{G,\Y}(x)$
+    %\item[2$'$.] $p(x)\vdash\Sigma_{G}(x)$ and is finitely consistent in $\Y$
+    \item[3.] $p(x)$ is $G$-thick.
+    %\item[3$'$.] $p(x)$ is $G$-thick and is finitely consistent in $\Y$.
+  \end{itemize}
+\end{theorem}
+
+\begin{proof}
+  1$\Rightarrow$2.
+  Let $\D\in\BDelta(\Z)$ be a $G$-syndetic.
+  Pick $C\subseteq G$ be finite such that $\Y\subseteq\cup\,C{\cdot}\D$.
+  Then $p(x)$ is finitely consistent with $x\in\cup\,C{\cdot}\D$.
+  By completeness, $p(x)\vdash x\in h\,\D$ for some $h\in C$.
+  Finally, by invariance, $p(x)\vdash x\in\D$.
+  
+  2$\Rightarrow$3.
+  Let $\varphi(x)\in p$.
+  As $\Sigma_{G,\Y}(x)\cup\{\varphi(x)\}$ is finitely consistent in $\Y$, it cannot be that $\neg\varphi(x)$ is $G$-syndetic.
+  Then from Fact~\ref{fact_fip} we obtain that $\varphi(x)$ is $G$-thick.
+
+  3$\Rightarrow$1.
+  % uppose $p(x)$ is not $(n+2)$-thick and let $n$ be minimal.
+  % Let $g_1,\dots,g_{n+2}\in G$ and $\theta(x)\,;{\gr\bar b}$ witness this.
+  % Then 
+  Negate 1.
+  Let $\D\in\BDelta(\Z)$ and $g\in G$ such that $p(x)\vdash x\in\D$ and $p(x)\nvdash g{\cdot}\D$.
+  By completeness $p(x)\vdash x\in(\D\cap\neg g{\cdot}\D)$.
+  Clearly $\D\cap \neg g{\cdot}\D$ is not $G$-thick as it is inconsistent with its $g$-translate.
+%  1$\Rightarrow$2$'{\IFF}$3$'$. Apply what proved above with $\X$ for $\Y$.
+\end{proof}
+
+
+The following theorem gives a necessary and sufficient condition for the  existence of global $G$-invariant $\BDelta(\Z)$-type.
+Ideally, we would like that every $G$-thick $\BDelta(Z)$-type extends to a global thick type.
+Unfortunately this is not true in general (it is a strong assumption, see Section~\ref{tame_landscape}).
+
+A set $\D$ is \emph{$G$-wide\/} relative to $\Y$ if every finite cover of $\D\cap\Y$ by $\BDelta(\Z)$-sets contains a set that is $G$-thick relative to $\Y$.
+A type is $G$-wide if every conjunction of formulas in the type is $G$-wide.
+
+In~\cite{CK} a similar property is called \textit{quasi-non-forking.}
+Our use of the term \textit{wide\/} is consistent with~\cite{Hr}, though we apply it to a narrow context.
+
+\begin{theorem}\label{thm_syndetic_invariant2}
+  Work relative to some given $\Y\subseteq\X$.
+  For every $\D\in\BDelta(\Z)$ the following are equivalent 
+  \begin{itemize}
+    \item[1.] $\Sigma_{G,\Y}(x)\cup\{x\in\D\}$ is finitely consistent in $\Y$
+    \item[2.] there is a $G$-thick type $p(x)\in S_{\Delta,\Y}(\Z)$ that entails $x\in\D$
+    \item[3.] $\D$ is $G$-wide.\smallskip
+  \end{itemize}
+\end{theorem}
+
+\begin{proof}
+  1$\Rightarrow$2.
+  By Theorem~\ref{thm_syndetic_invariant}, it suffices to pick any $p(x)\in S_{\Delta,\Y}(\Z)$ extending the type $\Sigma_{G,\Y}(x)\cup\{x\in\D\}$.
+
+  2$\Rightarrow$1.
+  By Theorem~\ref{thm_syndetic_invariant}.
+
+  2$\Rightarrow$3.
+  Let $\C_1,\dots,\C_n$ be $\BDelta({\Z})$-sets that cover $\D$.
+  Pick $p(x)$ as in 2.
+  By completeness, $p(x)\vdash x\in\C_i$ for some $i$.
+  Therefore, $\C_i$ is $G$-thick.
+
+  3$\Rightarrow$2.
+  Let $p(x)$ be maximal among the $\BDelta(\Z)$-types that are finitely satisfiable in $Y\cap\D$ and are $G$-wide.
+  We claim that $p(x)$ is a complete $\BDelta(\Z)$-type.
+  Suppose for a contradiction that $\theta(x),\neg\theta(x)\notin p$.
+  By maximality there is some formula $\psi(x)$, a conjunction of formulas in $p(x)$, and some $\BDelta({\Z})$-sets $\C_1,\dots,\C_n$ that cover both $\psi(\X)\cap\theta(\X)$ and $\psi(\X)\smallsetminus\theta(\X)$ and such that no $\C_i$ is $G$-thick.
+  As $\C_1,\dots,\C_n$ cover $\psi(\X)$ this is a contradiction.
+  It is only left to show that $p(x)$ is $G$-thick.
+  This follows from completeness and Theorem~\ref{thm_syndetic_invariant}.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Connected components}\label{G0}
+\def\medrel#1{\parbox[t]{5ex}{$\displaystyle\hfil #1$}}
+\def\ceq#1#2#3{\parbox[t]{12ex}{$\displaystyle #1$}\medrel{#2}{$\displaystyle #3$}}
+
+Let \emph{$G$\/} $\le{\rm Aut}(\UDelta)$.
+Unfortunately, syndeticity is not preserved under intersection.
+In particular $\Sigma_G(x)$ is not a $G$-syndetic type, and it may even be inconsistent.
+Then following notion is relevant.
+
+\begin{definition}\label{def_Q}\ 
+
+  \ceq{\hfill\emph{$Q_G$\/}}{=}{\big\{q(x)\subseteq\Sigma_G(x)\;:\ q(x)\textrm{ maximally }G\textrm{-syndetic}\big\}.}\smallskip
+
+  In other words, the types in $Q_G$ are maximal among the subtypes of $\Sigma_G(x)$ that are closed under conjunction.
+\end{definition}
+
+It is easy to see that $Q_G$ is closed under the action of $G$.
+We write ${\rm Stab}(q)$ for the stabilizer of $q(x)\subseteq\BDelta(\Z)$ in $G$, that is, the subgroup $\{g\in G\ :\ g{\cdot}q(x)=q(x)\}$.
+We write ${\rm Stab}(\D)$ with a similar meaning.
+Finally we define
+
+\ceq{\hfill\emph{$G^1$}}{=}{{\rm Stab}(Q_G)\medrel{=}\bigcap_{q\in Q_G}{\rm Stab}(q).}
+
+It is easy to verify that $G^1\trianglelefteq G$.
+
+\begin{proposition}\label{prop_StabQ}\ \smallskip
+
+  \ceq{\hfill G^1}{=}{\big\{g\in G\ :\ \D\cap g{\cdot}\D\in\Sigma_G(x)\textrm{ whenever }\D\in\Sigma_G(x)\big\}.}\smallskip
+\end{proposition}
+
+\begin{proof}
+  $\subseteq$.
+  Pick any $k\in G^1$ and $\D\in\Sigma_G(x)$.
+  Let $q(x)\in Q_G$ be a type containing $x\in\D$.
+  From the $G^1$-invariance of $q(x)$ we obtain that $q(x)\vdash x\in k{\cdot}\D$.
+  Then $q(x)\vdash x\in \D\cap k{\cdot}\D$, hence $\D\cap k{\cdot}\D$ is $G$-syndetic.
+
+  $\supseteq$.
+  Pick any $g\notin G^1$.
+  Then $q(x)\neq g{\cdot}q(x)$ for some $q(x)\in Q_G$.
+  Let $\varphi(x)\in q$ such that $q(x)\not\vdash g{\cdot}\varphi(x)$.
+  By maximality, $\psi(x)\wedge g{\cdot}\varphi(x)$ is not $G$-syndetic for some $\psi(x)\in q$.
+  As $q(x)$ is closed under conjunction, we can assume $\varphi(x)=\psi(x)$, then $g$ does not belong to the set on the r.h.s.
+\end{proof}
+
+\begin{theorem}\label{thm_gammaK}
+  Any finite conjunction of formulas in $\Sigma_{G^1}(x)$ is $G$-syndetic.
+  In particular $\Sigma_{G^1}(x)$ is finitely consistent.
+\end{theorem}
+
+\begin{proof}
+  \def\medrel#1{\parbox[t]{5ex}{$\displaystyle\hfil #1$}}
+  \def\ceq#1#2#3{\parbox[t]{23ex}{$\displaystyle #1$}\medrel{#2}{$\displaystyle #3$}}
+  Notice that from Proposition~\ref{prop_StabQ} it easily follows that for every $\D\in\Sigma_G(x)$ and every finite $F\subseteq G^1$ the set $\cap\,F{\cdot}\D$ is $G$-syndetic.
+   
+  Let $\D_1,\dots,\D_n\in\Sigma_{G^1}(x)$.
+  Assume inductively that $\D_1\cap\dots\cap\D_{n-1}$ is $G$-syndetic.
+  Let $F\subseteq G^1$ be such that $\cup\,F{\cdot}\D_n=\X$.
+  Then
+  
+  \ceq{\hfill\cup\,F{\cdot}[\D_1\cap\dots\cap\D_n]}
+  {\supseteq}{\cap\, F{\cdot}[\D_1\cap\dots\cap\D_{n-1}]\ \cap\ \cup\,F{\cdot}\D_n}
+
+  \ceq{}{=}{\cap\, F{\cdot}[\D_1\cap\dots\cap\D_{n-1}].}
+
+  This last set is $G$-syndetic by the inductive hypothesis and what remarked above.
+  The $G$-syndeticity of $\D_1\cap\dots\cap\D_n$ follows.
+\end{proof}
+
+Unfortunately, we are unable to conclude that the intersection of $G^1$-syndetic sets is $G^1$-syndetic.
+
+From Theorems~\ref{thm_syndetic_invariant2} and~\ref{thm_gammaK} it follows that $G^1$-syndetic sets are $G^1$-wide.
+But we can do better.
+First, we remark a useful consequence of normality.
+
+\begin{remark}\label{rem_invariance_normalsubg}
+\def\medrel#1{\parbox[t]{5ex}{$\displaystyle\hfil #1$}}
+\def\ceq#1#2#3{\parbox[t]{20ex}{$\displaystyle #1$}\medrel{#2}{$\displaystyle #3$}}
+  Assume $H\trianglelefteq G$.
+  For every $\D\subseteq\X$ and every $g\in G$ \smallskip
+  
+  \ceq{\hfill\D\textrm{ is }H\textrm{-foo}}{\Leftarrow}{g{\cdot}\D\textrm{ is }H\textrm{-foo},} \smallskip
+  
+  where \textit{foo\/} can be replaced by \textit{syndetic,} \textit{invariant,} \textit{thick,} \textit{wide.}
+  In particular, the type $\Sigma_H(x)$ is $G$-invariant.
+\end{remark}
+
+Recall that when $\Sigma_H(x)$ is finitely consistent then $H$-syndetic sets are $H$-wide, see Theorem~\ref{thm_syndetic_invariant2}.
+As it happens, under the assumption of normality, this can be strengthened as follows.
+
+\begin{proposition}\label{prop_Gsyndetic_Hthick1}
+  Assume $H\trianglelefteq G$ and that $\Sigma_H(x)$ is finitely consistent.
+  Then every $G$-syndetic $\D\in\BDelta(\Z)$ is $H$-wide.
+  In particular all types in $Q_G$ are $G^1$-wide.
+\end{proposition}
+
+\begin{proof}
+  Let $p(x)\in S_\Delta(\Z)$ be finitely consistent with $\Sigma_H(x)$.
+  As $\D$ is $G$-syndetic, by completeness $p(x)\vdash x\in g{\cdot}\D$ for some $g\in G$.
+  Equivalently, $g^{-1}\kern-.5ex\cdot p(x)\vdash x\in\D$.
+  As $p(x)$ is $H$-thick, by Remark~\ref{rem_invariance_normalsubg} also $g^{-1}\kern-.5ex\cdot p(x)$ is $H$-thick.
+  Then the proposition follows from Theorem~\ref{thm_syndetic_invariant2}.
+\end{proof}
+
+When the context suggests it, $\BDelta(\Z)$ will denote the broader class that includes also formulas obtained substituting $y$ for $x$ and is closed under Boolean connectives.
+A $\BDelta(\Z)$-definable equivalence relation is an equivalence relation defined by some formula $\varepsilon(x,y)\in\BDelta(\Z)$.
+We define $\BDelta(\Z)$-type-definable equivalence relations similarly.
+Note that if $\varepsilon(x,y)$ is a $\BDelta(\Z)$-definable, or type-definable, equivalence relation then $\varepsilon(x,a)$, for any $a\in\X$, is equivalent to a $\BDelta(\Z)$-formula, respectively a $\BDelta(\Z)$-type.
+
+An equivalence relation is bounded if it has a small number of equivalence classes.
+
+\begin{definition}\label{def_G00}
+  Let $\Phi^0$ be the collection of sets that are equivalence classes of a bounded $G$-invariant $\BDelta(\Z)$-type-definable equivalence relation.
+  Let $\Phi^{00}$ be the collection of sets that are equivalence classes of a bounded $G$-invariant $\BDelta(\Z)$-type-definable equivalence relation.
+  Define
+  \smallskip
+
+  \ceq{\hfill\emph{$G^0$}}{=}{{\rm Stab}(\Phi^0)}\medrel{=}$\displaystyle\bigcap\big\{{\rm Stab}(\D)\ :\  \D\in\Phi^0\}$
+
+  and
+
+  \ceq{\hfill\emph{$G^{00}$}}{=}{{\rm Stab}(\Phi^{00})}\medrel{=}$\displaystyle\bigcap\big\{{\rm Stab}(\Y)\ :\  \Y\in\Phi^{00}\}$.
+
+\end{definition}
+
+\begin{proposition}
+  Let $\X$ be type-definable.
+  Assume that $G$ acts transitively on $\X$.
+  Then 
+  
+  \ceq{\hfill G^1}{\leq}{G^{00}}\medrel{\leq}$G^0$.
+\end{proposition}
+
+\begin{proof}
+  The inclusion $G^{00}\leq G^0$ is trivial.
+  Let $\Y\in\Phi^{00}$ and $\Y\subseteq\D\in\BDelta(\Z)$.
+  Then a small number of $G$-translates of $\D$ cover $\X$.
+  Therefore, by compactness, $\D$ is $G$-syndetic.
+  Then the type defining $\Y$ is $G$-syndetic.
+  Then this type extends to some $q(x)\in Q_G$.
+  By $G^1$-invariance $q(x)$ entails also $k{\cdot}\Y$ for every $k\in G^1$.
+  Then $k$ is in the stabilizer of $\Y$.
+\end{proof}
+
+\end{document}
