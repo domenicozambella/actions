@@ -269,6 +269,66 @@ It is easy to verify that $G^1\trianglelefteq G$.
 
 Unfortunately, we are unable to conclude that the intersection of $G^1$-syndetic sets is $G^1$-syndetic.
 
+%%%%%%%%%%%%%%%
+\begin{definition}\label{def_P}\ 
+
+  \ceq{\hfill\emph{$P_G$\/}}{=}{\big\{p(x)\subseteq\Sigma_G(x)\;:\ p(x)\textrm{ maximally finitely consistent}\big\}.}\smallskip
+
+  
+\end{definition}
+
+Along the same lines as above, we define
+
+\ceq{\hfill\emph{$G^{1\!1}$}}{=}{{\rm Stab}(P_G)\medrel{=}\bigcap_{p\in P_G}{\rm Stab}(p).}
+
+% It is easy to verify that $G^{11}\trianglelefteq G$.
+By the following proposition, $G^1\le G^{1\!1}$.
+We do not know if the inclusion is strict.
+
+\begin{proposition}\label{prop_StabQ}\ 
+
+  \ceq{\hfill G^{1\!1}}{=}{\big\{g\in G\ :\ q(x)\cup g{\cdot}q(x)\textrm{ is finitely consistent for every }q(x)\in Q_G\big\}.}\smallskip
+\end{proposition}
+
+\begin{proof}
+  $\subseteq$.
+  Pick any $k\in G^{1\!1}$ and $q(x)\in Q_G$.
+  Let $p(x)\in P_G$ be a type containing $q(x)$.
+  From the $G^{1\!1}$-invariance of $p(x)$ we obtain that $p(x)\vdash k{\cdot}q(x)$.
+  Then $q(x)\cup k{\cdot}q(x)$ is finitely consistent.
+
+  $\supseteq$.
+  Pick any $g\notin G^{1\!1}$.
+  Then $q(x)\cup g{\cdot}q(x)$ is not finitely consistent for some $q(x)\in Q_G$.
+  Let $\varphi(x)\in q$ such that $\varphi(x)\wedge g{\cdot}\varphi(x)$ is inconsistent.
+  but $\varphi(x)\in p$ then $g$ does not belong to the set on the r.h.s.
+\end{proof}
+
+\begin{theorem}\label{thm_gammaK}
+  Any finite conjunction of formulas in $\Sigma_{G^1}(x)$ is $G$-syndetic.
+  In particular $\Sigma_{G^1}(x)$ is finitely consistent.
+\end{theorem}
+
+\begin{proof}
+  \def\medrel#1{\parbox[t]{5ex}{$\displaystyle\hfil #1$}}
+  \def\ceq#1#2#3{\parbox[t]{23ex}{$\displaystyle #1$}\medrel{#2}{$\displaystyle #3$}}
+  Notice that from Proposition~\ref{prop_StabQ} it easily follows that for every $\D\in\Sigma_G(x)$ and every finite $F\subseteq G^1$ the set $\cap\,F{\cdot}\D$ is $G$-syndetic.
+   
+  Let $\D_1,\dots,\D_n\in\Sigma_{G^1}(x)$.
+  Assume inductively that $\D_1\cap\dots\cap\D_{n-1}$ is $G$-syndetic.
+  Let $F\subseteq G^1$ be such that $\cup\,F{\cdot}\D_n=\X$.
+  Then
+  
+  \ceq{\hfill\cup\,F{\cdot}[\D_1\cap\dots\cap\D_n]}
+  {\supseteq}{\cap\, F{\cdot}[\D_1\cap\dots\cap\D_{n-1}]\ \cap\ \cup\,F{\cdot}\D_n}
+
+  \ceq{}{=}{\cap\, F{\cdot}[\D_1\cap\dots\cap\D_{n-1}].}
+
+  This last set is $G$-syndetic by the inductive hypothesis and what remarked above.
+  The $G$-syndeticity of $\D_1\cap\dots\cap\D_n$ follows.
+\end{proof}
+%$$$$$$$$$$$$$
+
 From Theorems~\ref{thm_syndetic_invariant2} and~\ref{thm_gammaK} it follows that $G^1$-syndetic sets are $G^1$-wide.
 But we can do better.
 First, we remark a useful consequence of normality.
@@ -328,7 +388,7 @@ An equivalence relation is bounded if it has a small number of equivalence class
   Assume that $G$ acts transitively on $\X$.
   Then 
   
-  \ceq{\hfill G^1}{\leq}{G^{00}}\medrel{\leq}$G^0$.
+  \ceq{\hfill G^{1\!1}}{\leq}{G^{00}}\medrel{\leq}$G^0$.
 \end{proposition}
 
 \begin{proof}
@@ -337,8 +397,8 @@ An equivalence relation is bounded if it has a small number of equivalence class
   Then a small number of $G$-translates of $\D$ cover $\X$.
   Therefore, by compactness, $\D$ is $G$-syndetic.
   Then the type defining $\Y$ is $G$-syndetic.
-  Then this type extends to some $q(x)\in Q_G$.
-  By $G^1$-invariance $q(x)$ entails also $k{\cdot}\Y$ for every $k\in G^1$.
+  Then this type extends to some $p(x)\in P_G$.
+  By $G^{1\!1}$-invariance $p(x)$ entails also $k{\cdot}\Y$ for every $k\in G^{1\!1}$.
   Then $k$ is in the stabilizer of $\Y$.
 \end{proof}
 
