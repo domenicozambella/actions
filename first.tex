@@ -38,11 +38,8 @@ A formula is $G$-invariant if the set it defines is $G$-invariant (i.e.\@ fixed 
 If $p(x)$ is a $\BDelta(\Z)$-type, we write $g{\cdot}p(x)$ for the set of formulas of the form $\varphi(\X\,;g{\cdot}b)$ for $\varphi(\X\,;b)\in p$.
 We say that the type $p(x)\subseteq\BDelta(\Z)$ is $G$-invariant accordingly.
 
-Let $\Y\subseteq\X$.
-We say that a set $\D\subseteq\X$ is \emph{syndetic\/} under the action of $G$ \emph{relative\/} to $\Y$, or \emph{$G$-syndetic\/} for short, if finitely many $G$-translates of $\D$ cover $\Y$.
-Dually, we say that $\D$ is \emph{thick\/} under the action of $G$ relative to $\Y$, or \emph{$G$-thick\/} for short, if the intersection of any finitely many $G$-translates of $\D$ is consistent with $\Y$.
-
-We omit reference to $\Y$ when this is $\X$ or if it is made crystal clear by the context.
+We say that a set $\D\subseteq\X$ is \emph{syndetic\/} under the action of $G$, or \emph{$G$-syndetic\/} for short, if finitely many $G$-translates of $\D$ cover $\X$.
+Dually, we say that $\D$ is \emph{thick\/} under the action of $G$ or \emph{$G$-thick\/} for short, if the intersection of any finitely many $G$-translates of $\D$ is consistent (in $\X$).
 
 The same properties may be attributed to formulas (as these are identified with the set they define).
 When these properties are attributed to a type $p(x)$, we understand that they hold for every conjunction of formulas in $p(x)$.
@@ -56,7 +53,6 @@ Notation: for $\D\subseteq\X$ and $C\subseteq G$ we write \emph{$C{\cdot}\D$\/} 
 In this chapter many proofs require some juggling with negations as epitomized by the following fact which is proved by spelling out the definitions
 
 \begin{fact}\label{fact_fip}
-  Work relative to some given $\Y\subseteq\X$.
   The following are equivalent
   \begin{itemize}
     \item[1.] $\D$ is not $G$-syndetic
@@ -94,12 +90,9 @@ In this chapter many proofs require some juggling with negations as epitomized b
 %   If $\D$ is not $G$-thick then $\D$ is $G$-syndetic then $\neg$2.
 % \end{proof}
 
-
 Define the following type
 
-\ceq{\hfill\emph{$\Sigma_{G,\Y}(x)$}}{=}{\big\{\vartheta(x)\in \BDelta({\Z})\ :\ \vartheta(x)\textrm{ is }G\textrm{-syndetic relatve to }\Y\big\}.}
-
-We write $\Sigma_G(x)$ for $\Sigma_{G,\X}(x)$.
+\ceq{\hfill\emph{$\Sigma_G(x)$}}{=}{\big\{\vartheta(x)\in \BDelta({\Z})\ :\ \vartheta(x)\textrm{ is }G\textrm{-syndetic}\big\}.}
 
 % \begin{corollary}\label{corol_q_pers}
 %   Work relative to some given $\Y\subseteq\X$.
@@ -113,45 +106,38 @@ We write $\Sigma_G(x)$ for $\Sigma_{G,\X}(x)$.
 % \end{proof}
 
 \begin{theorem}\label{thm_syndetic_invariant}
-  Work relative to some given $\Y\subseteq\X$.
-  For every $p(x)\in S_{\Delta,\Y}(\Z)$ the following are equivalent
+  For every $p(x)\in S_\Delta(\Z)$ the following are equivalent
   \begin{itemize}
     \item[1.] $p(x)$ is $G$-invariant
-    \item[2.] $p(x)\vdash\Sigma_{G,\Y}(x)$
-    %\item[2$'$.] $p(x)\vdash\Sigma_{G}(x)$ and is finitely consistent in $\Y$
+    \item[2.] $p(x)\vdash\Sigma_G(x)$
     \item[3.] $p(x)$ is $G$-thick.
-    %\item[3$'$.] $p(x)$ is $G$-thick and is finitely consistent in $\Y$.
   \end{itemize}
 \end{theorem}
 
 \begin{proof}
   1$\Rightarrow$2.
   Let $\D\in\BDelta(\Z)$ be a $G$-syndetic.
-  Pick $C\subseteq G$ be finite such that $\Y\subseteq\cup\,C{\cdot}\D$.
+  Pick $C\subseteq G$ be finite such that $\X\subseteq\cup\,C{\cdot}\D$.
   Then $p(x)$ is finitely consistent with $x\in\cup\,C{\cdot}\D$.
   By completeness, $p(x)\vdash x\in h\,\D$ for some $h\in C$.
   Finally, by invariance, $p(x)\vdash x\in\D$.
   
   2$\Rightarrow$3.
   Let $\varphi(x)\in p$.
-  As $\Sigma_{G,\Y}(x)\cup\{\varphi(x)\}$ is finitely consistent in $\Y$, it cannot be that $\neg\varphi(x)$ is $G$-syndetic.
+  As $\Sigma_G(x)\cup\{\varphi(x)\}$ is finitely consistent, it cannot be that $\neg\varphi(x)$ is $G$-syndetic.
   Then from Fact~\ref{fact_fip} we obtain that $\varphi(x)$ is $G$-thick.
 
   3$\Rightarrow$1.
-  % uppose $p(x)$ is not $(n+2)$-thick and let $n$ be minimal.
-  % Let $g_1,\dots,g_{n+2}\in G$ and $\vartheta(x)\,;{\gr\bar b}$ witness this.
-  % Then 
   Negate 1.
   Let $\D\in\BDelta(\Z)$ and $g\in G$ such that $p(x)\vdash x\in\D$ and $p(x)\nvdash g{\cdot}\D$.
   By completeness $p(x)\vdash x\in(\D\cap\neg g{\cdot}\D)$.
   Clearly $\D\cap \neg g{\cdot}\D$ is not $G$-thick as it is inconsistent with its $g$-translate.
-%  1$\Rightarrow$2$'{\Leftrightarrow}$3$'$. Apply what proved above with $\X$ for $\Y$.
 \end{proof}
 
 
 The following theorem gives a necessary and sufficient condition for the  existence of global $G$-invariant $\BDelta(\Z)$-type.
 Ideally, we would like that every $G$-thick $\BDelta(Z)$-type extends to a global thick type.
-Unfortunately this is not true in general (it is a strong assumption, see Section~\ref{tame_landscape}).
+Unfortunately this is not true in general (it is an assumption with important consequences, see Section~\ref{tame_landscape}).
 
 A set $\D$ is \emph{$G$-wide\/} relative to $\Y$ if every finite cover of $\D\cap\Y$ by $\BDelta(\Z)$-sets contains a set that is $G$-thick relative to $\Y$.
 A type is $G$-wide if every conjunction of formulas in the type is $G$-wide.
@@ -160,18 +146,17 @@ In~\cite{CK} a similar property is called \textit{quasi-non-forking.}
 Our use of the term \textit{wide\/} is consistent with~\cite{Hr}, though we apply it to a narrow context.
 
 \begin{theorem}\label{thm_syndetic_invariant2}
-  Work relative to some given $\Y\subseteq\X$.
   For every $\D\in\BDelta(\Z)$ the following are equivalent 
   \begin{itemize}
-    \item[1.] $\Sigma_{G,\Y}(x)\cup\{x\in\D\}$ is finitely consistent in $\Y$
-    \item[2.] there is a $G$-thick type $p(x)\in S_{\Delta,\Y}(\Z)$ that entails $x\in\D$
+    \item[1.] $\Sigma_G(x)\cup\{x\in\D\}$ is finitely consistent
+    \item[2.] there is a $G$-thick type $p(x)\in S_\Delta(\Z)$ that entails $x\in\D$
     \item[3.] $\D$ is $G$-wide.\smallskip
   \end{itemize}
 \end{theorem}
 
 \begin{proof}
   1$\Rightarrow$2.
-  By Theorem~\ref{thm_syndetic_invariant}, it suffices to pick any $p(x)\in S_{\Delta,\Y}(\Z)$ extending the type $\Sigma_{G,\Y}(x)\cup\{x\in\D\}$.
+  By Theorem~\ref{thm_syndetic_invariant}, it suffices to pick any $p(x)\in S_\Delta(\Z)$ extending the type $\Sigma_G(x)\cup\{x\in\D\}$.
 
   2$\Rightarrow$1.
   By Theorem~\ref{thm_syndetic_invariant}.
@@ -183,7 +168,7 @@ Our use of the term \textit{wide\/} is consistent with~\cite{Hr}, though we appl
   Therefore, $\C_i$ is $G$-thick.
 
   3$\Rightarrow$2.
-  Let $p(x)$ be maximal among the $\BDelta(\Z)$-types that are finitely satisfiable in $Y\cap\D$ and are $G$-wide.
+  Let $p(x)$ be maximal among the $\BDelta(\Z)$-types that are finitely consistent with $\D$ and are $G$-wide.
   We claim that $p(x)$ is a complete $\BDelta(\Z)$-type.
   Suppose for a contradiction that $\vartheta(x),\neg\vartheta(x)\notin p$.
   By maximality there is some formula $\psi(x)$, a conjunction of formulas in $p(x)$, and some $\BDelta({\Z})$-sets $\C_1,\dots,\C_n$ that cover both $\psi(\X)\cap\vartheta(\X)$ and $\psi(\X)\smallsetminus\vartheta(\X)$ and such that no $\C_i$ is $G$-thick.
