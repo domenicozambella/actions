@@ -19,9 +19,10 @@ The same symbol is also used to denote the collection of formulas defining these
 A $\BDelta(\Z)$-type is a collection of $\BDelta(\Z)$-formulas.
 A $\BDelta(\Z)$-type-definable set is one defined by a $\BDelta(\Z)$-type of small cardinality.
 
-We write \emph{$S_\Delta(\Z)$\/} for the set of $\BDelta(\Z)$-types that are maximallyfinitely consistent (in $\X$)~--~which we may conveniently identify with a sets of $\Delta(\Z)$ and negated $\Delta(\Z)$-formulas.
+We write \emph{$S_\Delta(\Z)$\/} for the set of $\BDelta(\Z)$-types that are maximally finitely consistent (in $\X$).
+Sometimes these are conveniently identified with a sets of $\Delta(\Z)$ and negated $\Delta(\Z)$-for\-mulas.
 Note that the types in $S_\Delta(\Z)$ are required to be finitely consistent $\X$~--~a piece of information that we will not display in the notation.
-When the types are required to be finitely consistent in some $\Y\subseteq\X$ we write \emph{$S_{\Delta,\Y}(\Z)$.}
+% When the types are required to be finitely consistent in some $\Y\subseteq\X$ we write \emph{$S_{\Delta,\Y}(\Z)$.}
 
 % A set $\D\subseteq\X$ is \emph{$\BDelta({\Z})$-definable\/} if $\D=\varphi(\X)$ for some $\varphi(x)\in\BDelta({\Z})$.
 % In the literature these sets are sometime called \textit{relatively\/} definable to distinguish them from $\varphi(\U^x)$ and $\varphi(\U^z)$.
@@ -49,6 +50,15 @@ In similars context syndetic sets are called \textit{generic,} see eg.~\cite{Ne}
 In~\cite{CK} the authors write \textit{quasi-non-dividing\/} for \textit{thick\/} under the action of ${\rm Aut}(\U/A)$.
 
 Notation: for $\D\subseteq\X$ and $C\subseteq G$ we write \emph{$C{\cdot}\D$\/} for $\{h{\cdot}\D: h\in C\}$.
+
+\begin{remark}\label{rem_relative}
+Let $q(x)$ be a $\BDelta(\Z)$-type.
+We say that $\D$ is $G$-syndetic \emph{relative\/} to $q(x)$ if $q(x)$ entails $\cup\,F{\cdot}\D$ for some finite $F\subseteq G$.
+Dually, $\D$ is $G$-syndetic \emph{relative\/} to $q(x)$ if $G{\cdot}\D$ is finitely consistent with $q(x)$.
+The notions of \textit{wide,\/} \textit{strong syndetic,\/} and \textit{weakly thick,\/}  which we indroduce below relitivize likewise.
+All results below easily relativize to any type $q(x)$.
+We entrust the generalization to the reader (this is only required in Fact~\ref{fact_stationarity}).
+\end{remark}
 
 In this chapter many proofs require some juggling with negations as epitomized by the following fact which is proved by spelling out the definitions
 
@@ -136,10 +146,10 @@ Define the following type
 
 
 The following theorem gives a necessary and sufficient condition for the  existence of global $G$-invariant $\BDelta(\Z)$-type.
-Ideally, we would like that every $G$-thick $\BDelta(Z)$-type extends to a global thick type.
+Ideally, we would like that every $G$-thick $\BDelta(\Z)$-type extends to a global thick type.
 Unfortunately this is not true in general (it is an assumption with important consequences, see Section~\ref{tame_landscape}).
 
-A set $\D$ is \emph{$G$-wide\/} relative to $\Y$ if every finite cover of $\D\cap\Y$ by $\BDelta(\Z)$-sets contains a set that is $G$-thick relative to $\Y$.
+A set $\D$ is \emph{$G$-wide\/} if every finite cover of $\D$ by $\BDelta(\Z)$-sets contains a set that is $G$-thick.
 A type is $G$-wide if every conjunction of formulas in the type is $G$-wide.
 
 In~\cite{CK} a similar property is called \textit{quasi-non-forking.}
@@ -243,7 +253,7 @@ Along the same lines as above, we define
 
 % It is easy to verify that $G^{11}\trianglelefteq G$.
 By the following proposition, $G^1\le G^{1\!1}\trianglelefteq G$.
-We do not know if the inclusion is strict.
+Note that when $\Sigma_G(x)$ is finitely consistent, it is the only element of $P_G$ and $G^{1\!1}=G$.
 
 \begin{proposition}\label{prop_StabP}\ 
 
@@ -308,6 +318,7 @@ A similar argument shows the following.
   The consistency of $\D_1\cap\dots\cap\D_n$ follows.
 \end{proof}
 %$$$$$$$$$$$$$
+
 
 By Theorems~\ref{thm_syndetic_invariant2} from the above theorems it follows that $G^1$-syndetic sets are $G^1$-wide, similarly for $G^{1\!1}$.
 But we can do better.
@@ -396,7 +407,6 @@ An equivalence relation is bounded if it has a small number of equivalence class
 % Unfortunately, syndeticity is not preserved under intersection.
 % To obtain closure under intersection, we need to push the concept to a higher level of complexity.
 
-Work relative to some given $\Y\subseteq\X$.
 A set $\D$ is \emph{strongly $G$-syndetic\/} if for every finite $F\subseteq G$ the set $\cap\,F{\cdot}\D$ is $G$-syndetic (recall that $F{\cdot}\D$ stands for $\{h{\cdot}\D : h\in F\}$).
 Dually, we say that $\D$ is \emph{weakly $G$-thick\/} if for some finite $F\subseteq G$ the set $\cup\,F{\cdot}\D$ is thick.
 Again, the same properties may be attributed to formulas and types when every conjunction of formulas in the type has the property.
@@ -406,8 +416,9 @@ In topological dynamic, strong syndedic sets are called \textit{thickly syndetic
 Newelski in~\cite{Ne} says \textit{weak generic\/} for weakly thick.
 These are terminologies that defy my intuition.
 
+In this section we summarize some well-known facts.
+
 \begin{lemma}\label{lem_strongly_syndetic}
-  Work relative to some given $\Y\subseteq\X$.
   The intersection of two strongly $G$-syndetic sets is strongly $G$-syndetic.
 \end{lemma}
 
@@ -416,7 +427,7 @@ These are terminologies that defy my intuition.
   It suffices to prove that $\B=\cap\, C{\cdot}(\C\cap\D)$ is $G$-syndetic. 
   Clearly $\B=\C'\cap\D'$, where $\C'=\cap\, C{\cdot}\C$ and $\D'=\cap\, C{\cdot}\D$.
   Note that $\C'$ and $\D'$ are both strongly $G$-syndetic.
-  In particular $\Y\subseteq\cup\,F{\cdot}\D'$ for some finite $F\subseteq G$.
+  In particular $\X=\cup\,F{\cdot}\D'$ for some finite $F\subseteq G$.
   Note that
   
   \ceq{\hfill\cup\,F{\cdot}\B}{=}{\cup\,F{\cdot}\big[\C'\ \cap\ \D'\big]}
@@ -432,46 +443,44 @@ These are terminologies that defy my intuition.
 
 Define the following type
 
-\ceq{\hfill\emph{${\mathstrut}^{\rm s}\kern-.1ex\Sigma_{G,\Y}(x)$}}{=}{\big\{\vartheta(x)\in \BDelta({\Z})\ :\ \vartheta(x)\textrm{ is strongly }G\textrm{-syndetic relative to }\Y\big\}.}\smallskip
+\ceq{\hfill\emph{${\mathstrut}^{\rm s}\kern-.1ex\Sigma_G(x)$}}{=}{\big\{\vartheta(x)\in \BDelta({\Z})\ :\ \vartheta(x)\textrm{ is strongly }G\textrm{-syndetic}\big\}.}\smallskip
 
-Note that Theorem~\ref{thm_gammaK} shows that $\Sigma_{G^1}(x)\subseteq{\mathstrut}^{\rm s}\kern-.2ex\Sigma_G(x)$.
+Note that $\Sigma_{G^1}(x)\subseteq{\mathstrut}^{\rm s}\kern-.2ex\Sigma_G(x)$ by Theorem~\ref{thm_gammaK}.
 
-\begin{corollary}\label{corol_str_gen}
-  Work relative to some given $\Y\subseteq\X$.
-  Then ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_{G,\Y}(x)$ is finitely consistent, strongly $G$-syndetic, and $G$-invariant.\smallskip
+\begin{corollary}[ (Alex Kruckman)]\label{corol_str_gen}
+  Then ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_G(x)$ is finitely consistent, strongly $G$-syndetic, and $G$-invariant.
+  Moreover, ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_G(x)$ is the maximal $G$-syndetic $G$-invariant type and\medskip
 
-  Moreover, ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_{G,\Y}(x)$ is the maximal $G$-syndetic $G$-invariant type and\medskip
+  \ceq{\hfill{\mathstrut}^{\rm s}\kern-.1ex\Sigma_G(x)}{=}{\bigcap_{q\in Q_G}q(x)}.
 
-
-  \ceq{\hfill{\mathstrut}^{\rm s}\kern-.1ex\Sigma_{G,\Y}(x)}{=}{\bigcap_{q\in Q_{G,\Y}}q(x)}.\smallskip
-
-  Where $Q_{G,\Y}$ is as in Definition~\ref{def_Q} but relativized to $\Y$.  
 \end{corollary}
 
 \begin{proof}
   Strong $G$-syndeticity is an immediate consequence of Lemma~\ref{lem_strongly_syndetic}.
   Finite consistency is a consequence of syndeticity.
   Finally, $G$-invariance is clear because any translate of a strongly $G$-syndetic formula is also strongly $G$-syndetic.
+
+  As for the final equality, inclusion $\supseteq$ is clear because the r.h.s.\@ is closed under conjunction.
+  Conversely, let $\D$ a set in the r.h.s.
+  Then any $G$-translation of $\D$ also belong to the r.h.s.
+  As this is closed under conjunction $\cap\,F{\cdot}\D$ is $G$-syndetic for every finite $F\subseteq G$. 
 \end{proof}
 
-% The following is similar to Corollary~\ref{corol_q_pers}, but now we obtain also the converse implication.
-
-\begin{corollary}\label{corol_q_w_pers}
-  Work relative to some given $\Y\subseteq\X$.
+\begin{proposition}\label{prop_q_w_pers}
   For every $\D\in\BDelta(\Z)$ the following are equivalent
   \begin{itemize}
-    \item [1.] ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_{G,\Y}(x)\cup\{x\in\D\}$ is finitely consistent
+    \item [1.] ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_G(x)\cup\{x\in\D\}$ is finitely consistent
     \item [2.] $\D$ is weakly $G$-thick.
   \end{itemize}
-\end{corollary}
+\end{proposition}
 
 \begin{proof}
   1$\Rightarrow$2. 
-  If ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_{G,\Y}(x)\cup\{x\in\D\}$ is finitely consistent, then $\neg\D$ is strongly $G$-syndetic.
+  If ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_G(x)\cup\{x\in\D\}$ is finitely consistent, then $\neg\D$ is strongly $G$-syndetic.
   From Fact~\ref{fact_fip}, we obtain that $\neg\D$ not being strongly $G$-syndetic is equivalent to $\D$ being weakly $G$-thick.
 
   2$\Rightarrow$1.
-  Suppose ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_{G,\Y}(x)\vdash x\notin\D$.
+  Suppose ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_G(x)\vdash x\notin\D$.
   Then $\neg\D$ is strongly $G$-syndetic.
   From Fact~\ref{fact_fip}, $\D$ is not weakly $G$-thick.
 \end{proof}
@@ -479,13 +488,13 @@ Note that Theorem~\ref{thm_gammaK} shows that $\Sigma_{G^1}(x)\subseteq{\mathstr
 The following theorem asserts that weak thickness is partition regular.
 
 \begin{theorem}\label{thm_wt_partreg}
-  Work relative to some given $\Y\subseteq\X$.
   If $\C\cup\B$ is weakly $G$-thick then $\B$ or $\C$ is weakly $G$-thick.
 \end{theorem}
 
 \begin{proof}
-  As ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_{G,\Y}(x)$ is closed under conjunction.
-  If $x\in \C\cup\B$ is finitely consistent with ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_{G,\Y}(x)$ then so is one of the two sets.
+  As ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_G(x)$ is closed under conjunction.
+  If $x\in \C\cup\B$ is finitely consistent with ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_G(x)$ then so is one of the two sets.
+  Then the treorem follows from the above proposition.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -495,16 +504,15 @@ The following theorem asserts that weak thickness is partition regular.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{A tamer landscape}\label{tame_landscape}
 
-Under suitable assumptions some notions introduced in this chapter coalesce, and we are left with a tamer landscape.
+Under suitable assumptions some notions introduced in these notes coalesce, and we are left with a tamer landscape.
 
 \begin{theorem}\label{thm_coalesce}
-  Work relative to some given $\Y\subseteq\X$.
   The following are equivalent
   \begin{itemize}
-    \item[1.] $H$-thick $\BDelta({\Z})$-sets are $H$-wide
-    \item[2.] $H$-syndetic $\BDelta({\Z})$-sets are closed under intersection 
-    \item[3.] $H$-syndetic $\BDelta({\Z})$-sets are strongly $H$-syndetic
-    \item[4.] weakly $H$-thick $\BDelta({\Z})$-sets are $H$-thick.
+    \item[1.] $G$-thick $\BDelta({\Z})$-sets are $G$-wide
+    \item[2.] $G$-syndetic $\BDelta({\Z})$-sets are closed under intersection 
+    \item[3.] $G$-syndetic $\BDelta({\Z})$-sets are strongly $G$-syndetic
+    \item[4.] weakly $G$-thick $\BDelta({\Z})$-sets are $G$-thick.
   \end{itemize}
 \end{theorem}
 
@@ -512,50 +520,80 @@ Under suitable assumptions some notions introduced in this chapter coalesce, and
   Clearly 2$\Leftrightarrow$3$\Leftrightarrow$4.
 
   1$\Rightarrow$2.
-  Let $\C$ and $\D$ be $H$-syndetic $\BDelta({\Z})$-sets.
-  Suppose for a contradiction that $\C\cap\D$ is not $H$-syndetic.
-  Then $\neg(\C\cap\D)$ is $H$-thick.
-  By 1 and Theorem~\ref{thm_syndetic_invariant2} there is a $H$-invariant type $p(x)\in S_\Delta(\Z)$ that is finitely consistent in $\Y$ and such that $p(x)\vdash x\notin\C\cap\D$.
+  Let $\C$ and $\D$ be $G$-syndetic $\BDelta({\Z})$-sets.
+  Suppose for a contradiction that $\C\cap\D$ is not $G$-syndetic.
+  Then $\neg(\C\cap\D)$ is $G$-thick.
+  By (1) and Theorem~\ref{thm_syndetic_invariant2} there is a $G$-invariant type $p(x)\in S_\Delta(\Z)$ that is finitely consistent and such that $p(x)\vdash x\notin\C\cap\D$.
   By completeness either $p(x)\vdash x\notin\C$ or $p(x)\vdash x\notin\D$.
-  This is a contradiction because by Theorem~\ref{thm_syndetic_invariant} $p(x)\vdash x\in\C$ and $p(x)\vdash x\in\D$.
+  But Theorem~\ref{thm_syndetic_invariant} says that $p(x)$ entails both $\C$ and $\D$, a contradiction.
 
   % 2$\Rightarrow$1.
   % By 2, $\Sigma_H(x)$ is consistent.
-  % Then $\C$ is $H$-syndetic if and only if $\Sigma_H(x)\vdashx\in\C$.
-  % If $\D$ is $H$-thick, then $\neg\D$ is not $H$-syndetic.
+  % Then $\C$ is $G$-syndetic if and only if $\Sigma_H(x)\vdashx\in\C$.
+  % If $\D$ is $G$-thick, then $\neg\D$ is not $G$-syndetic.
   % Then $\Sigma_H(x)\notprovesx\notin\D$ by what remarked above.
-  % Then $\D$ is $H$-wide by Theorem~\ref{thm_syndetic_invariant2}.
+  % Then $\D$ is $G$-wide by Theorem~\ref{thm_syndetic_invariant2}.
 
-  4$\Rightarrow$1. By Theorem~\ref{thm_wt_partreg}
+  4$\Rightarrow$1. By Theorem~\ref{thm_wt_partreg}.
 \end{proof}
 
-% It is easy to see that the equivalent conditions in Theorem~\ref{thm_coalesce} hold when $H=G^\omega$, as defined in Section~\ref{G0}, and $\Y=\X$.
-% Vice vesa, if the equivalent conditions in Theorem~\ref{thm_coalesce} hold for $H\le G$, then $H\le G^\omega$. 
+Let $q(x)$ be a $\BDelta(\Z)$-type.
+We say that $q(x)$ is \emph{$G$-stationary\/} if it extends to a unique $G$-invariant $p(x)\in S_\Delta(\Z)$.
 
-A subset $\Y\subseteq\X$ is \emph{$H$-stationary\/} if there exists a unique $H$-invariant $p(x)\in S_{\Delta,\Y}(\Z)$.
-When $\Sigma_{H,\Y}(x)$ is consistent, by 1 in Theorem~\ref{thm_syndetic_invariant2} this is equivalent to requiring that $\D$ and $\neg\D$ are not both wide relative to $\Y$.
+The notions of relative syndeticity/thickness are defined in Remark~\ref{rem_relative}.
+It is easy to verify that the above theorem relativize to any type $q(x)$.
+
 The conditions in Theorem~\ref{thm_coalesce} together with stationarity, produce further simplification.
 
-\begin{fact}\label{fact_starionarity_thick_syndetic}
-  Work relative to some given $\Y\subseteq\X$.
-  Assume the equivalent conditions in Theorem~\ref{thm_coalesce} hold.
-  Suppose that the set $\Y$ is $H$-stationary.
+
+\begin{fact}\label{fact_stationarity}
+  Let $q(x)$ be $G$-stationary.
+  Assume that the equivalent conditions in Theorem~\ref{thm_coalesce} hold relative to $q(x)$.
   Then the following are equivalent
   \begin{itemize}
-    \item [1.] $\D$ is $H$-syndetic
-    \item [2.] $\D$ is $H$-wide.
+    \item [1.] $\D$ is $G$-syndetic relative to $q(x)$
+    \item [2.] $\D$ is $G$-wide/thick relative to $q(x)$.
   \end{itemize}\smallskip
 \end{fact}
 
 \begin{proof}
+  Work relatively to $q(x)$.
+
   1$\Rightarrow$2.
-  By assumption, $\Sigma_{H,\Y}(x)$ is consistent.
-  Then $H$-syndetic $\BDelta({\Z})$-sets are $H$-thick by Corollary~\ref{corol_def_mu}.
-  Finally, they are  $H$-wide by 1 in Theorem~\ref{thm_coalesce}.
+  Assume (1), then $\Sigma_G(x)$ is finitely consistent.
+  Then $G$-syndetic $\BDelta({\Z})$-sets are $G$-thick.
+  Finally, they are $G$-wide by (1) in Theorem~\ref{thm_coalesce}.
   (Stationarity is not required in this direction.)
 
   2$\Rightarrow$1.
-  If $\D$ was not $H$-syndetic then $\neg\D$ would be $H$-thick and therefore, by the assumption, $H$-wide.
-  This contradicts $H$-stationarity.
+  If $\D$ was not $G$-syndetic then $\neg\D$ would be $G$-thick and therefore, by the assumption, $G$-wide.
+  This contradicts $G$-stationarity.
+\end{proof}
+
+\section{Random graph}
+
+
+\begin{theorem}
+  Work in a monster model $\EuScript U$ of the random graph.
+  For any $n\ge 2$ the following formula is syndetic under the action of ${\rm Aut}(\EuScript U)$
+  
+  \hfil$\varphi(x,a)\ \ =\ \ r(x,a_1)\leftrightarrow r(x,a_2)\leftrightarrow\cdots\cdots\leftrightarrow r(x,a_n)$
+
+ where $a:=\langle a_1,\ldots,a_n\rangle$.
+\end{theorem}
+
+\begin{proof}
+  Let $b^1,\ldots,b^n$ be tuples of length $n$ with disjoint ranges that have the same type as $a$ (over $\varnothing$). Let $C$ be the set of tuples $c=\langle c_1,\ldots,c_n\rangle$ such that $c_i\in{\rm range}(b^i)$.
+  When we pick the $b^i$, we can do so in such a way that every tuple $c\in C$ has the same type as $a$.  
+
+  We claim that the following disjunction is a tautology
+
+  \hfil$\displaystyle\bigvee_{c\in C}\varphi(x,c)\ \vee\ \bigvee_{i=1}^n \varphi(x,b^i)$
+
+  Fix $x$.
+  If $\varphi(x,b^i)$ holds for some $i$, then we are done.
+  Otherwise, for every $i$ we have some $k$ such that $r(x,b^i_k)$ holds (as well as some $h$ such that $r(x,b^i_h)$ does not).
+  Let $c_i=b^i_k$ for some $k$ such that $r(x,b^i_k)$ holds.
+  Then $\varphi(x,c)$ holds.
 \end{proof}
 
