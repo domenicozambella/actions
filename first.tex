@@ -256,21 +256,21 @@ Note that when $\Sigma_G(x)$ is finitely consistent, $\Sigma_G(x)$ is the only e
 
 \begin{proposition}\label{prop_StabP}\ 
 
-  \ceq{\hfill G^{1\!1}}{=}{\big\{g\in G\ :\ q(x)\cup g{\cdot}q(x)\textrm{ is finitely consistent for every }q(x)\in Q_G\big\}.}\smallskip
+  \ceq{\hfill G^{1\!1}}{=}{\big\{g\in G\ :\ \D\cap g{\cdot}\D\neq\varnothing\textrm{ for every }\D\neq\varnothing\text{ intersection of sets in }\Sigma_G(x) \big\}.}
 \end{proposition}
 
 \begin{proof}
   $\subseteq$.
-  Pick any $k\in G^{1\!1}$ and $q(x)\in Q_G$.
-  Let $p(x)\in P_G$ be a type containing $q(x)$.
-  From the $G^{1\!1}$-invariance of $p(x)$ we obtain that $p(x)\vdash k{\cdot}q(x)$.
-  Then $q(x)\cup k{\cdot}q(x)$ is finitely consistent.
+  Pick $k\in G^{1\!1}$ and an intersection of $G$-syndetic sets $\D$.
+  Let $p(x)\in P_G$ be a type entailing $\D$.
+  From the $G^{1\!1}$-invariance of $p(x)$ we obtain that $p(x)\vdash x\in k{\cdot}\D$.
+  Then $x\in \D\cap k{\cdot}\D$ is consistent.
 
   $\supseteq$.
   Pick any $g\notin G^{1\!1}$.
   Then $p(x)\not\subseteq g{\cdot}p(x)$ for some $p(x)\in P_G$.
   Then $\varphi(x)\wedge g{\cdot}\varphi(x)$ is inconsistent for some $\varphi(x)\in p$.
-  But $\varphi(x)\in q$ for some $q(x)\in Q_G$.
+  But $\varphi(x)$ is a consistent conjunction of formulas in $\Sigma_G(x)$.
   Then $g$ does not belong to the set on the r.h.s.
 \end{proof}
 
