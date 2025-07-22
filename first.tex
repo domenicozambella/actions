@@ -40,14 +40,14 @@ If $p(x)$ is a $\BDelta(\Z)$-type, we write $g{\cdot}p(x)$ for the set of formul
 We say that the type $p(x)\subseteq\BDelta(\Z)$ is $G$-invariant accordingly.
 
 We say that a set $\D\subseteq\X$ is \emph{syndetic\/} under the action of $G$, or \emph{$G$-syndetic\/} for short, if finitely many $G$-translates of $\D$ cover $\X$.
-Dually, we say that $\D$ is \emph{thick\/} under the action of $G$ or \emph{$G$-thick\/} for short, if the intersection of any finitely many $G$-translates of $\D$ is consistent (in $\X$).
+Dually, we say that $\D$ is \emph{thick\/} under the action of $G$ or \emph{$G$-thick,} if the intersection of any finitely many $G$-translates of $\D$ is consistent (in $\X$).
 
 The same properties may be attributed to formulas (as these are identified with the set they define).
 When these properties are attributed to a type $p(x)$, we understand that they hold for every conjunction of formulas in $p(x)$.
 
 Our terminology is taken from topological dynamics.
 In similars context syndetic sets are called \textit{generic,} see eg.~\cite{Ne}.
-In~\cite{CK} the authors write \textit{quasi-non-dividing\/} for \textit{thick\/} under the action of ${\rm Aut}(\U/A)$.
+In~\cite{CK} the authors write \textit{quasi-non-dividing\/} over $A$ for \textit{thick\/} under the action of ${\rm Aut}(\U/A)$.
 
 Notation: for $\D\subseteq\X$ and $C\subseteq G$ we write \emph{$C{\cdot}\D$\/} for $\{h{\cdot}\D: h\in C\}$.
 
@@ -252,7 +252,7 @@ Along the same lines as above, we define
 
 % It is easy to verify that $G^{11}\trianglelefteq G$.
 By the following proposition, $G^1\le G^{1\!1}\trianglelefteq G$.
-Note that when $\Sigma_G(x)$ is finitely consistent, it is the only element of $P_G$ and $G^{1\!1}=G$.
+Note that when $\Sigma_G(x)$ is finitely consistent, $\Sigma_G(x)$ is the only element of $P_G$ and $G^{1\!1}=G$.
 
 \begin{proposition}\label{prop_StabP}\ 
 
@@ -268,15 +268,18 @@ Note that when $\Sigma_G(x)$ is finitely consistent, it is the only element of $
 
   $\supseteq$.
   Pick any $g\notin G^{1\!1}$.
-  Then $q(x)\cup g{\cdot}q(x)$ is not finitely consistent for some $q(x)\in Q_G$.
-  Let $\varphi(x)\in q$ such that $\varphi(x)\wedge g{\cdot}\varphi(x)$ is inconsistent.
-  But $\varphi(x)\in p$ then $g$ does not belong to the set on the r.h.s.
+  Then $p(x)\not\subseteq g{\cdot}p(x)$ for some $p(x)\in P_G$.
+  Then $\varphi(x)\wedge g{\cdot}\varphi(x)$ is inconsistent for some $\varphi(x)\in p$.
+  But $\varphi(x)\in q$ for some $q(x)\in Q_G$.
+  Then $g$ does not belong to the set on the r.h.s.
 \end{proof}
 
 \begin{theorem}\label{thm_gammaK}
   Any finite conjunction of formulas in $\Sigma_{G^1}(x)$ is $G$-syndetic.
   In particular $\Sigma_{G^1}(x)$ is finitely consistent.
 \end{theorem}
+
+Unfortunately, we are unable to conclude that the intersection of $G^1$-syndetic sets is $G^1$-syndetic.
 
 \begin{proof}
   \def\medrel#1{\parbox[t]{5ex}{$\displaystyle\hfil #1$}}
@@ -294,10 +297,8 @@ Note that when $\Sigma_G(x)$ is finitely consistent, it is the only element of $
   \ceq{}{=}{\cap\, F{\cdot}[\D_1\cap\dots\cap\D_{n-1}].}
 
   This last set is $G$-syndetic by the inductive hypothesis and what remarked above.
-  The $G$-syndeticity of $\D_1\cap\dots\cap\D_n$ follows.
+  The $G$-syndedicity of $\D_1\cap\dots\cap\D_n$ follows.
 \end{proof}
-
-Unfortunately, we are unable to conclude that the intersection of $G^1$-syndetic sets is $G^1$-syndetic.
 
 A similar argument shows the following.
 
@@ -319,7 +320,7 @@ A similar argument shows the following.
 %$$$$$$$$$$$$$
 
 
-By Theorems~\ref{thm_syndetic_invariant2} from the above theorems it follows that $G^1$-syndetic sets are $G^1$-wide, similarly for $G^{1\!1}$.
+From the above theorems and Theorems~\ref{thm_syndetic_invariant2} it follows that $G^1$-syndetic sets are $G^1$-wide, similarly for $G^{1\!1}$.
 But we can do better.
 First, we remark a useful consequence of normality.
 
@@ -369,8 +370,9 @@ An equivalence relation is bounded if it has a small number of equivalence class
 
   and
 
-  \ceq{\hfill\emph{$G^{00}$}}{=}{{\rm Stab}(\Phi^{00})}\medrel{=}$\displaystyle\bigcap\big\{{\rm Stab}(\Y)\ :\  \Y\in\Phi^{00}\}$.
+  \ceq{\hfill\emph{$G^{00}$}}{=}{{\rm Stab}(\Phi^{00})}\medrel{=}$\displaystyle\bigcap\big\{{\rm Stab}(\Y)\ :\  \Y\in\Phi^{00}\}$.\medskip
 
+  The subgroup \emph{$G^{000}$} is defined similarly using the collection $\Phi^{000}$ of sets that are equivalence classes of some bounded $G$-invariant equivalence relations.
 \end{definition}
 
 \begin{proposition}
@@ -413,9 +415,27 @@ Again, the same properties may be attributed to formulas and types when every co
 \noindent\llap{\textcolor{red}{\Large\warning}\kern1.5ex}\ignorespaces
 In topological dynamic, strong syndedic sets are called \textit{thickly syndetic\/} and weak thickness is called \textit{piecewise syndetic.}
 Newelski in~\cite{Ne} says \textit{weak generic\/} for weakly thick.
-These are terminologies that defy my intuition.
+These terminologies defy my intuition.
 
-In this section we summarize some well-known facts.
+I belive most facts in this section are well-known.
+
+\begin{lemma}\label{lem_strongly_syndetic0}
+  Assume $\D$ is strongly $G$-syndetic and $\C$ is $G$-syn\-detic.
+  Then $\D\cap\C$ is is $G$-syn\-detic.
+\end{lemma}
+
+\begin{proof}
+  Pick some finite $F\subseteq G$ such that $\X=\cup\,F{\cdot}\C$.
+  Note that
+  
+  \ceq{\hfill\cup\,F{\cdot}[\D\cap\C]}{\supseteq}{ \big(\cap\, F{\cdot}\D\big)\ \cap\ \big(\cup\,F{\cdot}\C\big)}
+  
+  \ceq{}{=}{\cap\, F{\cdot}\D}
+  
+  As $\D$ is strongly $G$-syndetic, $\cap\,F{\cdot}\D$ is $G$-syn\-detic.
+  Therefore $\cup\,F{\cdot}[\D\cap\C]$ is also $G$-syndetic.
+  The $G$-syndeticity of $[\D\cap\C]$ follows.
+\end{proof}
 
 \begin{lemma}\label{lem_strongly_syndetic}
   The intersection of two strongly $G$-syndetic sets is strongly $G$-syndetic.
@@ -426,18 +446,7 @@ In this section we summarize some well-known facts.
   It suffices to prove that $\B=\cap\, C{\cdot}(\C\cap\D)$ is $G$-syndetic. 
   Clearly $\B=\C'\cap\D'$, where $\C'=\cap\, C{\cdot}\C$ and $\D'=\cap\, C{\cdot}\D$.
   Note that $\C'$ and $\D'$ are both strongly $G$-syndetic.
-  In particular $\X=\cup\,F{\cdot}\D'$ for some finite $F\subseteq G$.
-  Note that
-  
-  \ceq{\hfill\cup\,F{\cdot}\B}{=}{\cup\,F{\cdot}\big[\C'\ \cap\ \D'\big]}
-  
-  \ceq{}{\supseteq}{ \big(\cap\, F{\cdot}\C'\big)\ \cap\ \big(\cup\,F{\cdot}\D'\big)}
-  
-  \ceq{}{=}{\cap\, F{\cdot}\C'}
-  
-  As $\C'$ is strongly $G$-syndetic, $\cap\, F{\cdot}\C'$ is $G$-syndetic.
-  Therefore $\cup\,F{\cdot}\B$ is also $G$-syndetic.
-  The $G$-syndeticity of $\B$ follows.
+  By the above lemma, $\B$ is $G$-syndetic.
 \end{proof}
 
 Define the following type
@@ -447,11 +456,12 @@ Define the following type
 Note that $\Sigma_{G^1}(x)\subseteq{\mathstrut}^{\rm s}\kern-.2ex\Sigma_G(x)$ by Theorem~\ref{thm_gammaK}.
 
 \begin{corollary}[ (with Alex Kruckman)]\label{corol_str_gen}
-  Then ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_G(x)$ is finitely consistent, strongly $G$-syndetic, and $G$-invariant.
-  Moreover, ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_G(x)$ is the maximal $G$-syndetic $G$-invariant type and\medskip
+  Then ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_G(x)$ is finitely consistent, strongly $G$-syn\-detic, and $G$-invariant.
+  Moreover, \smallskip
 
-  \ceq{\hfill{\mathstrut}^{\rm s}\kern-.1ex\Sigma_G(x)}{=}{\bigcap_{q\in Q_G}q(x)}.
-
+  \ceq{\hfill{\mathstrut}^{\rm s}\kern-.1ex\Sigma_G(x)}{=}{\bigcap_{q\in Q_G}q(x)},\smallskip
+ 
+  where $Q_G$ is as in Definition~\ref{def_Q}.
 \end{corollary}
 
 \begin{proof}
@@ -459,7 +469,10 @@ Note that $\Sigma_{G^1}(x)\subseteq{\mathstrut}^{\rm s}\kern-.2ex\Sigma_G(x)$ by
   Finite consistency is a consequence of syndeticity.
   Finally, $G$-invariance is clear because any translate of a strongly $G$-syndetic formula is also strongly $G$-syndetic.
 
-  As for the final equality, inclusion $\supseteq$ is clear because the r.h.s.\@ is closed under conjunction.
+  As for the final equality, we prove $\subseteq$ first.
+  If some $q(x)\in Q_G$ does not contains $\D$, then it contains some $\C$ such that $\C\cap\D$ is not $G$-syndetic.
+  Then $\D$ is not $G$-syndetic, by Lemma~\ref{lem_strongly_syndetic0}.
+
   Conversely, let $\D$ a set in the r.h.s.
   Then any $G$-translation of $\D$ also belong to the r.h.s.
   As this is closed under conjunction $\cap\,F{\cdot}\D$ is $G$-syndetic for every finite $F\subseteq G$. 
@@ -539,7 +552,7 @@ Under suitable assumptions some notions introduced in these notes coalesce, and 
 It is convenient to prove one last characterization of the above phenomenon.
 This is used in the next section. 
 
-\begin{proposition}[ (wth Alex Kruckman)]\label{prop_coalese}\ 
+\begin{proposition}[ (with Alex Kruckman)]\label{prop_coalese}\ 
   The equivalent conditions in Theorem~\ref{thm_coalesce} are also equivalent to\smallskip
 
   \ceq{5.\hfill\Sigma_G(x)}{=}{\bigcap\Big\{p(x)\in S_\Delta(\Z)\ :\ p(x)\text{ is }G\text{-invariant}\Big\}}
@@ -553,13 +566,13 @@ This is used in the next section.
   Then some $G$-invariant global type $p(x)$ entails $\neg\D$.
   Therefore $x\in\D$ does not belong to the type on the r.h.s.
   
-  Vice versa, note that the type on the r.h.s. is closed under conjunction.
+  Vice versa, note that the type on the r.h.s.\@ is closed under conjunction.
   Then (2) of Theorem~\ref{thm_coalesce} immediately follows from (5).
 \end{proof}
 
 
 Let $q(x)$ be a $\BDelta(\Z)$-type.
-We say that $q(x)$ is \emph{$G$-stationary\/} if it extends to a unique $G$-invariant $p(x)\in S_\Delta(\Z)$.
+We say that $q(x)$ is \emph{$G$-stationary\/} if it extends to a unique $G$-in\-var\-iant $p(x)\in S_\Delta(\Z)$.
 
 The notions of relative syndeticity/thickness are defined in Remark~\ref{rem_relative}.
 It is easy to verify that the above theorem relativize to any type $q(x)$.
@@ -573,7 +586,7 @@ The conditions in Theorem~\ref{thm_coalesce} together with stationarity, produce
   \begin{itemize}
     \item [1.] $\D$ is $G$-syndetic relative to $q(x)$
     \item [2.] $\D$ is $G$-wide/thick relative to $q(x)$.
-  \end{itemize}\smallskip
+  \end{itemize}
 \end{fact}
 
 \begin{proof}
@@ -629,9 +642,14 @@ for every tuple of vertices $a=\langle a_1,\dots,a_n\rangle$.
   Then $\varphi(x,c)$ holds.
 \end{proof}
 
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
 \section{Questions}
 
-It would be interesting to separate $G^1$ from $G^{00}$ and understand its relations with $G^{000}$ as definitioned in Section~\ref{connected}.
+It would be interesting to separate $G^1$ from $G^{00}$ and understand its relations with $G^{000}$ as definitioned in Section~\ref{G0}.
 It would be interesting to find examples (outside stable theories) where the equivalent conditions in Theorem~\ref{thm_coalesce} hold with $G^1$ for $G$.
 
 Let $M^*$ be as in Section 4 of~\cite{CLPZ}. 
