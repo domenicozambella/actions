@@ -144,7 +144,6 @@ Define the following type
   Clearly $\D\cap \neg g{\cdot}\D$ is not $G$-thick as it is inconsistent with its $g$-translate.
 \end{proof}
 
-
 The following theorem gives a necessary and sufficient condition for the  existence of global $G$-invariant $\BDelta(\Z)$-type.
 Ideally, we would like that every $G$-thick $\BDelta(\Z)$-type extends to a global thick type.
 Unfortunately this is not true in general (it is an assumption with important consequences, see Section~\ref{tame_landscape}).
@@ -447,7 +446,7 @@ Define the following type
 
 Note that $\Sigma_{G^1}(x)\subseteq{\mathstrut}^{\rm s}\kern-.2ex\Sigma_G(x)$ by Theorem~\ref{thm_gammaK}.
 
-\begin{corollary}[ (Alex Kruckman)]\label{corol_str_gen}
+\begin{corollary}[ (with Alex Kruckman)]\label{corol_str_gen}
   Then ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_G(x)$ is finitely consistent, strongly $G$-syndetic, and $G$-invariant.
   Moreover, ${\mathstrut}^{\rm s}\kern-.1ex\Sigma_G(x)$ is the maximal $G$-syndetic $G$-invariant type and\medskip
 
@@ -537,6 +536,28 @@ Under suitable assumptions some notions introduced in these notes coalesce, and 
   4$\Rightarrow$1. By Theorem~\ref{thm_wt_partreg}.
 \end{proof}
 
+It is convenient to prove one last characterization of the above phenomenon.
+This is used in the next section. 
+
+\begin{proposition}[ (wth Alex Kruckman)]\label{prop_coalese}\ 
+  The equivalent conditions in Theorem~\ref{thm_coalesce} are also equivalent to\smallskip
+
+  \ceq{5.\hfill\Sigma_G(x)}{=}{\bigcap\Big\{p(x)\in S_\Delta(\Z)\ :\ p(x)\text{ is }G\text{-invariant}\Big\}}
+\end{proposition}
+
+\begin{proof} 
+  Assume (1) of Theorem~\ref{thm_coalesce}.
+  It suffices to prove $\supseteq$, because the converse inclusion is always true. 
+  Let $\D$ be non $G$-syndetic.
+  Then $\neg\D$ is $G$-thick and therefore $G$-wide.
+  Then some $G$-invariant global type $p(x)$ entails $\neg\D$.
+  Therefore $x\in\D$ does not belong to the type on the r.h.s.
+  
+  Vice versa, note that the type on the r.h.s. is closed under conjunction.
+  Then (2) of Theorem~\ref{thm_coalesce} immediately follows from (5).
+\end{proof}
+
+
 Let $q(x)$ be a $\BDelta(\Z)$-type.
 We say that $q(x)$ is \emph{$G$-stationary\/} if it extends to a unique $G$-invariant $p(x)\in S_\Delta(\Z)$.
 
@@ -544,7 +565,6 @@ The notions of relative syndeticity/thickness are defined in Remark~\ref{rem_rel
 It is easy to verify that the above theorem relativize to any type $q(x)$.
 
 The conditions in Theorem~\ref{thm_coalesce} together with stationarity, produce further simplification.
-
 
 \begin{fact}\label{fact_stationarity}
   Let $q(x)$ be $G$-stationary.
@@ -570,16 +590,28 @@ The conditions in Theorem~\ref{thm_coalesce} together with stationarity, produce
   This contradicts $G$-stationarity.
 \end{proof}
 
-\section{Random graph}
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+\section{Example: random graph}
 
+In this section $\EuScript U$ is a saturated model of the of theory of the random graph.
+Let $\X=\Z=\U$ and let $G={\rm Aut}(\U)$.
+We prove that the equivalent conditions in Theorem~\ref{thm_coalesce} hold.
 
-\begin{theorem}
-  Work in a monster model $\EuScript U$ of the random graph.
-  For any $n\ge 2$ the following formula is syndetic under the action of ${\rm Aut}(\EuScript U)$
-  
-  \hfil$\varphi(x,a)\ \ =\ \ r(x,a_1)\leftrightarrow r(x,a_2)\leftrightarrow\cdots\cdots\leftrightarrow r(x,a_n)$
+There are two $G$-invariant global types $p_i(x)$.
+The first says that $x$ is adjacent to all vertices, the second says that $x$ is adjacent to none.
+The type in (5) of Proposition~\ref{prop_coalese} is equivalent to the disjunction of $p_1(x)$ and $p_2(x)$.
+This is in turn equivalent to the type containing the formulas
 
- where $a:=\langle a_1,\ldots,a_n\rangle$.
+\ceq{\hfill\varphi(x,a)}{=}{r(x,a_1)\leftrightarrow r(x,a_2)\leftrightarrow\cdots\cdots\leftrightarrow r(x,a_n)}
+
+for every tuple of vertices $a=\langle a_1,\dots,a_n\rangle$.
+
+\begin{theorem}[ (with Alex Kruckman)]
+  The formula $\varphi_n(x,a)$ is $G$-syndetic for all $n\ge 2$ and all $a=\langle a_1,\ldots,a_n\rangle$.
 \end{theorem}
 
 \begin{proof}
@@ -596,4 +628,23 @@ The conditions in Theorem~\ref{thm_coalesce} together with stationarity, produce
   Let $c_i=b^i_k$ for some $k$ such that $r(x,b^i_k)$ holds.
   Then $\varphi(x,c)$ holds.
 \end{proof}
+
+\section{Questions}
+
+It would be interesting to separate $G^1$ from $G^{00}$ and understand its relations with $G^{000}$ as definitioned in Section~\ref{connected}.
+It would be interesting to find examples (outside stable theories) where the equivalent conditions in Theorem~\ref{thm_coalesce} hold with $G^1$ for $G$.
+
+Let $M^*$ be as in Section 4 of~\cite{CLPZ}. 
+
+\begin{question}
+  Let $G$ be the automorphism group of $M^*$.
+
+  Check that $G^{00}$ and $G^{000}$ are the group of Kim-Pillay, respectively Lascar, strong automorphisms.
+  Describe $G^1$ and compare it with $G^{00}$ and $G^{000}$.
+\end{question}
+
+\begin{question}
+  Let $G$ be the group that acts by rigid rotations on the coordinates of $M^*$.
+  Compare $G^1$, $G^{00}$, and $G^{000}$ in this case.
+\end{question}
 
