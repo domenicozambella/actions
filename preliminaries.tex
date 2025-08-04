@@ -1,6 +1,6 @@
 % !TEX root = actions.tex
 \section{Preliminaries}
-\label{actions}
+\label{preliminaries}
 
 \def\ceq#1#2#3{\noindent\parbox[t]{15ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
 
@@ -558,6 +558,7 @@ This is used in the next section.
   \ceq{5.\hfill\Sigma_G(x)}{=}{\bigcap\Big\{p(x)\in S_\Delta(\Z)\ :\ p(x)\text{ is }G\text{-invariant}\Big\}}
 \end{proposition}
 
+Note that $\subseteq$ is always true, therefore (5) amounts to claiming that the type on the r.h.s.\@ is $G$-syndetic.
 \begin{proof} 
   Assume (1) of Theorem~\ref{thm_coalesce}.
   It suffices to prove $\supseteq$, because the converse inclusion is always true. 
@@ -616,12 +617,13 @@ We prove that the equivalent conditions in Theorem~\ref{thm_coalesce} hold.
 
 There are two $G$-invariant global types $p_i(x)$.
 The first says that $x$ is adjacent to all vertices, the second says that $x$ is adjacent to none.
-The type in (5) of Proposition~\ref{prop_coalese} is equivalent to the disjunction of $p_1(x)$ and $p_2(x)$.
+The type on the r.h.s. of (5) in Proposition~\ref{prop_coalese} is equivalent to the disjunction of $p_1(x)$ and $p_2(x)$.
 This is in turn equivalent to the type containing the formulas
 
 \ceq{\hfill\varphi(x,a)}{=}{r(x,a_1)\leftrightarrow r(x,a_2)\leftrightarrow\cdots\cdots\leftrightarrow r(x,a_n)}
 
-for every tuple of vertices $a=\langle a_1,\dots,a_n\rangle$.
+for every tuple of vertices $a=\langle a_1,\dots,a_n\rangle$. 
+Therefore we only need to prove that these formulas are $G$-syndetic.
 
 \begin{theorem}[ (with Alex Kruckman)]
   The formula $\varphi_n(x,a)$ is $G$-syndetic for all $n\ge 2$ and all $a=\langle a_1,\ldots,a_n\rangle$.
@@ -629,7 +631,7 @@ for every tuple of vertices $a=\langle a_1,\dots,a_n\rangle$.
 
 \begin{proof}
   Let $b^1,\ldots,b^n$ be tuples of length $n$ with disjoint ranges that have the same type as $a$ (over $\varnothing$). Let $C$ be the set of tuples $c=\langle c_1,\ldots,c_n\rangle$ such that $c_i\in{\rm range}(b^i)$.
-  When we pick the $b^i$, we can do so in such a way that every tuple $c\in C$ has the same type as $a$.  
+  Finally when we pick the $b^i$, we do so in such a way that every tuple $c\in C$ has the same type as $a$.
 
   We claim that the following disjunction is a tautology
 
@@ -657,7 +659,7 @@ Let $M^*$ be as in Section 4 of~\cite{CLPZ}.
 \begin{question}
   Let $G$ be the automorphism group of $M^*$.
 
-  Check that $G^{00}$ and $G^{000}$ are the group of Kim-Pillay, respectively Lascar, strong automorphisms.
+  Check that $G^{00}$ and $G^{000}$ in Definition~\ref{def_G00} are the group of Kim-Pillay, respectively Lascar, strong automorphisms.
   Describe $G^1$ and compare it with $G^{00}$ and $G^{000}$.
 \end{question}
 

@@ -1,0 +1,28 @@
+% !TEX root = actions.tex
+\section{Definable actions}
+\label{definable}
+
+\def\ceq#1#2#3{\noindent\parbox[t]{15ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
+
+In this section $\Z$ is a group that acts on $\X$.
+The group operations and the group action are assumed definable.
+We use the symbol $\,\cdot\,$ for both the group multiplication and the group action.
+Let $M\preceq\U$ and $\Psi\subseteq L_x(M)$.
+In this section $\Delta$ contains formulas $\varphi(x\,;z)$ of the form $\psi(z^{-1}\!\cdot x)$ for $\psi(x)\in\Psi$.
+The sets $\varphi(\X\,;\Z)$ are $\Z$-invariant.
+We write $1$ for the identity of $\Z$.
+Note that $\varphi(\X\,;g)=g\cdot\varphi(\X\,;1)$ for all $\varphi(x\,;z)\in\Delta$.
+
+It is worth noticing that automorphisms of $\UDelta$ need not preserve the group operations nor the group action.
+
+To each $h\in\Z$ we associate the $\LDelta$-automorphism $\langle a\,;g\rangle\mapsto\langle h{\cdot}a\,;h{\cdot}g\rangle$.
+Therefore $\Z$ is, up to isomorphism, a subgroup of ${\rm Aut}(\UDelta)$.
+For any $g\in\Z$, the orbit of $\varphi(\X\,;g)$ under the action of $\Z$ is $\{\varphi(\X\,;h) : h\in\Z\}$.
+Therefore it coincides with the orbit under the action of ${\rm Aut}(\UDelta)$.
+
+When $\C\subseteq\Z$ and $\D$ is a subset of either $\Z$ or $\X$ we define
+
+\ceq{\hfill\C*\D}{=}{\Big\{g{\cdot}h\ :\ g\in\C,\ h\in\D,\ g\nonfork_M h\text{ for every }M\preceq\UDelta,\ 1\in M^z\Big\}}
+
+
+

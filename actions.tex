@@ -32,7 +32,8 @@
 % \usepackage{mathrsfs}
 % \usepackage{stmaryrd}
 % \usepackage{stix}
-\def\dotminus{\stackon[.2ex]{$-$}{$.$}}
+\def\nonfork{\mathrel{\raise0.2ex\hbox{\ooalign{\hidewidth$\vert$\hidewidth\cr\raise-0.8ex\hbox{$\smile$}}}}}
+
 % \def\wneg{\stackon[-.2ex]{$\neg$}{$\neg$}}
 \usepackage{dsfont}
 % \newcommand*{\TakeFourierOrnament}[1]{{%
@@ -204,7 +205,8 @@
 \begin{abstract}
 \end{abstract}
 
-\subfile{first}
+\subfile{preliminaries}
+\subfile{definable}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
