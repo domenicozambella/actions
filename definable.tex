@@ -10,19 +10,48 @@ We use the symbol $\,\cdot\,$ for both the group multiplication and the group ac
 Let $M\preceq\U$ and $\Psi\subseteq L_x(M)$.
 In this section $\Delta$ contains formulas $\varphi(x\,;z)$ of the form $\psi(z^{-1}\!\cdot x)$ for $\psi(x)\in\Psi$.
 The sets $\varphi(\X\,;\Z)$ are $\Z$-invariant.
-We write $1$ for the identity of $\Z$.
-Note that $\varphi(\X\,;g)=g\cdot\varphi(\X\,;1)$ for all $\varphi(x\,;z)\in\Delta$.
+%We write $1$ for the identity of $\Z$.
 
 It is worth noticing that automorphisms of $\UDelta$ need not preserve the group operations nor the group action.
 
 To each $h\in\Z$ we associate the $\LDelta$-automorphism $\langle a\,;g\rangle\mapsto\langle h{\cdot}a\,;h{\cdot}g\rangle$.
 Therefore $\Z$ is, up to isomorphism, a subgroup of ${\rm Aut}(\UDelta)$.
-For any $g\in\Z$, the orbit of $\varphi(\X\,;g)$ under the action of $\Z$ is $\{\varphi(\X\,;h) : h\in\Z\}$.
-Therefore it coincides with the orbit under the action of ${\rm Aut}(\UDelta)$.
+Note that $g\cdot\varphi(\X\,;h)=\varphi(\X\,;g{\cdot}h)$ for all $g,h\in\Z$ and $\varphi(x\,;z)\in\Delta$.
+Therefore, the orbit of $\varphi(\X\,;h)$ under the action of $\Z$ is $\{\varphi(\X\,;g) : g\in\Z\}$.
+It follows that the orbit of $\varphi(\X\,;h)$ under the actions of ${\rm Aut}(\UDelta)$ coincides with the orbit under the action of $\Z$.
 
-When $\C\subseteq\Z$ and $\D$ is a subset of either $\Z$ or $\X$ we define
+We write $X$ and $Z$ for $\X\cap M^x$ and $\Z\cap M^z$ respectively.
+Clearly $Z\le{\rm Aut}(\UDelta/\{Z\})$, the latter is the subgroup of ${\rm Aut}(\UDelta)$ that fixes $Z$ setwise.
+By the observation above, when $h\in Z$ and $\varphi(x\,;z)\in\Delta$, the orbit of $\varphi(\X\,;h)$ under the action of ${\rm Aut}(\UDelta/\{Z\})$ coincides with the orbit under the action of $Z$.
+% Also, note that up to equivalence $\BDelta(Z)$ coincides with $\Delta$.
 
-\ceq{\hfill\C*\D}{=}{\Big\{g{\cdot}h\ :\ g\in\C,\ h\in\D,\ g\nonfork_M h\text{ for every }M\preceq\UDelta,\ 1\in M^z\Big\}}
+A subset $A\subseteq\X$ is dense if $\psi(A)\neq\varnothing$ for every $\psi(x)\in\Psi$.
+
+\begin{fact}
+  The following are equivalent
+  \begin{itemize}
+    \item [1.] $\Z$ acts transitively on $\X$
+    \item [2.] $Z{\cdot}a$ is dense for every $a\in\X$.
+  \end{itemize}
+\end{fact}
+
+\begin{proof}
+  Elementarity gives 1$\Rightarrow$2, saturation gives $2\Rightarrow$1.
+\end{proof}
+
+\begin{fact}
+  There is bijection $f:\Z\to\X$ such that 
+\end{fact}
+
+When $\C,\D\subseteq\Z$ we define
+
+\ceq{\hfill\C*\D}{=}{\Big\{g{\cdot}h\ :\ g\in\C,\ h\in\D,\ g\nonfork_M h\text{ for every }M\preceq\UDelta%,\ 1\in M^z
+\Big\}}
+
+When $\C\subseteq\Z$ and $\D\subseteq\X$ the definition of $\C*\D$ is formally the same as the above and we also define
+
+\ceq{\hfill\C\circ\D}{=}{\Big\{g{\cdot}h\ :\ g\in\C,\ h\in\D,\ g\nonfork_M\D\text{ for every }M\preceq\UDelta%,\ 1\in M^z
+\Big\}}
 
 
 
