@@ -1,0 +1,25 @@
+% !TEX root = actions.tex
+\section{Topology}
+\label{topology}
+
+Let $G$ act on $X$.
+
+\def\ceq#1#2#3{\noindent\parbox[t]{15ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
+
+The sets $G_{a,b}=\big\{g\in G:g\,a=b\big\}$, for $a,b\in X^n$ for some $n<\omega$, form a basis for a topology on $G$.
+Note that these sets are in particular clopen, in fact the complement of $G_{a,b}$ is $\big\{g\in G:g\,a\neq b\big\}$, which is also a union of basic open sets.
+
+The action by $G$ on itself by left multiplication is a continuous map in this topology.
+In fact, the inverse image of the open set $G_{a,b}$ under the action of $h$ is the open set $\big\{g\in G:h\,g\,a=b\big\}=G_{a,\,h^{-1}b}$.
+As $h^{-1}$ is also continuous, these are both open and closed maps.
+
+A subgroup $H\le G$ is open (or closed) if and only if it is clopen.
+In fact, $G\setminus H$ is covered by left translates of $H$ that are open (respectively closed) as noted above.
+
+When $A\le G$ we write ${\rm cl}(A)$ for the closure of $A$ in this topology.
+
+\begin{fact}
+  For every $A\le G$\smallskip
+
+  \ceq{\hfill{\rm cl}(A)}{=}{\bigcap\Big\{H\le G\ :\ H\text{ is clopen and }A\le H\Big\}}
+\end{fact}

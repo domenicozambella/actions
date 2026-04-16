@@ -54,7 +54,7 @@ Notation: for $\D\subseteq\X$ and $C\subseteq G$ we write \emph{$C{\cdot}\D$\/} 
 \begin{remark}\label{rem_relative}
 Let $q(x)$ be a $\BDelta(\Z)$-type.
 We say that $\D$ is $G$-syndetic \emph{relative\/} to $q(x)$ if $q(x)$ entails $\cup\,F{\cdot}\D$ for some finite $F\subseteq G$.
-Dually, $\D$ is $G$-syndetic \emph{relative\/} to $q(x)$ if $G{\cdot}\D$ is finitely consistent with $q(x)$.
+Dually, $\D$ is $G$-thick \emph{relative\/} to $q(x)$ if $G{\cdot}\D$ is finitely consistent with $q(x)$.
 The notions of \textit{wide,\/} \textit{strong syndetic,\/} and \textit{weakly thick,\/}  which we indroduce below relitivize likewise.
 All results below easily relativize to any type $q(x)$.
 We entrust the generalization to the reader (this is only required in Fact~\ref{fact_stationarity}).
@@ -251,7 +251,7 @@ Along the same lines as above, we define
 \ceq{\hfill\emph{$G^{1\!1}$}}{=}{{\rm Stab}(P_G)\medrel{=}\bigcap_{p\in P_G}{\rm Stab}(p).}
 
 % It is easy to verify that $G^{11}\trianglelefteq G$.
-By the following proposition, $G^1\le G^{1\!1}\trianglelefteq G$.
+% By the following proposition, $G^1\le G^{1\!1}\trianglelefteq G$.
 Note that when $\Sigma_G(x)$ is finitely consistent, $\Sigma_G(x)$ is the only element of $P_G$ and $G^{1\!1}=G$.
 
 \begin{proposition}\label{prop_StabP}\ 
@@ -269,7 +269,7 @@ Note that when $\Sigma_G(x)$ is finitely consistent, $\Sigma_G(x)$ is the only e
   $\supseteq$.
   Pick any $g\notin G^{1\!1}$.
   Then $p(x)\not\subseteq g{\cdot}p(x)$ for some $p(x)\in P_G$.
-  Then $\varphi(x)\wedge g{\cdot}\varphi(x)$ is inconsistent for some $\varphi(x)\in p$.
+  Then $\varphi(x)\wedge g^{-1}{\cdot}\varphi(x)$ is inconsistent for some $\varphi(x)$ that is a conjunction of formulas in $p$.
   But $\varphi(x)$ is a consistent conjunction of formulas in $\Sigma_G(x)$.
   Then $g$ does not belong to the set on the r.h.s.
 \end{proof}
@@ -342,7 +342,7 @@ As it happens, under the assumption of normality, this can be strengthened as fo
 \begin{proposition}\label{prop_Gsyndetic_Hthick1}
   Assume $H\trianglelefteq G$ and that $\Sigma_H(x)$ is finitely consistent.
   Then every $G$-syn\-detic $\D\in\BDelta(\Z)$ is $H$-wide.
-  In particular all types in $Q_G$ are $G^{1\!1}$-wide.
+  In particular all types in $Q_G$ are $G^1$-wide and $G^{1\!1}$-wide.
 \end{proposition}
 
 \begin{proof}
@@ -361,7 +361,7 @@ Note that if $\varepsilon(x,y)$ is a $\BDelta(\Z)$-definable, or type-definable,
 An equivalence relation is bounded if it has a small number of equivalence classes.
 
 \begin{definition}\label{def_G00}
-  Let $\Phi^0$ be the collection of sets that are equivalence classes of a bounded $G$-invariant $\BDelta(\Z)$-type-definable equivalence relation.
+  Let $\Phi^0$ be the collection of sets that are equivalence classes of a bounded $G$-invariant $\BDelta(\Z)$-definable equivalence relation.
   Let $\Phi^{00}$ be the collection of sets that are equivalence classes of a bounded $G$-invariant $\BDelta(\Z)$-type-definable equivalence relation.
   Define
   \smallskip
@@ -380,17 +380,21 @@ An equivalence relation is bounded if it has a small number of equivalence class
   Assume that $G$ acts transitively on $\X$.
   Then 
   
-  \ceq{\hfill G^{1\!1}}{\leq}{G^{00}}\medrel{\leq}$G^0$.
+  \ceq{\hfill G^1,\ G^{1\!1}}{\leq}{G^{00}}\medrel{\leq}$G^0$.
+
+
 \end{proposition}
 
 \begin{proof}
   The inclusion $G^{00}\leq G^0$ is trivial.
+  We prove  $G^1\leq G^{00}$; the proof of $G^{1\!1}\leq G^{00}$ is similar.
+
   Let $\Y\in\Phi^{00}$ and $\Y\subseteq\D\in\BDelta(\Z)$.
   Then a small number of $G$-translates of $\D$ cover $\X$.
   Therefore, by compactness, $\D$ is $G$-syndetic.
   Then the type defining $\Y$ is $G$-syndetic.
-  Then this type extends to some $p(x)\in P_G$.
-  By $G^{1\!1}$-in\-variance $p(x)$ entails also $k{\cdot}\Y$ for every $k\in G^{1\!1}$.
+  Then this type extends to some $p(x)\in Q_G$.
+  By $G^1$-in\-variance $p(x)$ entails also $k{\cdot}\Y$ for every $k\in G^1$.
   Then $k$ is in the stabilizer of $\Y$.
 \end{proof}
 

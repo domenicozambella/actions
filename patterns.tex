@@ -1,0 +1,139 @@
+% !TEX root = actions.tex
+\section{Patterns}
+\label{patterns}
+
+
+\def\ceq#1#2#3{\noindent\parbox[t]{25ex}{$\displaystyle #1$}\parbox{6ex}{\hfil $#2$}{$\displaystyle #3$}}
+\def\phi{\varphi}
+
+We define a structure with domain $\U^x$, where $x$ is some fixed tuple of variables. 
+The language is denoted by $L^{\rm\! p}$.
+Though $\U^x$ and $L^{\rm\! p}$ also depends on $x$, this will be left implicit.
+
+
+For every finite tuple of formulas $\bar\phi(x\,;z)=\phi_1(x\,;z),\dots\phi_n(x\,;z)\in L$ and every consistent type $\alpha(z)\subseteq L$ the language $L^{\rm\! p}$ contains the $n$-ary relation \emph{$r_{\bar\phi;\alpha}(x_1,\dots,x_n)$} where the $x_i$ have the same sort of $x$ and $z$ is a fixed tuple of variables of length $\omega$.
+We require that $\alpha(z)$ is a finitary type, i.e.\@ only a finite number of variables occur in it. 
+
+For a given model $M$, we define the interpretation of $r_{\bar\phi;\alpha}$ in $\U^x$.
+% This interpretation is invariant under $\equiv_M$ therefiore whenever convenitnt we 
+If $\bar a=a_1,\dots,a_n\in\U^x$, we declare $r_{\bar\phi;\alpha}(\bar a)$ true if there is no $b\in M^z$ such that 
+
+\ceq{}{~}{\phantom{\neg}\alpha(b)\ \wedge\ \bigwedge_{i=1}^n\phi_i(a_i\,;b)}
+
+We repeat the definition for emphasis
+
+\ceq{\hfill r_{\bar\phi;\alpha}(\bar a)}{\Leftrightarrow}{\neg\exists z\in\alpha(M^z)\ \bigwedge_{i=1}^n\phi_i(a_i\,;z).}
+
+\ceq{}{\Leftrightarrow}{\phantom{\neg}\forall z\in\alpha(M^z)\ \bigvee_{i=1}^n\neg\phi_i(a_i\,;z).}
+
+
+A \emph{p-type\/} is a set of atomic formulas in $L^{\rm\! p}(\U^x)$ not containing equality.
+As the truth of $r_{\bar\phi;\alpha}(\bar a)$ only depends on the equivalence class of $\bar a$ modulo $\equiv_M$, the sets defined by p-types nicely factors through $\equiv_M$.
+
+Note incidentally that the relation $x_1\equiv_M x_2$ is definable by the p-type containing the formulas $r_{\phi,\neg\phi;\top}(x_1,x_2)$ for every $\phi(x\,;z)\in L$.
+
+We write \emph{$\textrm{p-tp}(\bar a)$} for the p-type of $\bar a$, i.e.\@ the set of formulas $r_{\bar\phi;\alpha}(\bar x)$ such that $r_{\bar\phi;\alpha}(\bar a)$ holds.
+
+\begin{fact}\label{fact_p_qe}
+  Atomic formulas in $L^{\rm\! p}$ are closed under disjunction, and existential quantification.
+\end{fact}
+
+\begin{proof}
+  Note that $r_{\bar\phi;\alpha}$ is (trivially) equivalent to $r_{\bar\phi,\bot;\alpha}$.
+  Therefore, we can assume that any two atomic formulas in $L^{\rm\! p}$ have the same arity.
+
+  Also, for any two p-formulas $r_{\bar\phi;\alpha}$ and $r_{\bar\psi,\beta}$ 
+  we can always assume that $\alpha=\beta$.
+  In fact, if we rename the variables that occur in $\beta(z)$ so that they are disjoint from those in $\alpha(z)$, we can replace both $\alpha(z)$ and $\beta(z)$ by $\alpha(z)\cup\beta(z)$.
+
+  Now note that $r_{\bar\phi;\alpha}\vee r_{\bar\psi;\alpha}$ is equivalent to $r_{\bar\phi\wedge\bar\psi;\alpha}$, where $\bar\phi\wedge\bar\psi$ is the tuple that contains the formulas $\phi_i\wedge\psi_i$.
+
+  
+  
+  Closure under existential quantification follows from the following equivalences
+  
+  \ceq{\hfill\exists y\ r_{\bar\phi\,\psi;\alpha}(\bar a, y)}{\Leftrightarrow}{\exists y\,\forall z\Big[ z\in\alpha(M)\rightarrow \bigvee_{i=1}^n\neg\phi_i(a_i\,;z)\vee\neg\psi(y,z)\Big]}
+
+  \ceq{}{\Leftrightarrow}{\forall z\Big[ z\in\alpha(M)\rightarrow \bigvee_{i=1}^n\neg\phi_i(a_i\,;z)\vee\neg\forall y\,\psi(y,z)\Big]}
+
+  \ceq{}{\Leftrightarrow}{\forall z\Big[ z\in\beta(M)\rightarrow \bigvee_{i=1}^n\neg\phi_i(a_i\,;z)\Big]}
+
+  \ceq{}{\Leftrightarrow}{\vphantom{\bigvee_{i=1}^n}r_{\bar\phi,\beta}(\bar a),}
+
+  where $\beta(z)=\alpha(z)\cup\big\{\forall y\,\psi(y,z)\big\}$.
+\end{proof}
+
+\begin{fact}[ ($\infty$-p-saturation)]
+  Let $\bar x$ be a finite tuple of variables of same sort as $x$.
+  Let $\A\subseteq\U^x$.
+  Then every p-type $p(\bar x)\subseteq L^{\rm\! p}(\A)$ that is finitely consistent in $\U^x$ is realized in $\U^x$.
+  The cardinality of $\A$ arbitrary. 
+\end{fact}
+
+\begin{proof}
+  Let $A\subseteq\U^x$ be a small set containing a representative of every $\equiv_M$ equivalence class that intersects $\A$.
+  Replacing $\A$ in $p(\bar x)$ by elements $A$ we obtain a equivalent type $p'(\bar x)\subseteq L^{\rm\! p}(A)$.
+  Note that every formula $r_{\bar\phi\;\alpha}(\bar x)$ there is a type $q(\bar x)\subseteq L$ such that
+
+  \ceq{\hfill\U^x\models r_{\bar\phi\;\alpha}(\bar a)}{\Leftrightarrow}{\U\models q(\bar a)}
+
+  Therefore the saturation of $\U$ implies that $p'(\bar x)$ is realized in $\U^x$.
+\end{proof}
+
+A (partial) map $f:\U^x\to\U^x$ is a \emph{p-morphism} if for every atomic formula $r_{\bar\phi;\alpha}(\bar x)$ and every $\bar a\in{\rm dom} f$ we have 
+
+\ceq{\hfill r_{\bar\phi;\alpha}(\bar a)}{\Rightarrow}{r_{\bar\phi;\alpha}(f\bar a)}
+
+In other words, if $\textrm{p-tp}(\bar a)\subseteq\textrm{p-tp}(f\bar a)$.
+
+\begin{fact}\label{fact_pmorphism_extension}
+  Every p-morphism (of any cardinality) extends to a p-morphism defined on the whole $\U^x$.
+\end{fact}
+
+\begin{proof}
+  Let $f:\U^x\to\U^x$ be a p-morphism.
+  And let $\bar a$ be an enumeration of ${\rm dom} f$ and let $b\in\U^x$.
+  Let $p(\bar x)=\textrm{p-tp}(\bar a)$ and let $q(\bar x,y)=\textrm{p-tp}(\bar a,b)$.
+  By p-saturation and Fact~\ref{fact_p_qe}, $p(\bar x)$ is equivalent to $\exists y\,q(\bar x,y)$.
+  Then $q(f\bar a,y)$ is consistent so $f$ can be extanted to a p-morphism defined on $b$.
+\end{proof} 
+
+A set $\A\subseteq\U^x$ is \emph{p-maximal} if it is maximal with respect to the inclusion among the sets such that satisfy the following equivalent conditions for every $\bar a\in\A$
+\begin{itemize}
+  \item[1.] $r_{\bar\phi;\alpha}(\bar a)\ \ \Leftrightarrow\ \ r_{\bar\phi;\alpha}(f\bar a)$ \hfill
+  for every $r_{\bar\phi;\alpha}(\bar x)$
+
+\item[2.] $\textrm{p-tp}(\bar a)\ \ =\ \ \textrm{p-tp}(f\bar a)$ \hfill
+ for every $r_{\bar\phi;\alpha}(\bar x)$
+
+\item[3.] $\textrm{p-tp}(\bar a)$ is a maximally consistent p-type.
+\end{itemize}
+
+By Zorn's lemma, every set satisfying the above conditions is contained in a p-maximal set.
+
+A tuple $\bar a$ is p-maximal if $\textrm{p-tp}(\bar a)$ is a maximally consistent p-type.
+By the fact above and Zorn's lemma, every tuple is contained in a p-maximal tuple.
+A set $\A\subseteq\U^x$ is p-maximal if some (any) enumeration of $\A$ is a p-maximal tuple.
+
+Note that that $\A\subseteq\U^x$ is p-maximal if and only if 
+
+\begin{fact}
+  The following are equivalent
+  \begin{itemize}
+    \item[1.] $\A\subseteq\U^x$ is p-maximal.
+    \item[2.] every finite tuple $\bar a\in\A$ is p-maximal.
+  \end{itemize}
+\end{fact}
+
+\begin{proof}
+  2$\Rightarrow$ 1. If $\A$ is not p-maximal, then there is a finite tuple $\bar a$ in $\A$ witnesses this.
+
+  1$\Rightarrow$ 2. If there is a finite tuple $\bar a\in\A$ that is not maximal then there is a p-morphism $f:\U^x\to\U^x$ such that $\textrm{p-tp}(\bar a)\subset \textrm{p-tp}(f\bar a)$.
+  Let $\bar a'$ be enumerations of $\A$ that extends $\bar a$.
+  By Fact~\ref{fact_pmorphism_extension}, there exists a p-morphism $f':\A\to\U^x$ that extends $f$ and is defined on $\bar a'$.
+  Then $\textrm{p-tp}(\bar a')\subset \textrm{p-tp}(f'\bar a')$ contradicting the maximality of $\A$.  
+\end{proof}
+
+
+
+
