@@ -7,19 +7,24 @@
 In the following $\U$ is some monster model of a complete theory $T$ of language $L$.
 For simplicity $T$ is assumed to be one-sorted.
 
-We define a structure with domain $\U^x$, where $x$ is some fixed tuple of variables. 
+We define a structure with domain $\U^x$, where $x$ is some fixed tuple of variables.
 The language is denoted by $L^{\rm\! p}$.
 Though $L^{\rm\! p}$ depends on $x$, this will be left implicit.
 
 Let $V$ be some large set of variables that are copies of $x$. 
 Let $\Delta$ be the set of positive Boolean combinations of formulas in $\bigcup_{x'\in V} L_{x',z}$, where $z=\langle z_i:i\in\omega\rangle$ is a fixed tuple of variables of length $\omega$.
-For every $\phi(x_0,\dots,x_{n-1}\,;z)\in\Delta$ and every type $\alpha(z)\subseteq L$ the language $L^{\rm\! p}$ contains the $n$-ary relation \emph{$r_{\phi\,;\alpha}$.}
+The choice of $\Delta$ is giustidied by the remarl below.
+
+For every formula $\phi(x_0,\dots,x_{n-1}\,;z)\in\Delta$ and every type $\alpha(z)\subseteq L$ the language $L^{\rm\! p}$ contains the $n$-ary relation \emph{$r_{\phi\,;\alpha}$.}
 We require that $\alpha(z)$ is a finitary type, i.e.\@ only a finite number of variables actually occur in it.
 
 Below by the symbol \emph{$L^{\rm\! p}$} we will also denote the set of \textit{atomic\/} formulas $r_{\phi\,;\alpha}(x_0,\dots,x_{n-1})$ for any $x_0,\dots,x_{n-1}\in V$.
 Note that equalities are \textit{not\/} included in $L^{\rm\! p}$.
 
 For a given model $M$, we define the interpretation of $r_{\phi\,;\alpha}$ in $\U^x$.
+Eventually, we will proved that the main definition in this section, the definition of \textit{core,} does not depend on the choice of $M$.
+However, some of the intermediate notions introduced here do depend on $M$, though to avoid cluttering the notation we will omit reference to it.
+
 If $\bar a=a_0,\dots,a_{n-1}\in\U^x$, we declare $r_{\phi\,;\alpha}(\bar a)$ true if there is no $b\in M^z$ such that $\alpha(b)\ \wedge\ \phi(\bar a\,;b)$.
 We repeat the definition for emphasis
 
@@ -27,8 +32,17 @@ We repeat the definition for emphasis
 
 \ceq{}{\Leftrightarrow}{\phantom{\neg}\forall z\in\alpha(M^z)\ \neg\phi(\bar a\,;z).}
 
-It is paramount to observe that the truth of $r_{\phi\,;\alpha}(\bar a)$ only depends on the equivalence class of $\bar a$ modulo $\equiv_M$.
-Therefore it would be natural to define the interpretation of $L^{\rm\! p}$ on the quotient $\U^x/{\equiv_M}$ or in the type space $S_x(M)$, but we prefer to keep the original domain $\U^x$ to have a common playground with $L$.
+It is paramount to observe the following
+
+\begin{remark}
+  By the choice of $\Delta$, the truth of $r_{\phi\,;\alpha}(\bar a)$ only depends on the equivalence class of $\equiv_M$ of the single components of the tuple $\bar a$.
+  Explicitely, if $\bar a=a_0,\dots,a_{n-1}$ and $\bar a'=a'_0,\dots,a'_{n-1}$ are such that $a_i\equiv_M a'_i$ for every $i<n$, then 
+
+  \ceq{\hfill r_{\phi\,;\alpha}(\bar a)}{\leftrightarrow}{r_{\phi\,;\alpha}(\bar a').}
+
+\end{remark}
+
+By the remark, it would be natural to define the interpretation of $L^{\rm\! p}$ on the quotient $\U^x/{\equiv_M}$ or in the type space $S_x(M)$, but we prefer to keep the original domain $\U^x$ to have a common playground with $L$.
 
 A \emph{p-type\/} is a set of atomic formulas in $L^{\rm\! p}(\U^x)$.
 
@@ -58,12 +72,6 @@ We write \emph{$\textrm{p-tp}(\bar a)$} for the p-type of $\bar a$, i.e.\@ the s
 
   \ceq{}{\Leftrightarrow}{\forall z\Big[ z\in\alpha(M)\rightarrow \bigvee_{i=1}^m\neg\phi'_i(\bar a\,;z)\wedge\neg\forall y\,\psi_i(y\,;z)\Big]}
 
-  % \ceq{}{\Leftrightarrow}{\forall z\Big[ z\in\alpha(M)\rightarrow \bigvee_{i=1}^n\neg\phi_i(a_i\,;z)
-
-  % \ceq{}{\Leftrightarrow}{\forall z\Big[ z\in\alpha(M)\rightarrow \bigvee_{i=1}^n\neg\phi_i(a_i\,;z)\vee\neg\forall y\,\psi(y,z)\Big]}
-
-  % \ceq{}{\Leftrightarrow}{\forall z\Big[ z\in\alpha(M)\rightarrow \bigvee_{i=1}^m\neg\phi''_i(\bar a\,;z)\Big]}
-
   \ceq{}{\Leftrightarrow}{\vphantom{\bigvee_{i=1}^n}r_{\theta,\beta}(\bar a),}
 
   where 
@@ -88,21 +96,7 @@ We write \emph{$\textrm{p-tp}(\bar a)$} for the p-type of $\bar a$, i.e.\@ the s
   \ceq{\hfill\U^x\models r_{\phi\,;\alpha}(\bar a)}{\Leftrightarrow}{\U\models q(\bar a)}
 
   Therefore the saturation of $\U$ implies that $p'(\bar x)$ is realized in $\U^x$.
-  %
-  % We prove the fact for arbirary $\bar x$.
-  % Let $\bar x=x',x''$.
-  % By what proved above, $\exists x''\,p(\bar x)$ is equivalent to the type $p'(\bar x')$ containing the existential quantification of the conjunction of the formulas in $p(\bar x)$.
-  %
-  % We prove the fact for arbirary $\bar x$, by induction.
-  % First we consider the case when the length of $\bar x$ is a successor ordinal.
-  % Assume that the fact is true for the tuple $\bar y$, we prove it for the tuple $\bar y,x$.
-  % By what proved above, $\exists x\,p(\bar y,x)$ is equivalent to the type $p'(\bar y)$ containing the existential quantification of the conjunction of the formulas in $p(\bar y,x)$.
-  % By Fact~\ref{fact_p_qe}, $p'(\bar y)$ is equivalent to a p-type, and by the inductive hypothesis, $p'(\bar y)$ is realized in $\U^x$ by some $\bar a\in\U^x$.
-  % Then the type $p(\bar a,x)$ is finitely consistent in $\U^x$ and therefore it is realized in $\U^x$ by by whet proved above.
-  %
-  % Finally, we are left with the case when $\bar x$ is a tuple of length some limit ordinal.
 \end{proof}
-
 
 %%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%
@@ -112,51 +106,31 @@ We write \emph{$\textrm{p-tp}(\bar a)$} for the p-type of $\bar a$, i.e.\@ the s
 %%%%%%%%%%%%%%%%%%%%
 \section{Morphism}
 
-A possible approach is to work in the quotient $\U^x/{\equiv_M}$.
-A second possibility is to replace functions with relations.
-The two options differs only in the notation.
-Here we go for the second one that, arguably, simplifies the bookkeeping.
+As the interpretation of $L^{\rm p}$ factors through the equivalence relation $\equiv_M$, p-morphims could be introduced as (partial) maps of $\U^x/{\equiv_M}$ into itself.
+However there are a few occasions when it is preferable to work with maps of $\U^x$ into itself. 
+Therefore we introduce a way to switch between the two perspectives.
 
 Let $R\mathrel{\subseteq}\U^x\times\U^x$ be a binary relation.
 If $\bar a=\langle a_i:i<\lambda\rangle$ and $\bar b=\langle b_i:i<\lambda\rangle$ we write $\langle \bar a,\bar b\rangle\in R$ to abbreviate: $\langle a_i,b_i\rangle\in R$ for all $i<\lambda$.
-% If we allow repetitions in $\bar a$ and $\bar b$ then every relation can be represented as $\{\langle\bar a,\bar b\rangle\}$.
-% But note that $\langle\bar a',\bar b'\rangle\in\{\langle\bar a,\bar b\rangle\}$ does not imply that $\bar a'$ and $\bar b'$ are subtuples of $\bar a$ respectively $\bar b$ (because of the repetitions in $\bar a'$ and $\bar b'$).
-
-We say that $R$ is a p-morphism if the following condition holds 
+We say that $R$ is a \emph{p-morphism} if the following condition holds 
 
 \ceq{\#\hfill\U^x\models r_{\phi\,;\alpha}(\bar a)}{\Rightarrow}{\U^x\models r_{\phi\,;\alpha}(\bar b)}\hfill for every $r_{\phi\,;\alpha}\in L^{\rm p}$ and every $\langle \bar a,\bar b\rangle\in R$.
 
 When the converse implication in \# also holds, i.e.\@ when also $R^{-1}$ is a p-morphism, we say that $R$ is a \emph{partial p-isomorphism.}
-When $\A\subseteq{\rm dom}\,R$,  $\B\subseteq{\rm rng}\,R$, and $R\cap (\A\times\B)$ is a partial p-isomorphism , we say that $R$ is an \emph{p-isomorphism} between $\A$ and $\B$ or, when $\A=\B$, a \emph{p-automorphism} of $\A$.
+When $\A\subseteq{\rm dom}\,R$,  $\B\subseteq{\rm range}\,R$, and $R\cap (\A\times\B)$ is a partial p-isomorphism, we say that $R$ is an \emph{p-isomorphism} between $\A$ and $\B$ or, when $\A=\B$, a \emph{p-automorphism} of $\A$.
 
-It is clear that if $R$ satisfiers \# then also  $\mathrel{\equiv_M}\circ \mathrel{R}\circ\mathrel{\equiv_M}$.
-We say that the p-morphism $R$ is \emph{reduced\/} if there is no $R'\ \subset\ R$ such that $R\ \subseteq\ \big(\mathrel{\equiv_M}\circ \mathrel{R'}\circ\mathrel{\equiv_M}\big)$.
+Note that $R\circ R^{-1}$ and $R^{-1}\!\circ R$ are contained in the (trivial) p-isomorphism $\equiv_M$.
 
-\begin{fact}
-  For every p-morphism $R$ there is a reduced p-morphism $R'$ such that 
-  
-  \ceq{\flat\hfill\big(\mathrel{\equiv_M}\circ \mathrel{R}\circ\mathrel{\equiv_M}\big)}{=}{\big(\mathrel{\equiv_M}\circ \mathrel{R'}\circ\mathrel{\equiv_M}\big).}
-\end{fact}
+Then if $R$ is a p-morphism, also $\mathrel{\equiv_M}\circ \mathrel{R}\circ\mathrel{\equiv_M}$ is a p-morphism.
+We say that $R$ and $R'$ are \emph{equivalent} if 
 
-\begin{proof}
-  Let $A\subseteq\U^x$ be a set of representatives of the equivalence classes of $\equiv_M$.
-  Let $R'=\ \big(\mathrel{\equiv_M}\circ \mathrel{R}\circ\mathrel{\equiv_M}\big)\ \cap\ A\times A$.
-  Clearly $R'$ satifies \flat.
-  To prove that $R'$ is reduced, assume for a contradiction that $R''\ \subset\ R'$ also satisfies \flat.
-  Let $\langle a,b\rangle\in R'\smallsetminus R''$.
-  Then there are $a\equiv_M a'$ and $b\equiv_M b'$ such that $\langle a',b'\rangle\in R'$.
-  Then $a'\in A$ and $b'\in A$ so $a=a'$ and $b=b'$.
-\end{proof}
+\ceq{\hfill\big(\mathrel{\equiv_M}\circ \mathrel{R}\circ\mathrel{\equiv_M}\big)}{=}{\big(\mathrel{\equiv_M}\circ \mathrel{R'}\circ\mathrel{\equiv_M}\big).}
 
-% Note that if the relations $R_i$ are such that $R\ \subseteq\ \mathrel{\sim)}\circ \mathrel{R_i}\circ\mathrel{\equiv_M}$, for every $i<\lambda$, then 
+We say that the p-morphism $R$ is \emph{reduced\/} if there is no $R'\ \subset\ R$ that is equivalent to $R$.
 
-% \ceq{\hfill R}{\subseteq}{\mathrel{\equiv_M}\circ\;\Big(\bigcap_{i<\lambda}R_i\Big)\;\circ\mathrel{\equiv_M}.}
-
-% It follows that for every $R$ there is a reduced $R'\ \subseteq\ R\ \subseteq\ \mathrel{\equiv_M}\circ \mathrel{R'}\circ\mathrel{\equiv_M}$.
-% When $R\ =\ \mathrel{\equiv_M}\circ \mathrel{R}\circ\mathrel{\equiv_M}$ then the converse inclusion is obvious and we obtain that $R\ =\ \mathrel{\equiv_M}\circ \mathrel{R'}\circ\mathrel{\equiv_M}$.
-
-\begin{fact}\label{fact_reduced_funct} 
-  Every reduced p-morphism $R$ is (the graph of) a map $f:{\rm dom}\,R\to{\rm rng}\,R$. Therefore every reduced p-isomorphism is a bijection between its domain and range.
+\begin{fact}\label{fact_reduced_funct}
+  Any reduced p-morphism $R$ is the graph of a (partial) map $f$ with ${\rm dom}\,f\subseteq{\rm dom}\,R$ and ${\rm range}\,f\subseteq{\rm range}\,R$.
+  Therefore every reduced p-isomorphism is a bijection between its domain and range.
 \end{fact}
 
 \begin{proof}
@@ -166,20 +140,35 @@ We say that the p-morphism $R$ is \emph{reduced\/} if there is no $R'\ \subset\ 
   The second claim follows immediately.
 \end{proof}
 
-\begin{fact}[ ($\infty$-p-homogeneity)]\label{fact_phogeneity}
+\begin{fact}
+  Every p-morphism $R$ is equivalent a reduced p-morphism $f\subseteq R$ and this is of the form $f=R\cap (A\times B)$ where $A={\rm dom}\,f$ and $B={\rm range}\,f$ are maximal sets of non $\equiv_M$-equivalent elements.
+\end{fact}
+
+\begin{proof}
+  Let $A\subseteq{\rm dom}\,R$ and $B\subseteq{\rm range}\,R$  
+  be a maximal sets of non $\equiv_M$-equivalent elements.
+  Then $f=R\cap (A\times B)$ is as required by the fact.
+\end{proof}
+
+\begin{fact}\label{fact_fR}
+  Let $R\subseteq R'$ be two p-isomorphisms.
+  Let $f\subseteq R$ be a reduced p-isomorphism equivalent to $R$.
+  Then there is reduced p-isomorphism equivalent to $R'$ such that $f\subseteq f'\subseteq R'$.     
+\end{fact}
+
+\begin{fact}\label{fact_phogeneity}
   Every p-morphism extends to a p-morphism defined on the whole of $\U^x$.
-  Every p-isomorphism extends to a p-automorphism of $\U^x$.
 \end{fact}
 \begin{proof}
   Let $R$ be a p-morphism.
-  Pick be a reduced p-morphism $f$ such that $R\ \subseteq\ \mathrel{\equiv_M}\circ \mathrel{f}\circ\mathrel{\equiv_M}$.
+  Pick be a reduced p-morphism $f$ equivalent to $R$.
   Let $\bar a$ be an enumeration of ${\rm dom} f$ and let $b\in\U^x$.
   Let $p(\bar x)=\textrm{p-tp}(\bar a)$ and let $q(\bar x,y)=\textrm{p-tp}(\bar a,b)$.
   By $\infty$-p-saturation $\exists y\,q(\bar x,y)$ is equivalent to the type containing the existential closure of the formulas in $q(\bar x,y)$.
   By Fact~\ref{fact_p_qe}, the latter is equivalent to a p-type, which is necessarily coicides with $p(\bar x)$.
-  Then $q(f\bar a,y)$ is consistent hence by $\infty$-p-saturation, $f$ can be extended to a p-morphism defined on $b$.
-
-  The second claim follows by back-and-forth.
+  Then $q(f\bar a,y)$ is consistent hence by $\infty$-p-saturation it is realized by some $c\in\U^x$.
+  Then $f\cup\{\langle b,c\rangle\}$ is a p-morphism defined in $b$ that extends $f$.
+  Then $R$ can be extended as well.
 \end{proof}
 
 % \begin{fact}\label{fact_reduced_funct} 
@@ -212,11 +201,11 @@ A set $\A\subseteq\U^x$ is \emph{p-maximal} if it satisfies the following (obvio
 % By Zorn's lemma, every set satisfying the above conditions is contained in a p-maximal set.
 
 \begin{fact}\label{fact_pmaximal}
-  Then the following are equivalent
+  The following are equivalent
   \begin{itemize}
     \item[1.] $\A\subseteq\U^x$ is p-maximal
-    \item[2.] $\textrm{p-tp}(\bar a)$ is a maximally consistent p-type for every $\bar a\in\A^{\bar x}$ and every finite $\bar x$
-    \item[3.] $\textrm{p-tp}(\bar c)$ is a maximally consistent p-type for $\bar c$ any enumeration of $\A$
+    \item[2.] $p(\bar x)=\textrm{p-tp}(\bar a)$ is a maximally consistent p-type for every $\bar a\in\A^{\bar x}$ and every finite $\bar x$
+    \item[3.] $p(\bar y)=\textrm{p-tp}(\bar c)$ is a maximally consistent p-type for $\bar c$ any enumeration of $\A$
     \item[4.] every p-morphism defined on $\A$ is a p-isomorphism between $\A$ and its image.
   \end{itemize}
 \end{fact}
@@ -236,34 +225,50 @@ A set $\A\subseteq\U^x$ is \emph{p-maximal} if it satisfies the following (obvio
   4$\Rightarrow$1. Clear.
 \end{proof}
 
-\begin{fact}
-  Let $\J\subseteq\U^x$ be a p-maximal subsets of $\U^x$.
-  Then ${\equiv_M}[\J]$, the image of $\J$ under the p-morphism $\equiv_M$, is maximal with respect to inclusion among the p-maximal subsets of $\U^x$.
+A set $\J\subseteq\U^x$ that is p-maximal and is also maximal w.r.t.\@ inclusion among the p-maximal sets is called a \emph{core.}
+
+\begin{fact}[ ($\infty$-p-homogeneity of the core)]\label{fact_corephogeneity}
+  Let $\J$ be a core.
+  Then every p-morphism $R\subseteq\J\times\J$ extends to a p-automorphism of $\J$.
 \end{fact}
 
 \begin{proof}
-  Suppose for a contradiction that ${\equiv_M}[\J]\subset\A$, where $\A$ is a p-maximal set.
-  Pick any $a\in\A\smallsetminus{\equiv_M}[\J]$.
-  
-  and let $b\in\J$ be such that $a\equiv_M b$.
-  Then there is a p-morphism $R$ such that ${\equiv_M}[\J]=R[\J]$.
-  
-  $\A$ be a p-maximal set and let $R$ be a p-morphism of $\J$ into $\A$.
-  By Fact~\ref{fact_pmaximal}, $R$ is an isomorphism between $\J$ and its image $R[\J]$, which is also p-maximal.
-  By $\infty$-p-homogeneity, $R^{-1}$ extends to a p-morphism $R'$ defined on $\A$.
-  Then $R'[\A]$ is a p-maximal set that contains $\J$.
-  By the maximality of $\J$ under inclusion, we have $\J = R'[\A]$.
+  Reason as in the proof of Facty~\ref{fact_phogeneity} with the same notation but choose $b\in\J$.
+  Let $R'$ be a p-morphism defined on $\J$ that extends $f\cup\{\langle b,c\rangle\}$.
+  Then $R'[\J]$, the image of $\J$ under $R'$, is a p-maximal set that contains $\J$.
+  By maximality $R'[\J]$ coincides with $\J$, hence $c\in\J$.
+\end{proof}
+
+\begin{fact}\label{fact_onto}
+  Let $R$ be a p-morphism defined core $\J$ into a p-maximal set $\A$.
+  Then $\A$ is contained in $\big({\equiv}_M\circ R\big)[\J]$.
+\end{fact}
+
+\begin{proof}.
+  By 4 in Fact~\ref{fact_pmaximal}, $R$ is a p-isomorphism and $R[\J]$ is a p-maximal set contained in $\A$.
+  Let $R'$ be a p-morphism defined on $\A$ that extends $R^{-1}$, which exists by Fact~\ref{fact_phogeneity}.
+  By maximality under inclusion, $R'[\A]=\J$.
+  Let $a\in\A$ be arbitrary.
+  Pick $b\in\J=R'[\A]$ such that $\langle a,b\rangle\in R'$
+  Let $c$ such that $\langle b,c\rangle\in R$.
+  Then $\langle c,b\rangle\in R^{-1}\subseteq R'$.
+  Then $a\equiv_M c$ and therefore $c\in\big({\equiv}_M\circ R\big)[\J]$.
 \end{proof}
 
 A \emph{p-retraction} of $\U^x$ onto $\A$ is a p-morphism that maps $\U^x$ onto $\A$ and is the identity on $\A$.
 
 \begin{theorem}
-  All p-maximal subsets of $\U^x$ are p-isomorphic, and for any p-maximal set $\A$ there is a p-retraction of $\U^x$ onto $\B$.
+  If $\J$ is a core then there is a p-retraction of $\U^x$ onto $\J$
 \end{theorem}
 
 \begin{proof}
-  Let $\bar c$ be an enumeration of $\U^x$ and let $\bar a$ be a tuple such that $\textrm{p-tp}(\bar c)\subseteq \textrm{p-tp}(\bar a)$ is p-maximal.
-  Then $f=\{\langle\bar c,\bar a\rangle\}$ is a p-morphism onto the p-maximal set $\A={\rm rng}\,f$.
+  Let $\bar a$ be an enumeration of $\J$, let $\bar c$ enumerate $\U^x\smallsetminus\J$.
+  Let $p(x,y)=\textrm{p-tp}(\bar a,\bar c)$.
+  
+
+  Let $\bar c$ be an enumeration of $\U^x$ and let $\bar a$ be a tuple such that $\textrm{p-tp}(\bar a)\supseteq \textrm{p-tp}(\bar c)$ is p-maximal.
+  Then $f=\{\langle\bar c,\bar a\rangle\}$ is a p-morphism onto the p-maximal set $\A={\rm range}\,f$.
+  By Fact~\ref{fact_onto} $\A$ is contained in $\big({\equiv}_M\circ (f\restriction\J)\big)[\J]$.
   Let $\B\subseteq\U^x$ be any other p-maximal set.
   By 4 in Fact~\ref{fact_pmaximal}, $f$ is an isomorphism between $\B$ and $\A$.
   By the same argument $f\restriction\A$ is a p-automorphism of $\A$.
