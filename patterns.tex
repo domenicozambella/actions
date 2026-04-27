@@ -13,7 +13,7 @@ Though $L^{\rm\! p}$ depends on $x$, this will be left implicit.
 
 Let $V$ be some large set of variables that are copies of $x$. 
 Let $\Delta$ be the set of positive Boolean combinations of formulas in $\bigcup_{x'\in V} L_{x',z}$, where $z=\langle z_i:i\in\omega\rangle$ is a fixed tuple of variables of length $\omega$.
-The choice of $\Delta$ is giustidied by the remarl below.
+The choice of $\Delta$ is justified in the remark below.
 
 For every formula $\phi(x_0,\dots,x_{n-1}\,;z)\in\Delta$ and every type $\alpha(z)\subseteq L$ the language $L^{\rm\! p}$ contains the $n$-ary relation \emph{$r_{\phi\,;\alpha}$.}
 We require that $\alpha(z)$ is a finitary type, i.e.\@ only a finite number of variables actually occur in it.
@@ -25,58 +25,62 @@ For a given model $M$, we define the interpretation of $r_{\phi\,;\alpha}$ in $\
 Eventually, we will proved that the main definition in this section, the definition of \textit{core,} does not depend on the choice of $M$.
 However, some of the intermediate notions introduced here do depend on $M$, though to avoid cluttering the notation we will omit reference to it.
 
-If $\bar a=a_0,\dots,a_{n-1}\in\U^x$, we declare $r_{\phi\,;\alpha}(\bar a)$ true if there is no $b\in M^z$ such that $\alpha(b)\ \wedge\ \phi(\bar a\,;b)$.
+If $\bar a=a_0,\dots,a_{n-1}\in\U^x$, we declare $r_{\phi\,;\alpha}(\bar a)$ true if $\phi(\bar a\,;b)$ holds for every $b\in M^z$ such that $\alpha(b)$.
 We repeat the definition for emphasis
 
-\ceq{\hfill r_{\phi\,;\alpha}(\bar a)}{\Leftrightarrow}{\neg\exists z\in\alpha(M^z)\ \ \phi(\bar a\,;z)}
+\ceq{\hfill r_{\phi\,;\alpha}(\bar a)}{\Leftrightarrow}{\forall z\in\alpha(M^z)\ \phi(\bar a\,;z).}
 
-\ceq{}{\Leftrightarrow}{\phantom{\neg}\forall z\in\alpha(M^z)\ \neg\phi(\bar a\,;z).}
-
-It is paramount to observe the following
+The following is paramount.
 
 \begin{remark}
-  By the choice of $\Delta$, the truth of $r_{\phi\,;\alpha}(\bar a)$ only depends on the equivalence class of $\equiv_M$ of the single components of the tuple $\bar a$.
-  Explicitely, if $\bar a=a_0,\dots,a_{n-1}$ and $\bar a'=a'_0,\dots,a'_{n-1}$ are such that $a_i\equiv_M a'_i$ for every $i<n$, then 
-
-  \ceq{\hfill r_{\phi\,;\alpha}(\bar a)}{\leftrightarrow}{r_{\phi\,;\alpha}(\bar a').}
-
+  By the choice of $\Delta$, the truth of $r_{\phi\,;\alpha}(\bar a)$ only depends on the equivalence class of $\equiv_M$ of the components of the tuple $\bar a$.
+  Explicitely, if $\bar a=a_0,\dots,a_{n-1}$ and $\bar a'=a'_0,\dots,a'_{n-1}$ are such that $a_i\equiv_M a'_i$ for every $i<n$, then $r_{\phi\,;\alpha}(\bar a)\ \leftrightarrow\ r_{\phi\,;\alpha}(\bar a')$.
 \end{remark}
 
-By the remark, it would be natural to define the interpretation of $L^{\rm\! p}$ on the quotient $\U^x/{\equiv_M}$ or in the type space $S_x(M)$, but we prefer to keep the original domain $\U^x$ to have a common playground with $L$.
+By the remark, it would be natural to define the interpretation of $L^{\rm\! p}$ on the quotient $\U^x/{\equiv_M}$ or on the type space $S_x(M)$, but we prefer to keep the original domain $\U^x$ to have a common playground with $L$.
 
-A \emph{p-type\/} is a set of atomic formulas in $L^{\rm\! p}(\U^x)$.
+A \emph{p-type\/} is a set of (atomic) formulas in $L^{\rm\! p}(\U^x)$.
 
-Note incidentally that the relation $x_0\equiv_M x_1$ is definable by the p-type containing the formulas $r_{\theta\,; \top }(x_0,x_1)$ for every $\theta(x_0,x_1\,;z)$ of the form $\phi(x_0\,;z)\nleftrightarrow\phi(x_1\,;z)$.
+Note incidentally that the relation $x_0\equiv_M x_1$ is definable by the p-type containing the formulas $r_{\theta\,; \top }(x_0,x_1)$ for every $\theta(x_0,x_1\,;z)$ of the form $\phi(x_0\,;z)\leftrightarrow\phi(x_1\,;z)$.
 
 We write \emph{$\textrm{p-tp}(\bar a)$} for the p-type of $\bar a$, i.e.\@ the set of formulas $r_{\phi\,;\alpha}(\bar x)$ such that $r_{\phi\,;\alpha}(\bar a)$ holds.
 
 \begin{fact}\label{fact_p_qe}
-  Formulas in $L^{\rm\! p}$ are closed under disjunction, conjunction, and existential quantification.
+  Formulas in $L^{\rm\! p}$ are closed under adjunction of dummy variables, disjunction, conjunction, and existential quantification.
 \end{fact}
 
 \begin{proof}
-  Note that for any two p-formulas $r_{\phi\,;\alpha}$ and $r_{\psi\,;\beta}$ we can always assume that $\alpha=\beta$.
-  In fact, if we rename the variables that occur in $\beta(z)$ so that they are disjoint from those in $\alpha(z)$, we can replace both $\alpha(z)$ and $\beta(z)$ by $\alpha(z)\cup\beta(z)$.
+  The claim about dummy variables is clear, so we tacitatly use it below.
 
-  Now note that $r_{\phi\,;\alpha}\vee r_{\psi\,;\alpha}$ is equivalent to $r_{\phi\wedge\psi\,;\alpha}$ and $r_{\phi\,;\alpha}\wedge r_{\psi\,;\alpha}$ is equivalent to $r_{\phi\vee\psi\,;\alpha}$.
+  Up to renaming of the variables that occur in $\beta(z)$ and $\psi(\bar x\,;z)$, we can assume that they are disjoint from those in $\alpha(z)$.
+  Therefore the following equivalences hold 
+  
+  \ceq{\hfill r_{\phi\,;\alpha}(\bar a)\vee r_{\psi\,;\beta}(\bar a)}{\Leftrightarrow}{\forall z\in\alpha(M^z)\ \phi(\bar a\,;z)\ \ \vee\ \ \forall z\in\beta(M^z)\ \psi(\bar a\,;z)} 
 
-  Finally, consider the formula $\exists y\,r_{\phi\,;\alpha}(\bar x,y)$
+  \ceq{}{\Leftrightarrow}{\forall z\in\alpha(M^z)\cup\beta(M^z)\ \ \ \phi(\bar a\,;z)\, \vee\,\psi(\bar a\,;z)} 
+
+  \ceq{}{\Leftrightarrow}{r_{\phi\vee\psi\,;\,\alpha\cup\beta}(\bar a)}
+
+
+  A similar argument applies to the conjunction of two formulas.
+
+  Finally, consider the formula $\exists y\,r_{\phi\,;\alpha}(\bar x,y)$.
   Without loss of generality, we can assume that $\phi$ has the form
 
-  \ceq{\hfill\phi(\bar x,y\,;z)}{=}{\bigwedge_{i=1}^m\phi_i(\bar x,y\,;z)}
+  \ceq{\hfill\phi(\bar x,y\,;z)}{=}{\bigvee_{i=1}^m\phi_i(\bar x,y\,;z)}
 
-  where $\phi_i(\bar x,y;z)\,=\,\phi'_i(\bar x\,;z)\,\vee\,\psi_i(y\,;z)$ and each $\phi'_i(\bar x\,;z)$ is a disjunction of formulas in $\bigcup_{x'\in V} L_{x',z}$.
+  where $\phi_i(\bar x,y;z)\,=\,\phi'_i(\bar x\,;z)\,\wedge\,\psi_i(y\,;z)$ and each $\phi'_i(\bar x\,;z)$ is a conjunction of formulas in $\bigcup_{x'\in V} L_{x',z}$.
   Closure under existential quantification follows from the following equivalences
 
-  \ceq{\hfill\exists y\ r_{\phi\,;\alpha}(\bar a, y)}{\Leftrightarrow}{\exists y\,\forall z\Big[ z\in\alpha(M)\rightarrow \bigvee_{i=1}^m\neg\phi_i(\bar a,y\,;z)\Big]}
+  \ceq{\hfill\exists y\ r_{\phi\,;\alpha}(\bar a, y)}{\Leftrightarrow}{\exists y\,\forall z\Big[ z\in\alpha(M)\rightarrow \bigvee_{i=1}^m\phi_i(\bar a,y\,;z)\Big]}
 
-  \ceq{}{\Leftrightarrow}{\forall z\Big[ z\in\alpha(M)\rightarrow \bigvee_{i=1}^m\neg\phi'_i(\bar a\,;z)\wedge\neg\forall y\,\psi_i(y\,;z)\Big]}
+  \ceq{}{\Leftrightarrow}{\forall z\Big[ z\in\alpha(M)\rightarrow \bigvee_{i=1}^m\phi'_i(\bar a\,;z)\wedge\exists y\,\psi_i(y\,;z)\Big]}
 
-  \ceq{}{\Leftrightarrow}{\vphantom{\bigvee_{i=1}^n}r_{\theta,\beta}(\bar a),}
+  \ceq{}{\Leftrightarrow}{\vphantom{\bigvee_{i=1}^n}r_{\theta,\alpha}(\bar a),}
 
   where 
   
-  \ceq{\hfill\theta(\bar x\,;z)}{=}{\bigwedge_{i=1}^m\phi'_i(\bar x\,;z)\ \vee\ \forall y\,\psi_i(y\,;z)}
+  \ceq{\hfill\theta(\bar x\,;z)}{=}{\bigwedge_{i=1}^m\phi'_i(\bar x\,;z)\ \wedge\ \exists y\,\psi_i(y\,;z)}
 
   is a positive Boolean combination of formulas in  $\bigcup_{x'\in V} L_{x',z}$, as required.
 \end{proof}
