@@ -21,27 +21,37 @@ We require that $\alpha(z)$ is a finitary type, i.e.\@ only a finite number of v
 Below by the symbol \emph{$L^{\rm\! p}$} we will also denote the set of \textit{atomic\/} formulas $r_{\phi\,;\alpha}(x_0,\dots,x_{n-1})$ for any $x_0,\dots,x_{n-1}\in V$.
 Note that equalities are \textit{not\/} included in $L^{\rm\! p}$.
 
-For a given model weakly saturated model $M$, we define the interpretation of $r_{\phi\,;\alpha}$ in $\U^x$.
+For a given model model $M$, we define the interpretation of $r_{\phi\,;\alpha}$ in $\U^x$.
+We require $M$ realizes every consistent parameter-free finitary type (if we replace $\alpha(z)$ with a formula, this is not necessary).
 Eventually, we will proved that the main definition in this section, the definition of \textit{core,} does not depend on the choice of $M$.
 However, some of the intermediate notions introduced here do depend on $M$, though to avoid cluttering the notation we will omit reference to it.
 
 If $\bar a=a_0,\dots,a_{n-1}\in\U^x$, we declare $r_{\phi\,;\alpha}(\bar a)$ true if $\phi(\bar a\,;b)$ holds for every $b\in M^z$ such that $\alpha(b)$.
 We repeat the definition for emphasis
 
-\ceq{\hfill r_{\phi\,;\alpha}(\bar a)}{\Leftrightarrow}{\forall z\in\alpha(M^z)\ \phi(\bar a\,;z).}
+% \ceq{\hfill r_{\phi\,;\alpha}(\bar a)}{\Leftrightarrow}{\forall z\in\alpha(M^z)\ \phi(\bar a\,;z).}
+\ceq{\hfill r_{\phi\,;\alpha}(\bar a)}{\Leftrightarrow}{\alpha(M^z)\ \subseteq\ \phi(\bar a\,;M^z).}
 
 The following is paramount.
 
 \begin{remark}
   By the choice of $\Delta$, the truth of $r_{\phi\,;\alpha}(\bar a)$ only depends on the equivalence class of $\equiv_M$ of the components of the tuple $\bar a$.
-  Explicitely, if $\bar a=a_0,\dots,a_{n-1}$ and $\bar a'=a'_0,\dots,a'_{n-1}$ are such that $a_i\equiv_M a'_i$ for every $i<n$, then $r_{\phi\,;\alpha}(\bar a)\ \leftrightarrow\ r_{\phi\,;\alpha}(\bar a')$.
+  Explicitely, if $\bar a=a_0,\dots,a_{n-1}$ and $\bar a'=a'_0,\dots,a'_{n-1}$ are such that $a_i\equiv_M a'_i$ for every $i<n$, then \smallskip
+  
+  \ceq{\#\hfill r_{\phi\,;\alpha}(\bar a)}{\leftrightarrow}{r_{\phi\,;\alpha}(\bar a').} \smallskip
+
+  But we can stretch this further.
+  Write $a\equiv_{\{M\}}a'$ if $fa=a'$ for some $f\in{\rm Aut}(\U/\{M\})$ i.e.\@ $a$ and $a'$ are conjugated by an automorphism that fixes $M$ setwise.
+  Then $\#$ holds whenever $a_i\equiv_{\{M\}} a'_i$ for every $i<n$.
+
 \end{remark}
 
-By the remark, it would be natural to define the interpretation of $L^{\rm\! p}$ on the quotient $\U^x/{\equiv_M}$ or on the type space $S_x(M)$, but we prefer to keep the original domain $\U^x$ to have a common playground with $L$.
+By the remark, it would be natural to define the interpretation of $L^{\rm\! p}$ on the quotient $\U^x/{\equiv_M}$, i.e.\@ the type space $S_x(M)$, or even on $\U^x/{\equiv_{\{M\}}}$~--~albeit this is more perplexing.
+But we prefer to keep the original domain $\U^x$ to have a common playground with $L$.
 
 A \emph{p-type\/} is a set of (atomic) formulas in $L^{\rm\! p}(\U^x)$.
 
-Note incidentally that the relation $x_0\equiv_M x_1$ is definable by the p-type containing the formulas $r_{\theta\,; \top }(x_0,x_1)$ for every $\theta(x_0,x_1\,;z)$ of the form $\phi(x_0\,;z)\leftrightarrow\phi(x_1\,;z)$.
+Note incidentally that the relation $x_0\equiv_{\{M\}} x_1$ is definable by the p-type containing the formulas $r_{\theta\,; \top }(x_0,x_1)$ for every $\theta(x_0,x_1\,;z)$ of the form $\phi(x_0\,;z)\leftrightarrow\phi(x_1\,;z)$.
 
 We write \emph{$\textrm{p-tp}(\bar a)$} for the p-type of $\bar a$, i.e.\@ the set of formulas $r_{\phi\,;\alpha}(\bar x)$ such that $r_{\phi\,;\alpha}(\bar a)$ holds.
 
@@ -56,11 +66,12 @@ We write \emph{$\textrm{p-tp}(\bar a)$} for the p-type of $\bar a$, i.e.\@ the s
   Therefore the following equivalences hold 
   
   \ceq{\hfill r_{\phi\,;\alpha}(\bar a)\vee r_{\psi\,;\beta}(\bar a)}{\Leftrightarrow}{\forall z\in\alpha(M^z)\ \phi(\bar a\,;z)\ \ \vee\ \ \forall z\in\beta(M^z)\ \psi(\bar a\,;z)} 
+  %\ceq{\hfill r_{\phi\,;\alpha}(\bar a)\vee r_{\psi\,;\beta}(\bar a)}{\Leftrightarrow}{\alpha(M^z)\ \subseteq\ \phi(\bar a\,;M^z)\ \ \vee\ \ \beta(M^z)\ \subseteq\ \psi(\bar a\,;M^z)} 
 
-  \ceq{}{\Leftrightarrow}{\forall z\in\alpha(M^z)\cup\beta(M^z)\ \ \ \phi(\bar a\,;z)\, \vee\,\psi(\bar a\,;z)} 
+  \ceq{}{\Leftrightarrow}{\forall z\in\alpha(M^z)\cap\beta(M^z)\ \ \ \phi(\bar a\,;z)\, \vee\,\psi(\bar a\,;z)} 
+  % \ceq{}{\Leftrightarrow}{\alpha(M^z)\cup\beta(M^z)\ \subseteq \ \phi(\bar a\,;M^z) \vee\psi(\bar a\,;M^z)} 
 
-  \ceq{}{\Leftrightarrow}{r_{\phi\vee\psi\,;\,\alpha\cup\beta}(\bar a)}
-
+  \ceq{}{\Leftrightarrow}{r_{\phi\vee\psi\,;\,\alpha\cap\beta}(\bar a)}
 
   A similar argument applies to the conjunction of two formulas.
 
@@ -189,7 +200,7 @@ Let $m$ be an enumeration of $M$.
 
 \begin{remark}
   We remark an simple fact which is used in the proof below. 
-  We say that $\phi'(a\,;z)$ is an alphabetic variant of $\phi(a\,;z)$ if it is obtained by replacing the vartiables effectively occurring in $\phi(a\,;z)$ by other variables (among those in $z$).
+  We say that $\phi'(a\,;z)$ is an alphabetic variant of $\phi(a\,;z)$ if it is obtained by replacing the vartiables effectively occurring in $\phi(a\,;z)$ by other variables among those in $z$.
   The following are clearly equivalent
   \begin{itemize}
     \item[1.] $\phi(a\,;M^z)=M^z$
@@ -197,7 +208,7 @@ Let $m$ be an enumeration of $M$.
   \end{itemize}
 \end{remark}
 
-Let $S_{m,M}\subseteq S_z(\U)$, where $z$ has the  length of $m$, be the set of global types that extend ${\rm tp}(m/\varnothing)$ and are finitely satisfied in $M$. 
+Let $S_{m,M}\subseteq S_z(\U)$, where $z$ has the  length of $m$, be the set of global types that extend ${\rm tp}(m/\varnothing)$ and are finitely satisfied in $M^z$.
 
 \begin{fact}
   Assume $x$ has infinite length.
@@ -205,7 +216,7 @@ Let $S_{m,M}\subseteq S_z(\U)$, where $z$ has the  length of $m$, be the set of 
 \end{fact}
 
 \begin{proof}
-  As $x$ has infinite length, we can assume that the formulas in the types in $S_z(\U)$ are the form $\phi(a\,;z)$ for some $\phi(x\,;z)\in L$ and $a\in\U^x$.
+  As $x$ has infinite length, we can assume that the formulas in the types in $S_z(\U)$ are all of the form $\phi(a\,;z)$ for some $\phi(x\,;z)\in L$ and $a\in\U^x$.
 
   Let $R\subseteq\U^x\times\U^x$ be a total p-morphism.
   Let $p(z)$ be the type containing the formulas $
@@ -218,14 +229,14 @@ Let $S_{m,M}\subseteq S_z(\U)$, where $z$ has the  length of $m$, be the set of 
   \ceq{\hfill\psi(x_1,\dots,x_n\,;z)}{=}{\bigwedge_{i=n}^n\phi_i(x_i\,;z)}
   
   for some $\phi_i(x\,;z)\in L$ and $\langle a_i,b_i\rangle\in R$ such that $\phi_i(b_i\,;m)$.
-  Then $r_{\neg\psi\,;\top}(a_1,\dots,a_n)$ and $\neg r_{\neg\psi\,;\top}(fa_1,\dots,fa_n)$.
+  Then $r_{\neg\psi\,;\top}(a_1,\dots,a_n)$ and $\neg r_{\neg\psi\,;\top}(b_1,\dots,b_n)$.
   A contradiction.
 
   Vice versa, let $p(z)\in S_{m,M}$ be given.
   Let $R\subseteq\U^x\times\U^x$ contain the pairs $\langle a,b\rangle$ such that $\phi(a\,;z)\in p\Leftrightarrow\phi(b\,;m)$ holds for every $\phi(x\,;z)\in L$.
   We prove that $R$ is a p-morphism.
 
-  Let $\psi(x_1,\dots,x_n\,;z)\in\Delta$, $\alpha(z)\subseteq L$, and $a_1,\dots,a_n\in\U^x$ be such that $r_{\psi\,;\alpha}(a_1,\dots,a_n)$.
+  Let $\psi(x_1,\dots,x_n\,;z)\in\Delta$, $\alpha(z)\in L$, and $a_1,\dots,a_n\in\U^x$ be such that $r_{\psi\,;\alpha}(a_1,\dots,a_n)$.
   Finally, let $\langle a_i,b_i\rangle\in R$.
   We can assume $\alpha(M^z)\neq\varnothing$, otherwise $r_{\psi\,;\alpha}(b_1,\dots,b_n)$ trivially holds.
   Assume
@@ -233,16 +244,103 @@ Let $S_{m,M}\subseteq S_z(\U)$, where $z$ has the  length of $m$, be the set of 
   \ceq{\hfill\psi(x_1,\dots,x_n\,;z)}{=}{\bigvee_{h=1}^m\bigwedge_{k=1}^m\phi_{h,k}(x_{i_{h,k}}\,;z)}
 
   for some $i_{h,k}\in\{1,\dots,n\}$.
+  As $r_{\psi\,;\alpha}(a_1,\dots,a_n)$, up to re-indexing, we obtain that $\alpha(M^z)\subseteq\phi_{0,k}(a_{i_{0,k}};M^z)$ for evey $k$. 
+  As $p(z)$ is finitely satisfiable in $M$, by completeness it cointains $\alpha(z)\rightarrow\phi_{0,k}(a_{i_k}\,;z)$ and all its alphabetic variants.
+  Then $m$ satisfies $\alpha(z)\rightarrow\phi_{0,k}(b_{i_k}\,;z)$ and all its alphabetic variants.
+  Then $\alpha(M^z)\subseteq\phi_{0,k}(b_{i_{0,k}};M^z)$ by the above remark.
+  Therefore, $r_{\psi\,;\alpha}(b_1,\dots,b_n)$ follows.
+\end{proof}
 
-  As $r_{\psi\,;\alpha}(a_1,\dots,a_n)$, up to re-indexing, we obtain that $\phi_{0,k}(a_{i_{0,k}}\,;c)$ every $c\in\alpha(M^z)$.
-  As $p(z)$ is finitely satisfiable in $M$, then $\alpha(z)\wedge\neg\phi_{0,k}(a_{i_k}\,;z)\notin p$.
-  Then, by completeness, $p(z)\vdash\alpha(z)\rightarrow\phi_{0,k}(b_{i_k}\,;z)$.
-  Then $m\models\alpha(z)\rightarrow\phi_{0,k}(b_{i_k}\,;z)$.
+
+\begin{fact}
+  Assume $x$ has infinite length.
+  Let $N$ be a sufficiently saturated model containing $M$ and let $c\equiv m$ be such that ${\rm tp}(c/N)$ is invariant over $M$.
+  
+  Then there is a one-to-one correspondence between the elements of $S_{m,M}$ and the total p-morphisms of $\U^x$ up to equivalence.
+\end{fact}
+
+\begin{proof}
+  Let $b\models q(z)\restriction N$ and $c\models p(z)\restriction N,b$.
+  Note that ${\rm tp}(c/N)$ is finitely satisfiable in $M$.
+  By the saturation of $M$, there is a unique extension of ${\rm tp}(c/N)$ that is finitely satisfiable in $M$.
+  We denote this extention by $p{*}q\,(z)$.
+
+  1. $p(z)=\{\phi(a,z)\ :\ \phi(f_pa,m),\ a\in\U^x\}$
+
+
+  $a,b\equiv f_qa, m$ for every $a\in N^x$.
+
+  As  and that $c\nonfork_M b,N$,
+
+  $a,b,c\equiv f_qa, m,c$ for every $a\in N^x$.
+
+  2. $q(z)=\{\phi(a,z)\ :\ \phi(f_qa,m),\ a\in\U^x\}$
+
+  $a,c\equiv f_pa,m$ for every $a\in (N,b)^x$.
+
+  $a,b,c\equiv f_pa,f_pb,m$ for every $a\in N^x$, then also
+  
+  $f_qa,b,c\equiv f_pf_qa,f_pb,m$ for every $a\in N^x$.
+
+
+
+  Therefore 
+
+  $f_qa, m,c\equiv f_pa,f_pb,m$
+
+  Suppose for a contradiction that $a,c\not\equiv f_pf_qa, m$.
+
+  
+  
+  We claim that 
+  $c,a\equiv m,f_pf_qa$ for every $a\in N$.
+
+  
+
+
+
+
 
 \end{proof}
 
-\section{Cores}
 
+% Let $p(z)$ and $q(z)$ be the types that correspond to the p-morphisms $f_p$, respectively $f_q$.
+% Pick any sufficiently saturated model $N\succeq M$ and $c\models q(z)\restriction N$.
+% Then the type $(p\otimes q)(z,c)$ corresponds to the p-morphisms $f_p\circ f_q$.
+
+% 
+
+%
+
+% $(p\otimes q)(z,c)=\{\phi(z,c)\ \ :\ \ \phi(z,c')\in p \textrm{ for some/any } c'\models q(z)\restriction N\}$
+
+% Then $\phi(a',c)$ holds for every $a'\in f_q^{-1}[N]$.
+
+% $z'$ be a copy of $z$
+% Say $f,g: S(M)\to S(M)$ and $h=gf$.
+% Let $m,n$ enumerate $M$.
+% Write $p(z)={\rm tp}(m/\varnothing)$.
+% By Lemma 3.14, we have that $g$ and $f$ correspond to global extensions $p_f$ and $p_g$. 
+% Explicitely:
+
+% $p_f=\{\phi(a,z)\ :\ φ(fa,m),\ a\in\U^x\}$
+
+% $p_g=\{\phi(a,z)\ :\ φ(ga,m),\ a\in\U^x\} = \{\phi(fa,z)\ :\ φ(gfa,m),\ a\in\U^x\}$
+
+% $p_{gf}=\{\phi(a,z)\ :\ φ(gfa,m),\ a\in\U^x\}$
+
+% % f(tp(e/A))={φ(x,b) : φ(e',y)∈f*p for some/any e' ≡_A e}={φ(x,b) : φ(e,y)∈f*p}
+% % g*q={ φ(e,z) : φ(x,c)∈ g(tp(e/B)) }
+% % g(tp(e/B))={φ(x,c) : φ(e',z)∈g*q for some/any e' ≡_B e}={φ(x,c) : φ(e,z)∈g*q}
+
+% Now, h corresponds to a global extension h*q of q. Let's write h*q in terms of f*p and g*q:
+% h*q={φ(e,z) : φ(e,z)\in gf(tp(e/A))}={φ(e,z) : φ(e',z)∈g*q for some/any e' realising f(tp(e/A))}={φ(e,z) : φ(e',z)∈g*q for some/any e' such that ⊧θ(e',b) for any θ(e,y)∈f*p}={φ(e,z) : φ(e',z)∈g*q for some/any e' such that e'b≡eb' for any b' realising f*p|e}
+
+% Hence, for p(y) global A-invariant type extending tp(b/ø) and q(z) global B-invariant type extending tp(c/ø), define
+% q⊗p={φ(e,z) : φ(e',z)∈q for some/any e' such that e'b≡eb' for any b' realising p|e}.
+% We can further check that q⊗p is finitely satisfiable in A if q is finitely satisfiable in B and p is finitely satisfiable in A.
+
+\section{Cores}
 
 % \begin{fact}\label{fact_reduced_funct} 
 %   Let $R$ be a p-morphism and let $f\subseteq R$ be a reduced p-morphism.
@@ -267,8 +365,7 @@ A set $\A\subseteq\U^x$ is \emph{p-maximal} if it satisfies the following (obvio
   \item[a.] $r_{\phi\,;\alpha}(\bar a)\ \ \Leftrightarrow\ \ r_{\phi\,;\alpha}(\bar b)$ \hfill
   for every $r_{\phi\,;\alpha}\in L^{\rm\! p}$
 
-\item[b.] $\textrm{p-tp}(\bar a)\ \ =\ \ \textrm{p-tp}(\bar b)$
-% \item[3.] $\textrm{p-tp}(\bar a)$ is a maximally consistent p-type.
+  \item[b.] $\textrm{p-tp}(\bar a)\ \ =\ \ \textrm{p-tp}(\bar b)$.
 \end{itemize}
 
 % By Zorn's lemma, every set satisfying the above conditions is contained in a p-maximal set.
@@ -386,3 +483,11 @@ A \emph{p-retraction} of $\U^x$ onto $\A$ is a total p-morphism $R$ that coincid
 \begin{proof}
   ???
 \end{proof}
+
+\section{Esperimenti}
+
+Let $M$ be a saturated model and let $G={\rm Aut}(M)$.
+
+The group $G$ acts on $\U^x/{\equiv_M}$ in the natural way. 
+
+
