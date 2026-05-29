@@ -7,26 +7,27 @@
 In the following $\U$ is some monster model of a complete theory $T$ of language $L$.
 For simplicity $T$ is assumed to be one-sorted.
 
-We define a structure with domain $\U^x$, where $x$ is some fixed tuple of variables.
+We define a structure whose domain is a subset of $\U^x$, where $x$ is some fixed tuple of variables.
 The language is denoted by $L^{\rm\! p}$.
 Though $L^{\rm\! p}$ depends on $x$, this will be left implicit.
 
 Let $V$ be some large set of variables that are copies of $x$. 
-Let $\Delta$ be the set of positive Boolean combinations of formulas in $\ \bigcup_{x'\in V} L_{x'\,;z}$, where $z=\langle z_i:i\in\omega\rangle$ is a fixed tuple of variables of length $\omega$.
-The choice of $\Delta$ is justified in the remark below.
+Let $\Delta$ be the set of positive Boolean combinations of formulas in $\ \bigcup_{x'\in V} L_{x'\,;z}$, where $z=\langle z_i:i<\lambda\rangle$ is a fixed tuple of variables.
+The choice of $\Delta$ is justified in Remark~\ref{rem_first}.
 
-For every formula $\phi(x_0,\dots,x_{n-1}\,;z)\in\Delta$ and every type $\alpha(z)\subseteq L$ the language $L^{\rm\! p}$ contains the $n$-ary relation \emph{$r_{\phi\,;\alpha}$.}
-We require that $\alpha(z)$ is a finitary type, i.e.\@ only a finite number of variables actually occur in it.
+For every formula $\phi(x_0,\dots,x_{n-1}\,;z)\in\Delta$ and every type $\alpha(z)\in L$ the language $L^{\rm\! p}$ contains the $n$-ary relation \emph{$r_{\phi\,;\alpha}$.}
+% We require that $\alpha(z)$ is a finitary type, i.e.\@ only a finite number of variables actually occur in it.
 
 Below by the symbol \emph{$L^{\rm\! p}$} we will also denote the set of \textit{atomic\/} formulas $r_{\phi\,;\alpha}(x_0,\dots,x_{n-1})$ for any $x_0,\dots,x_{n-1}\in V$.
 Note that equalities are \textit{not\/} included in $L^{\rm\! p}$.
 
-For a given model model $M$, we define the interpretation of $r_{\phi\,;\alpha}$ in $\U^x$.
-We require $M$ realizes every consistent parameter-free finitary type (if we replace $\alpha(z)$ with a formula, this is not necessary).
-Eventually, we will proved that the main definition in this section, the definition of \textit{core,} does not depend on the choice of $M$.
-However, some of the intermediate notions introduced here do depend on $M$, though to avoid cluttering the notation we will omit reference to it.
+For a given pairs of models $M\preceq N$, where $N$ is $|M|^+$-saturated, we define a model $\N$ with domain $N^x$. 
+% Eventually, we will proved that the main definition in this section, the definition of \textit{core,} does not depend on the choice of $M$.
+% However, some of the intermediate notions introduced here do depend on $M$, though to avoid cluttering the notation we will omit reference to it.
+We will show that $\N$ is very saturated (in a suitable language) but, as $N$ is taken to be small w.r.t.\@ $\U$, we will be able to realize in $\U$ all types in $S(\N)$.
 
-If $\bar a=a_0,\dots,a_{n-1}\in\U^x$, we declare $r_{\phi\,;\alpha}(\bar a)$ true if $\phi(\bar a\,;b)$ holds for every $b\in M^z$ such that $\alpha(b)$.
+We define the interpretation of $r_{\phi\,;\alpha}$ in $\N$.
+If $\bar a=a_0,\dots,a_{n-1}\in \N$, we declare $r_{\phi\,;\alpha}(\bar a)$ true if $\phi(\bar a\,;b)$ holds for every $b\in M^z$ such that $\alpha(b)$.
 We repeat the definition for emphasis
 
 % \ceq{\hfill r_{\phi\,;\alpha}(\bar a)}{\Leftrightarrow}{\forall z\in\alpha(M^z)\ \phi(\bar a\,;z).}
@@ -34,24 +35,25 @@ We repeat the definition for emphasis
 
 The following is paramount.
 
-\begin{remark}
+\begin{remark}\label{rem_first}
   By the choice of $\Delta$, the truth of $r_{\phi\,;\alpha}(\bar a)$ only depends on the equivalence class of $\equiv_M$ of the components of the tuple $\bar a$.
   Explicitely, if $\bar a=a_0,\dots,a_{n-1}$ and $\bar a'=a'_0,\dots,a'_{n-1}$ are such that $a_i\equiv_M a'_i$ for every $i<n$, then \smallskip
   
   \ceq{\#\hfill r_{\phi\,;\alpha}(\bar a)}{\leftrightarrow}{r_{\phi\,;\alpha}(\bar a').} \smallskip
 
   But we can stretch this further.
-  Write $a\equiv_{\{M\}}a'$ if $fa=a'$ for some $f\in{\rm Aut}(\U/\{M\})$ i.e.\@ $a$ and $a'$ are conjugated by an automorphism that fixes $M$ setwise.
+  Write $a\equiv_{\{M\}}a'$ if $fa=a'$ for some $f\in{\rm Aut}(N/\{M\})$ i.e.\@ $a$ and $a'$ are conjugated by an automorphism that fixes $M$ setwise.
   Then $\#$ holds whenever $a_i\equiv_{\{M\}} a'_i$ for every $i<n$.
 
 \end{remark}
 
-By the remark, it would be natural to define the interpretation of $L^{\rm\! p}$ on the quotient $\U^x/{\equiv_M}$, i.e.\@ the type space $S_x(M)$, or even on $\U^x/{\equiv_{\{M\}}}$~--~albeit this is more perplexing.
-But we prefer to keep the original domain $\U^x$ to have a common playground with $L$.
+By the remark, it would be natural to define the interpretation of $L^{\rm\! p}$ on the quotient $\N/{\equiv_M}$ or even on $\N/{\equiv_{\{M\}}}$~--~albeit the latter is more perplexing and will not be considered here.
+But we prefer to keep the original domain $\N$ to have a common playground with $L$.
 
-A \emph{p-type\/} is a set of (atomic) formulas in $L^{\rm\! p}(\U^x)$.
+A \emph{p-type\/} is a set of (atomic) formulas in $L^{\rm\! p}(\N)$.
 
-Note incidentally that the relation $x_0\equiv_{\{M\}} x_1$ is definable by the p-type containing the formulas $r_{\theta\,; \top }(x_0,x_1)$ for every $\theta(x_0,x_1\,;z)$ of the form $\phi(x_0\,;z)\leftrightarrow\phi(x_1\,;z)$.
+Note incidentally that the relation $x_0\equiv_M x_1$ is definable by a p-type.
+Namely the p-type containing the formulas $r_{\theta\,; \top }(x_0,x_1)$ for every $\theta(x_0,x_1\,;z)$ of the form $\phi(x_0\,;z)\leftrightarrow\phi(x_1\,;z)$.
 
 We write \emph{$\textrm{p-tp}(\bar a)$} for the p-type of $\bar a$, i.e.\@ the set of formulas $r_{\phi\,;\alpha}(\bar x)$ such that $r_{\phi\,;\alpha}(\bar a)$ holds.
 
@@ -98,19 +100,19 @@ We write \emph{$\textrm{p-tp}(\bar a)$} for the p-type of $\bar a$, i.e.\@ the s
 
 
 \begin{fact}[ ($\infty$-p-saturation)]\label{fact_psat}
-  Let $\A\subseteq\U^x$ have arbitrary cardinality.
-  Let $\bar x$ be a tuple of copies of $x$ of length $\le|\U|$.
-  Then every p-type $p(\bar x)\subseteq L^{\rm\! p}(\A)$ that is finitely consistent in $\U^x$ is realized in $\U^x$.
+  Let $A\subseteq \N$ have arbitrary cardinality.
+  Let $\bar x$ be a tuple of copies of $x$ of length $\le|N|$.
+  Then every p-type $p(\bar x)\subseteq L^{\rm\! p}(A)$ that is finitely consistent in $\N$ is realized in $\N$.
 \end{fact}
 
 \begin{proof}
-  Let $A\subseteq\U^x$ be a small set containing a representative of every $\equiv_M$ equivalence class that intersects $\A$.
-  Replacing $\A$ in $p(\bar x)$ by elements $A$ we obtain a equivalent type $p'(\bar x)\subseteq L^{\rm\! p}(A)$.
+  Let $A\subseteq\U^x$ be a small set containing a representative of every $\equiv_M$ equivalence class that intersects $A$.
+  Replacing $A$ in $p(\bar x)$ by elements $A$ we obtain a equivalent type $p'(\bar x)\subseteq L^{\rm\! p}(A)$.
   Note that every formula $r_{\phi\,;\alpha}(\bar x)$ there is a type $q(\bar x)\subseteq L$ such that
 
-  \ceq{\hfill\U^x\models r_{\phi\,;\alpha}(\bar a)}{\Leftrightarrow}{\U\models q(\bar a)}
+  \ceq{\hfill \N\models r_{\phi\,;\alpha}(\bar a)}{\Leftrightarrow}{N\models q(\bar a)}
 
-  Therefore the saturation of $\U$ implies that $p'(\bar x)$ is realized in $\U^x$.
+  Therefore the saturation of $N$ implies that $p'(\bar x)$ is realized in $\N$.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%
@@ -132,7 +134,7 @@ We say that $R$ is a \emph{p-morphism} if the following condition holds
 \ceq{\#\hfill\U^x\models r_{\phi\,;\alpha}(\bar a)}{\Rightarrow}{\U^x\models r_{\phi\,;\alpha}(\bar b)}\hfill for every $r_{\phi\,;\alpha}\in L^{\rm p}$ and every $\langle \bar a,\bar b\rangle\in R$.
 
 When the converse implication in \# also holds, i.e.\@ when also $R^{-1}$ is a p-morphism, we say that $R$ is a \emph{partial p-isomorphism.}
-When $\A\subseteq{\rm dom}\,R$,  $\B\subseteq{\rm range}\,R$, and $R\cap (\A\times\B)$ is a partial p-isomorphism, we say that $R$ is an \emph{p-isomorphism} between $\A$ and $\B$ or, when $\A=\B$, a \emph{p-automorphism} of $\A$.
+When $\A\subseteq{\rm dom}\,R$, $\B\subseteq{\rm range}\,R$, and $R\cap (\A\times\B)$ is a partial p-isomorphism, we say that $R$ is an \emph{p-isomorphism} between $\A$ and $\B$ or, when $\A=\B$, a \emph{p-automorphism} of $\A$.
 
 If $R$ is a p-morphism, also $\mathrel{\equiv_M}\circ \mathrel{R}\circ\mathrel{\equiv_M}$ is a p-morphism.
 This we call the \emph{full} p-morphism generated by $R$.
@@ -145,9 +147,8 @@ We say that $R$ and $R'$ are \emph{equivalent} if they generate the same full p-
   Vice versa, to any p-morphisms $R$ we can associate $f:\U^x/{\equiv_M}\to\U^x/{\equiv_M}$ that maps $a/{\equiv_M}\mapsto b/{\equiv_M}$ for some/any $b$ such that $\langle a,b\rangle\in R$.
   This is well-defined because if $\langle a,b\rangle,\langle a',b'\rangle\in R$  and $a\equiv_M a'$, then we necessarily have $b\equiv_M b'$.\smallskip
 
-  We find more convenient to work with relations. 
+  We find more convenient to work with relations.
 \end{remark}
-
 
 % Note that $R\circ R^{-1}$ and $R^{-1}\!\circ R$ are contained in the (trivial) p-isomorphism $\equiv_M$.
 
@@ -178,6 +179,7 @@ It is clear that if $A, B\subseteq\U^x$ are any two sets of represetative of $\e
   Every p-morphism extends to a p-morphism defined on the whole of $\U^x$.
   Also, every p-isomorphism extends to a p-automorphism of $\U^x$.
 \end{fact}
+
 \begin{proof}
   Let $R$ be a p-morphism.
   Pick be a reduced p-morphism $f$ equivalent to $R$.
@@ -192,115 +194,110 @@ It is clear that if $A, B\subseteq\U^x$ are any two sets of represetative of $\e
   The second claim is obtained by back-and-forth.
 \end{proof}
 
+%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%
 \section{Duality}
 
-
-
-Let $m$ be an enumeration of $M$.
+In this section $\bar m$ is an enumeration of $M$ and $|z|=|\bar m|$.
+For convenience, $x$ is taken of infinite length.
+Therefore we can assume that the formulas in the types in $S_z(\U)$ are all of the form $\phi(a\,;z)$ for some $\phi(x\,;z)\in L$ and $a\in\U^x$.
 
 \begin{remark}
-  We remark an simple fact which is used in the proof below. 
+  We remark a simple fact which is used in the proof below. 
   We say that $\phi'(a\,;z)$ is an alphabetic variant of $\phi(a\,;z)$ if it is obtained by replacing the vartiables effectively occurring in $\phi(a\,;z)$ by other variables among those in $z$.
   The following are clearly equivalent
   \begin{itemize}
     \item[1.] $\phi(a\,;M^z)=M^z$
-    \item[2.] $\phi'(a\,;m)$ holds for every alphabetic variant of $\phi(a\,;z)$.
+    \item[2.] $\phi'(a\,;\bar m)$ holds for every alphabetic variant of $\phi(a\,;z)$.
   \end{itemize}
 \end{remark}
 
-Let $S_{m,M}\subseteq S_z(\U)$, where $z$ has the  length of $m$, be the set of global types that extend ${\rm tp}(m/\varnothing)$ and are finitely satisfied in $M^z$.
+Let $\B=\big\{b\in\U^z\ :\ \bar m\equiv b\nonfork_MN\big\}$.
 
 \begin{fact}
-  Assume $x$ has infinite length.
-  Then there is a one-to-one correspondence between the elements of $S_{m,M}$ and the total p-morphisms of $\U^x$ up to equivalence.
+  Then there is a one-to-one correspondence between the elements of $\B/{\equiv_M}$ and the total p-morphisms of $\N$.
 \end{fact}
 
-\begin{proof}
-  As $x$ has infinite length, we can assume that the formulas in the types in $S_z(\U)$ are all of the form $\phi(a\,;z)$ for some $\phi(x\,;z)\in L$ and $a\in\U^x$.
+% \begin{proof}
+%   As $x$ has infinite length, we can assume that the formulas in the types in $S_z(\U)$ are all of the form $\phi(a\,;z)$ for some $\phi(x\,;z)\in L$ and $a\in\U^x$.
 
-  Let $R\subseteq\U^x\times\U^x$ be a total p-morphism.
-  Let $p(z)$ be the type containing the formulas $
-  \phi(a\,;z)$ such that $\phi(b\,;m)$ for some/any $b$ such that $\langle a,b\rangle\in R$.
-  We claim that $p(z)\in S_{m,M}$.
-  It easy to see that $p(z)$ is complete.
-  The inclusion $p(z)\supseteq{\rm tp}(m/\varnothing)$ is clear, so we only need to prove that $p(z)$ is finitely satisfied in $M$.
-  Suppose not, then $\psi(a_1,\dots,a_n\,;M^z)=\varnothing$, where 
+%   Let $R\subseteq\U^x\times\U^x$ be a total p-morphism.
+%   Let $p(z)$ be the type containing the formulas $
+%   \phi(a\,;z)$ such that $\phi(b\,;m)$ for some/any $b$ such that $\langle a,b\rangle\in R$.
+%   We claim that $p(z)\in S_{m,M}$.
+%   It easy to see that $p(z)$ is complete.
+%   The inclusion $p(z)\supseteq{\rm tp}(m/\varnothing)$ is clear, so we only need to prove that $p(z)$ is finitely satisfied in $M$.
+%   Suppose not, then $\psi(a_1,\dots,a_n\,;M^z)=\varnothing$, where 
+  
+%   \ceq{\hfill\psi(x_1,\dots,x_n\,;z)}{=}{\bigwedge_{i=n}^n\phi_i(x_i\,;z)}
+  
+%   for some $\phi_i(x\,;z)\in L$ and $\langle a_i,b_i\rangle\in R$ such that $\phi_i(b_i\,;m)$.
+%   Then $r_{\neg\psi\,;\top}(a_1,\dots,a_n)$ and $\neg r_{\neg\psi\,;\top}(b_1,\dots,b_n)$.
+%   A contradiction.
+
+%   Vice versa, let $p(z)\in S_{m,M}$ be given.
+%   Let $R\subseteq\U^x\times\U^x$ contain the pairs $\langle a,b\rangle$ such that $\phi(a\,;z)\in p\Leftrightarrow\phi(b\,;m)$ holds for every $\phi(x\,;z)\in L$.
+%   We prove that $R$ is a p-morphism.
+
+%   Let $\psi(x_1,\dots,x_n\,;z)\in\Delta$, $\alpha(z)\in L$, and $a_1,\dots,a_n\in\U^x$ be such that $r_{\psi\,;\alpha}(a_1,\dots,a_n)$.
+%   Finally, let $\langle a_i,b_i\rangle\in R$.
+%   We can assume $\alpha(M^z)\neq\varnothing$, otherwise $r_{\psi\,;\alpha}(b_1,\dots,b_n)$ trivially holds.
+%   Assume
+
+%   \ceq{\hfill\psi(x_1,\dots,x_n\,;z)}{=}{\bigvee_{h=1}^m\bigwedge_{k=1}^m\phi_{h,k}(x_{i_{h,k}}\,;z)}
+
+%   for some $i_{h,k}\in\{1,\dots,n\}$.
+%   As $r_{\psi\,;\alpha}(a_1,\dots,a_n)$, up to re-indexing, we obtain that $\alpha(M^z)\subseteq\phi_{0,k}(a_{i_{0,k}};M^z)$ for evey $k$. 
+%   As $p(z)$ is finitely satisfiable in $M$, by completeness it cointains $\alpha(z)\rightarrow\phi_{0,k}(a_{i_k}\,;z)$ and all its alphabetic variants.
+%   Then $m$ satisfies $\alpha(z)\rightarrow\phi_{0,k}(b_{i_k}\,;z)$ and all its alphabetic variants.
+%   Then $\alpha(M^z)\subseteq\phi_{0,k}(b_{i_{0,k}};M^z)$ by the above remark.
+%   Therefore, $r_{\psi\,;\alpha}(b_1,\dots,b_n)$ follows.
+% \end{proof}
+
+\begin{proof}
+  In 1 below, given a p-morphism, we define an element of $\B$. In 2, given an element of $\B$, we contruct a p-morphism.  
+  
+  1.\ 
+  Let $f: \N/{\equiv_M}\to \N/{\equiv_M}$ be a total p-morphism.
+  Let $p(z)\subseteq L(N)$ be the type containing the formulas $\phi(a\,;z)$ such that $\phi(f\!a\,;\bar m)$ for every $a\in \N$.
+  Clearly $p(z)$ is complete, and contains  ${\rm tp}(\bar m)$.
+  We prove that $p(z)$ is finitely satisfied in $M$, then the fact is proved if we define $b$ to be some/any realization of $p(z)$.
+
+  Suppose for a contradiction that $p(z)$ is not finitely satisfied in $M$.
+  Then $\psi(a_1,\dots,a_n\,;M^z)=\varnothing$, where 
   
   \ceq{\hfill\psi(x_1,\dots,x_n\,;z)}{=}{\bigwedge_{i=n}^n\phi_i(x_i\,;z)}
   
-  for some $\phi_i(x\,;z)\in L$ and $\langle a_i,b_i\rangle\in R$ such that $\phi_i(b_i\,;m)$.
-  Then $r_{\neg\psi\,;\top}(a_1,\dots,a_n)$ and $\neg r_{\neg\psi\,;\top}(b_1,\dots,b_n)$.
-  A contradiction.
+  for some $\phi_i(x\,;z)\in L$ and $a_i\in \N$ such that $\phi_i(f\!a_i\,;\bar m)$ for every $i$.
+  Then $r_{\neg\psi\,;\top}(a_1,\dots,a_n)$ and $\neg r_{\neg\psi\,;\top}(f\!a_1,\dots,f\!a_n)$.
+  This is not possible because $f$ is a p-morphism.
 
-  Vice versa, let $p(z)\in S_{m,M}$ be given.
-  Let $R\subseteq\U^x\times\U^x$ contain the pairs $\langle a,b\rangle$ such that $\phi(a\,;z)\in p\Leftrightarrow\phi(b\,;m)$ holds for every $\phi(x\,;z)\in L$.
-  We prove that $R$ is a p-morphism.
+  2.\ 
+  Let $b\in\B$ be given~--~the reader may check that the construction only depends on $b/{\equiv_M}$.
+  For every $a\in \N$ we define $p_a(x)=\big\{\phi(x,\bar m)\ :\ \phi(a\,;b)\big\}$.
+  We claim that if $a\equiv_Ma'$ then $p_a(x)=p_{a'}(x)$.
+  In fact, $\phi(a\,;b)\nleftrightarrow\phi(a'\,;b)$ would contradict $b\nonfork_MN$.
+  We also claim that $p_a(x)$ is consistent, otherwise $\neg\exists x\bigwedge_i\phi_i(x\,;\bar m)$, for some finitely many formulas $\phi_i(x\,;z)$.
+  But this would contradict $b\equiv\bar m$.
 
+  Then we can define $f(a)$ to be some/any realization of $p_a(x)$.
+
+  We prove that $f$ is a p-morphism.
   Let $\psi(x_1,\dots,x_n\,;z)\in\Delta$, $\alpha(z)\in L$, and $a_1,\dots,a_n\in\U^x$ be such that $r_{\psi\,;\alpha}(a_1,\dots,a_n)$.
-  Finally, let $\langle a_i,b_i\rangle\in R$.
-  We can assume $\alpha(M^z)\neq\varnothing$, otherwise $r_{\psi\,;\alpha}(b_1,\dots,b_n)$ trivially holds.
+  % We can assume $\alpha(M^z)\neq\varnothing$, otherwise $r_{\psi\,;\alpha}(f\!a_1,\dots,f\!a_n)$ trivially holds.
   Assume
 
   \ceq{\hfill\psi(x_1,\dots,x_n\,;z)}{=}{\bigvee_{h=1}^m\bigwedge_{k=1}^m\phi_{h,k}(x_{i_{h,k}}\,;z)}
 
   for some $i_{h,k}\in\{1,\dots,n\}$.
-  As $r_{\psi\,;\alpha}(a_1,\dots,a_n)$, up to re-indexing, we obtain that $\alpha(M^z)\subseteq\phi_{0,k}(a_{i_{0,k}};M^z)$ for evey $k$. 
-  As $p(z)$ is finitely satisfiable in $M$, by completeness it cointains $\alpha(z)\rightarrow\phi_{0,k}(a_{i_k}\,;z)$ and all its alphabetic variants.
-  Then $m$ satisfies $\alpha(z)\rightarrow\phi_{0,k}(b_{i_k}\,;z)$ and all its alphabetic variants.
-  Then $\alpha(M^z)\subseteq\phi_{0,k}(b_{i_{0,k}};M^z)$ by the above remark.
-  Therefore, $r_{\psi\,;\alpha}(b_1,\dots,b_n)$ follows.
-\end{proof}
-
-
-\begin{fact}
-  Assume $x$ has infinite length.
-  Let $N$ be a sufficiently saturated model containing $M$ and let $c\equiv m$ be such that ${\rm tp}(c/N)$ is invariant over $M$.
-  
-  Then there is a one-to-one correspondence between the elements of $S_{m,M}$ and the total p-morphisms of $\U^x$ up to equivalence.
-\end{fact}
-
-\begin{proof}
-  Let $b\models q(z)\restriction N$ and $c\models p(z)\restriction N,b$.
-  Note that ${\rm tp}(c/N)$ is finitely satisfiable in $M$.
-  By the saturation of $M$, there is a unique extension of ${\rm tp}(c/N)$ that is finitely satisfiable in $M$.
-  We denote this extention by $p{*}q\,(z)$.
-
-  1. $p(z)=\{\phi(a,z)\ :\ \phi(f_pa,m),\ a\in\U^x\}$
-
-
-  $a,b\equiv f_qa, m$ for every $a\in N^x$.
-
-  As  and that $c\nonfork_M b,N$,
-
-  $a,b,c\equiv f_qa, m,c$ for every $a\in N^x$.
-
-  2. $q(z)=\{\phi(a,z)\ :\ \phi(f_qa,m),\ a\in\U^x\}$
-
-  $a,c\equiv f_pa,m$ for every $a\in (N,b)^x$.
-
-  $a,b,c\equiv f_pa,f_pb,m$ for every $a\in N^x$, then also
-  
-  $f_qa,b,c\equiv f_pf_qa,f_pb,m$ for every $a\in N^x$.
-
-
-
-  Therefore 
-
-  $f_qa, m,c\equiv f_pa,f_pb,m$
-
-  Suppose for a contradiction that $a,c\not\equiv f_pf_qa, m$.
-
-  
-  
-  We claim that 
-  $c,a\equiv m,f_pf_qa$ for every $a\in N$.
-
-  
-
-
-
-
-
+  Now, after re-indexing, from $r_{\psi\,;\alpha}(a_1,\dots,a_n)$ we obtain that $\alpha(M^z)\subseteq\phi_k(a_k;M^z)$ for $k=1,\dots,m$.
+  Then from $b\nonfork_MN$ we obtain that $b$ satiesfies $\alpha(z)\rightarrow\phi_k(a_k\,;z)$ and all its alphabetic variants.
+  Therefore $\bar m$ satisfies $\alpha(z)\rightarrow\phi_k(f\!a_k\,;z)$ and all its alphabetic variants.
+  Therefore $\alpha(M^z)\subseteq\phi_k(f\!a_k;M^z)$ and $r_{\psi\,;\alpha}f\!(a_1,\dots,f\!a_n)$ follows.
 \end{proof}
 
 
@@ -340,6 +337,41 @@ Let $S_{m,M}\subseteq S_z(\U)$, where $z$ has the  length of $m$, be the set of 
 % q⊗p={φ(e,z) : φ(e',z)∈q for some/any e' such that e'b≡eb' for any b' realising p|e}.
 % We can further check that q⊗p is finitely satisfiable in A if q is finitely satisfiable in B and p is finitely satisfiable in A.
 
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+\section{Semigroups}
+
+Assume $\U$ is a semigroup w.r.t.\@ some definable operation which we denote by $\cdot$.
+In this section $|x|=1$ and, as always, $z=\langle z_i:i<\lambda\rangle$.
+The set $\Delta$ contains Boolean combinations of formulas of the form $\phi(z_i\cdot x')$ for $\phi(x)\in L$, and $x'$ any copy of $x$.
+
+\begin{fact}
+  For every $b\in\B$ the map $f:{\rm tp}(a/M)\mapsto {\rm tp}(b\cdot a/M)$ is a well-defined p-morphism.
+\end{fact}
+
+\begin{proof}
+  We prove that $f$ is well-defined.
+  Pick any two $a\equiv_Ma'$ in $\N$.
+  As $b\nonfork_MN$ then $a\equiv_{M,b}a'$, it follows that $b\cdot a\equiv_Mb\cdot a'$ as required.
+  
+  Now, assume $r_{\psi,\alpha}(a_1,\dots,a_n)$.
+  We prove $r_{\psi,\alpha}(f\!a_1,\dots,f\!a_n)$.
+  Assume that
+
+  \ceq{\hfill\psi(x_1,\dots,x_n\,;z)}{=}{\bigvee_{h=1}^m\bigwedge_{k=1}^m\phi_{h,k}(\,z_{i_{h,k}}\cdot\, x_{j_{h,k}})}
+
+  where $i_{h,k}<\lambda$ and $j_{h,k}\in\{1,\dots,n\}$. From $r_{\psi\,;\alpha}(a_1,\dots,a_n)$, after re-indexing, we obtain that $\alpha(M^z)\subseteq\phi_k(M^z\cdot a_k)$ for $k=1,\dots,m$.
+  As $b\nonfork_MN$, we immediately obtain $\alpha(M^z)\subseteq\phi_k(M^z\cdot b\cdot a_k)$ for all $k$, so $r_{\psi,\alpha}(f\!a_1,\dots,f\!a_n)$ follows.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 \section{Cores}
 
 % \begin{fact}\label{fact_reduced_funct} 
@@ -359,13 +391,13 @@ Let $S_{m,M}\subseteq S_z(\U)$, where $z$ has the  length of $m$, be the set of 
 %   The second claim follows by back-and-forth.
 % \end{proof}
 
-A set $\A\subseteq\U^x$ is \emph{p-maximal} if it satisfies the following (obviously) equivalent conditions for every $\bar a\in\A^{\bar x}$, where $\bar x$ is a finite tuple, and $\bar b$ such that $\langle\bar a,\bar b\rangle\in R$ for some p-morphism $R$
+A set $A\subseteq\N$ is \emph{p-maximal} if it satisfies the following (obviously) equivalent conditions for every $\bar a\in A$ and every p-morphism $f$
 
 \begin{itemize}
-  \item[a.] $r_{\phi\,;\alpha}(\bar a)\ \ \Leftrightarrow\ \ r_{\phi\,;\alpha}(\bar b)$ \hfill
+  \item[a.] $r_{\phi\,;\alpha}(\,\bar a\,)\ \ \Leftrightarrow\ \ r_{\phi\,;\alpha}(\,f\!\bar a\;)$ \hfill
   for every $r_{\phi\,;\alpha}\in L^{\rm\! p}$
 
-  \item[b.] $\textrm{p-tp}(\bar a)\ \ =\ \ \textrm{p-tp}(\bar b)$.
+  \item[b.] $\textrm{p-tp}(\,\bar a\,)\ \ =\ \ \textrm{p-tp}(\,f\!\bar a\;)$.
 \end{itemize}
 
 % By Zorn's lemma, every set satisfying the above conditions is contained in a p-maximal set.
@@ -373,36 +405,26 @@ A set $\A\subseteq\U^x$ is \emph{p-maximal} if it satisfies the following (obvio
 \begin{fact}\label{fact_pmaximal}
   The following are equivalent
   \begin{itemize}
-    \item[1.] $\A\subseteq\U^x$ is p-maximal
-    \item[2.] $p(\bar x)=\textrm{p-tp}(\bar a)$ is a maximally consistent p-type for every $\bar a\in\A^{\bar x}$ and every finite $\bar x$
-    \item[3.] $p(\bar y)=\textrm{p-tp}(\bar c)$ is a maximally consistent p-type for $\bar c$ any enumeration of $\A$
-    \item[4.] every p-morphism defined on $\A$ is a p-isomorphism between $\A$ and its image.
+    \item[1.] $A\subseteq\N$ is p-maximal
+    \item[2.] $p(\bar x)=\textrm{p-tp}(\bar a)$ is a maximally consistent p-type for every $\bar a\in A^{\bar x}$ and every finite $\bar x$
+    \item[3.] $p(\bar y)=\textrm{p-tp}(\bar c)$ is a maximally consistent p-type for $\bar c$ any enumeration of $A$
+    \item[4.] every p-morphism defined on $A$ is a p-isomorphism between $A$ and its image.
   \end{itemize}
 \end{fact}
 
 \begin{proof}
-  1$\Rightarrow$2. Negate 2. Suppose $\textrm{p-tp}(\bar a)$ is not maximal for some finite $\bar a\in\A^{\bar x}$.
-  Pick some $\bar a'\in\A^{\bar x}$ such that $\textrm{p-tp}(\bar a)\subset \textrm{p-tp}(\bar a')$.
-  Then $R=\{\langle \bar a,\bar a'\rangle\}$ is a p-morphism that contradicts the p-maximality of $\A$.
+  1$\Rightarrow$2. Negate 2. Suppose $\textrm{p-tp}(\bar a)$ is not maximal for some finite $\bar a\in A^{\bar x}$.
+  Pick some $\bar a'\in A^{\bar x}$ such that $\textrm{p-tp}(\bar a)\subset \textrm{p-tp}(\bar a')$.
+  Then $f=\{\langle \bar a,\bar a'\rangle\}$ is a p-morphism that contradicts the p-maximality of $A$.
   
-  2$\Rightarrow$3. If $\bar c$ is an enumeration of $\A$ that witnesses the failure of 3, then some finite subtuple of $\bar c$ witnesses the failure of 2.
+  2$\Rightarrow$3. If $\bar c$ is an enumeration of $A$ that witnesses the failure of 3, then some finite subtuple of $\bar c$ witnesses the failure of 2.
 
-  3$\Rightarrow$4. Negate 4. Let Let $R$ be ba p-morphism defined on $\A$ that is not a p-isomorphism.
-  Let $\bar a\in\A^{\bar x}$ and $\bar b$ be such that $\langle \bar a,\bar b\rangle\in R$ and $\textrm{p-tp}(\bar a)\smallsetminus \textrm{p-tp}(\bar b)\neq\varnothing$.
-  To contradict 3, it suffices to extend $\{\langle \bar a,\bar b\rangle\}$ to a p-morphism defined on $\A$.
+  3$\Rightarrow$4. Negate 4. Let $f$ be a p-morphism defined on $A$ that is not a p-isomorphism.
+  Let $\bar a\in A^{\bar x}$ and $\bar b$ be such that $\langle \bar a,\bar b\rangle\in R$ and $\textrm{p-tp}(\bar a)\smallsetminus \textrm{p-tp}(\bar b)\neq\varnothing$.
+  To contradict 3, it suffices to extend $\{\langle \bar a,\bar b\rangle\}$ to a p-morphism defined on $A$.
   This is possible by $\infty$-p-homogeneity.
 
   4$\Rightarrow$1. Clear.
-\end{proof}
-
-\begin{fact}\label{fact_pmaximalset}
-  If $\A$ is p-maximal, also $(\equiv_M)[\A]=\{a\ :\ \exists x\ a\equiv_Mx\in\A\}$ is p-maximal.
-\end{fact}
-
-\begin{proof}
-  By 4 in Fact~\ref{fact_pmaximal}.
-  Indeed, let $R$ be a p-morphism defined on $(\equiv_M)[\A]$.
-  As $R\circ(\equiv_M)$ is also a p-morphism, $R\circ(\equiv_M)[\A]$ is p-maximal.
 \end{proof}
 
 \begin{example}
