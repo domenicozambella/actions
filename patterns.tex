@@ -14,38 +14,39 @@ We also use an auxiliary tuple $z=\langle z_i:i<\lambda\rangle$ of (so-called) p
 
 Fix a set of formulas $L_z\subseteq\Delta(x\,;z)\subseteq L_{x,z}$.
 Let $V$ be some large set of variables that are copies of $x$. 
-Finally, let $\Delta$ be the set of positive Boolean combinations of formulas in $\ \bigcup_{x'\in V}\Delta(x'\,;z)$.
+Finally, let $\Delta$ be the set of Boolean combinations of formulas in $\ \bigcup_{x'\in V}\Delta(x'\,;z)$.
 The choice of $\Delta$ is justified in Remark~\ref{rem_first}.
 
-Let $\bar a,\bar a'\in\big(\U^x\big)^n$ and $B\subseteq\U$.
+Let $A\subseteq\U^x$ and $B\subseteq\U^z$.
+We write $A,\Delta$ for the set of formulas $\phi(\bar a\,;z)$ for $\phi(\bar x\,;z)\in\Delta$ and $\bar a\in A^{\bar x}$, and we write $\Delta,B$ for the set of formulas $\phi(\bar x\,;b)$ for $\phi(\bar x\,;z)\in\Delta$ and $b\in B^z$.
+
+Let $\bar a,\bar a'\in\big(\U^x\big)^n$ and  $b,b'\in\U^z$.
 If $\phi(\bar a\,;b)\leftrightarrow\phi(\bar a'\,;b)$ holds for every $\phi(\bar x,z)\in\Delta$ and $b\in B^z$, we write \emph{$\bar a\equiv_{\Delta,B}\bar a'$.}
-Let $b,b'\in\U^z$ and $A\subseteq\U$.
-We write \emph{$b\equiv_{A,\Delta}b'$} if $\phi(\bar a\,;b)\leftrightarrow\phi(\bar a\,;b')$ holds for every $\phi(\bar x,z)\in\Delta$ and $\bar a\in A^{\bar x}$.
+We define \emph{$b\equiv_{A,\Delta}b'$} similarly.
 %We write $\Delta\mbox{-tp}(\bar a/M)$ for the set of formulas $\phi(\bar x\,;b)$ $\phi(\bar x,z)\in\Delta$ and $b\in M^z$.
 % or equivalently $\Delta\mbox{-tp}(\bar a/M)=\Delta\mbox{-tp}(\bar a'/M)$ 
 
-For every formula $\phi(x_0,\dots,x_{n-1}\,;z)\in\Delta$ and every formula $\alpha(z)\in L$ the language $L^{\rm\! p}$ contains the $n$-ary relation \emph{$r_{\phi\,;\alpha}$.}
-% We require that $\alpha(z)$ is a finitary type, i.e.\@ only a finite number of variables actually occur in it.
-Below by the symbol \emph{$L^{\rm\! p}$} we will also denote the set of \textit{atomic\/} formulas $r_{\phi\,;\alpha}(x_0,\dots,x_{n-1})$ for any $x_0,\dots,x_{n-1}\in V$.
+For every formula $\phi(x_0,\dots,x_{n-1}\,;z)\in\Delta$ the language $L^{\rm\! p}$ contains the $n$-ary relation \emph{$r_{\phi}$.}
+Below by the symbol \emph{$L^{\rm\! p}$} we will also denote the set of \textit{atomic\/} formulas $r_{\phi}(x_0,\dots,x_{n-1})$ for any $x_0,\dots,x_{n-1}\in V$.
 Note that equalities are \textit{not\/} included in $L^{\rm\! p}$.
 
 Given pairs of models $M\preceq N$, where $N$ is $|M|^+$-saturated, we define a model $\N$ with domain $N^x$. 
 % Eventually, we will proved that the main definition in this section, the definition of \textit{core,} does not depend on the choice of $M$.
 % However, some of the intermediate notions introduced here do depend on $M$, though to avoid cluttering the notation we will omit reference to it.
-We define the interpretation of $r_{\phi\,;\alpha}$ in $\N$.
-If $\bar a=a_0,\dots,a_{n-1}\in \N$, we declare $r_{\phi\,;\alpha}(\bar a)$ true if $\phi(\bar a\,;b)$ holds for every $b\in M^z$ such that $\alpha(b)$.
+We define the interpretation of $r_{\phi}$ in $\N$.
+If $\bar a=a_0,\dots,a_{n-1}\in \N$, we declare $r_{\phi}(\bar a)$ true if $\phi(\bar a\,;b)$ holds for every $b\in M^z$ such that $\alpha(b)$.
 We repeat the definition for emphasis
 
-% \ceq{\hfill r_{\phi\,;\alpha}(\bar a)}{\Leftrightarrow}{\forall z\in\alpha(M^z)\ \phi(\bar a\,;z).}
-\ceq{\hfill r_{\phi\,;\alpha}(\bar a)}{\Leftrightarrow}{\alpha(M^z)\ \subseteq\ \phi(\bar a\,;M^z).}
+% \ceq{\hfill r_{\phi}(\bar a)}{\Leftrightarrow}{\forall z\in\alpha(M^z)\ \phi(\bar a\,;z).}
+\ceq{\hfill r_{\phi}(\bar a)}{\Leftrightarrow}{\phi(\bar a\,;M^z)=M^z.}
 
 The following is paramount.
 
 \begin{remark}\label{rem_first}
-  By the choice of $\Delta$, the truth of $r_{\phi\,;\alpha}(\bar a)$ only depends on the equivalence class of $\equiv_{\Delta,M}$ of the \textit{components\/} of the tuple $\bar a$.
+  By the choice of $\Delta$, the truth of $r_{\phi}(\bar a)$ only depends on the equivalence class of $\equiv_{\Delta,M}$ of the \textit{components\/} of the tuple $\bar a$.
   Explicitely, if $\bar a=a_0,\dots,a_{n-1}$ and $\bar a'=a'_0,\dots,a'_{n-1}$ are such that $a_i\equiv_{\Delta,M} a'_i$ for every $i<n$, then \smallskip
   
-  \ceq{\#\hfill r_{\phi\,;\alpha}(\bar a)}{\leftrightarrow}{r_{\phi\,;\alpha}(\bar a').} \smallskip
+  \ceq{\#\hfill r_{\phi}(\bar a)}{\leftrightarrow}{r_{\phi}(\bar a').} \smallskip
 
   % But we can stretch this further.
   % Write $a\equiv_{\{M\}}a'$ if $fa=a'$ for some $f\in{\rm Aut}(N/\{M\})$ i.e.\@ $a$ and $a'$ are conjugated by an automorphism that fixes $M$ setwise.
@@ -58,10 +59,10 @@ By the remark, it would be natural to define the interpretation of $L^{\rm\! p}$
 But we prefer to keep the original domain $\N$ to have a common playground with $L$.
 
 A \emph{p-type\/} is a set of (atomic) formulas in $L^{\rm\! p}(\N)$.
-We write \emph{$\textrm{p-tp}(\bar a)$} for the p-type of $\bar a$, i.e.\@ the set of formulas $r_{\phi\,;\alpha}(\bar x)$ such that $r_{\phi\,;\alpha}(\bar a)$ holds.
+We write \emph{$\textrm{p-tp}(\bar a)$} for the p-type of $\bar a$, i.e.\@ the set of formulas $r_{\phi}(\bar x)$ such that $r_{\phi}(\bar a)$ holds.
 
 Note incidentally that the relation $x_0\equiv_{\Delta,M} x_1$ is definable by a p-type.
-Namely the p-type containing the formulas $r_{\theta\,; \top }(x_0,x_1)$ for every $\theta(x_0,x_1\,;z)$ of the form $\phi(x_0\,;z)\leftrightarrow\phi(x_1\,;z)$.
+Namely the p-type containing the formulas $r_{\theta}(x_0,x_1)$ for every $\theta(x_0,x_1\,;z)$ of the form $\phi(x_0\,;z)\leftrightarrow\phi(x_1\,;z)$.
 
 
 
@@ -71,39 +72,40 @@ Namely the p-type containing the formulas $r_{\theta\,; \top }(x_0,x_1)$ for eve
 
 \begin{proof}
   The claim about dummy variables is clear, so we tacitatly use it below.
+  
+  We say that $\phi'(\bar x\,;z)$ is an alphabetic variant of $\phi(\bar x\,;z)$ if it is obtained by replacing the vartiables effectively occurring in $\phi(\bar x\,;z)$ by other variables among those in $z$.
+  Clearly, if $\phi'(\bar x\,;z)$ is an alphabetic variant of $\phi(\bar x\,;z)$, then $r_{\phi}(\bar x)$ and $r_{\phi'}(\bar x)$ are equivalent.
 
-  Up to renaming of the variables that occur in $\beta(z)$ and $\psi(\bar x\,;z)$, we can assume that they are disjoint from those in $\alpha(z)$.
+  Up to replacing $\phi(\bar x\,;z)$ with an alphabetic variant, we can assume that the $z$-variables are disjoint from those in $\psi(\bar x\,;z)$.
   Therefore the following equivalences hold 
   
-  \ceq{\hfill r_{\phi\,;\alpha}(\bar a)\vee r_{\psi\,;\beta}(\bar a)}{\Leftrightarrow}{\forall z\in\alpha(M^z)\ \phi(\bar a\,;z)\ \ \vee\ \ \forall z\in\beta(M^z)\ \psi(\bar a\,;z)} 
-  %\ceq{\hfill r_{\phi\,;\alpha}(\bar a)\vee r_{\psi\,;\beta}(\bar a)}{\Leftrightarrow}{\alpha(M^z)\ \subseteq\ \phi(\bar a\,;M^z)\ \ \vee\ \ \beta(M^z)\ \subseteq\ \psi(\bar a\,;M^z)} 
+  \ceq{\hfill r_{\phi}(\bar a)\vee r_{\psi}(\bar a)}{\Leftrightarrow}{\forall z\in M^z\ \phi(\bar a\,;z)\ \ \vee\ \ \forall z\in M^z\ \psi(\bar a\,;z)}
 
-  \ceq{}{\Leftrightarrow}{\forall z\in\alpha(M^z)\cap\beta(M^z)\ \ \ \phi(\bar a\,;z)\, \vee\,\psi(\bar a\,;z)} 
-  % \ceq{}{\Leftrightarrow}{\alpha(M^z)\cup\beta(M^z)\ \subseteq \ \phi(\bar a\,;M^z) \vee\psi(\bar a\,;M^z)} 
+  \ceq{}{\Leftrightarrow}{\forall z\in M^z\ \big[ \ \phi(\bar a\,;z)\, \vee\,\psi(\bar a\,;z)\big]}  
 
-  \ceq{}{\Leftrightarrow}{r_{\phi\vee\psi\,;\,\alpha\cap\beta}(\bar a)}
+  \ceq{}{\Leftrightarrow}{r_{\phi\vee\psi}(\bar a)}
 
   A similar argument applies to the conjunction of two formulas.
 
-  Finally, consider the formula $\exists y\,r_{\phi\,;\alpha}(\bar x,y)$.
+  Finally, consider the formula $\exists y\,r_{\phi}(\bar x,y)$.
   Without loss of generality, we can assume that $\phi$ has the form
 
   \ceq{\hfill\phi(\bar x,y\,;z)}{=}{\bigvee_{i=1}^m\phi_i(\bar x,y\,;z)}
 
-  where $\phi_i(\bar x,y\,;z)\,=\,\phi'_i(\bar x\,;z)\,\wedge\,\psi_i(y\,;z)$ and each $\phi'_i(\bar x\,;z)$ is a conjunction of formulas in $\bigcup_{x'\in V} L_{x'\,;z}$.
+  where $\phi_i(\bar x,y\,;z)\,=\,\phi'_i(\bar x\,;z)\,\wedge\,\psi_i(y\,;z)$ and each $\phi'_i(\bar x\,;z)$ is a conjunction of formulas in $\bigcup_{x'\in V} L_{x'\,;z}$ or negation thereof.
   Closure under existential quantification follows from the following equivalences
 
-  \ceq{\hfill\exists y\ r_{\phi\,;\alpha}(\bar a, y)}{\Leftrightarrow}{\exists y\,\forall z\Big[ z\in\alpha(M)\rightarrow \bigvee_{i=1}^m\phi_i(\bar a,y\,;z)\Big]}
+  \ceq{\hfill\exists y\ r_{\phi}(\bar a, y)}{\Leftrightarrow}{\exists y\,\forall z\in M^z \bigvee_{i=1}^m\phi_i(\bar a,y\,;z)}
 
-  \ceq{}{\Leftrightarrow}{\forall z\Big[ z\in\alpha(M)\rightarrow \bigvee_{i=1}^m\phi'_i(\bar a\,;z)\wedge\exists y\,\psi_i(y\,;z)\Big]}
+  \ceq{}{\Leftrightarrow}{\forall z\in M^z \bigvee_{i=1}^m\phi'_i(\bar a\,;z)\wedge\exists y\,\psi_i(y\,;z)\Big]}
 
-  \ceq{}{\Leftrightarrow}{\vphantom{\bigvee_{i=1}^n}r_{\theta\,;\alpha}(\bar a),}
+  \ceq{}{\Leftrightarrow}{\vphantom{\bigvee_{i=1}^n}r_{\theta}(\bar a),}
 
   where 
   
   \ceq{\hfill\theta(\bar x\,;z)}{=}{\bigwedge_{i=1}^m\phi'_i(\bar x\,;z)\ \wedge\ \exists y\,\psi_i(y\,;z)}
 
-  is a positive Boolean combination of formulas in $\ \bigcup_{x'\in V} L_{x'\,;z}$, as required.
+  is a  Boolean combination of formulas in $\ \bigcup_{x'\in V} L_{x'\,;z}$, as required.
 \end{proof}
 
 
@@ -116,9 +118,9 @@ Namely the p-type containing the formulas $r_{\theta\,; \top }(x_0,x_1)$ for eve
 \begin{proof}
   Let $A'\subseteq\N$ be a small set containing a representative of every $\equiv_{\Delta,M}$ equivalence class that intersects $A$.
   Replacing the elements of $A$ that occur in $p(\bar x)$ by elements of $A'$ we obtain an equivalent type $p'(\bar x)\subseteq L^{\rm\! p}(A')$.
-  Note that every formula $r_{\phi\,;\alpha}(\bar x)$ there is a $\Delta$-type $q(\bar x)\subseteq L(M)$ such that
+  Note that every formula $r_{\phi}(\bar x)$ there is a $\Delta$-type $q(\bar x)\subseteq L(M)$ such that
 
-  \ceq{\hfill \N\models r_{\phi\,;\alpha}(\bar a)}{\Leftrightarrow}{N\models q(\bar a)}
+  \ceq{\hfill \N\models r_{\phi}(\bar a)}{\Leftrightarrow}{N\models q(\bar a)}
 
   Therefore the saturation of $N$ implies that $p'(\bar x)$ is realized in $\N$.
 \end{proof}
@@ -131,9 +133,9 @@ Namely the p-type containing the formulas $r_{\theta\,; \top }(x_0,x_1)$ for eve
 %%%%%%%%%%%%%%%%%%%%
 \section{Morphism}
 
-A p-morphism is a map $f:\N\to\N$ such that for every $r_{\phi\,;\alpha}(\bar x)\in L^{\rm p}$ and every $\bar a\in({\rm dom}f)^{\bar x}$
+A p-morphism is a map $f:\N\to\N$ such that for every $r_{\phi}(\bar x)\in L^{\rm p}$ and every $\bar a\in({\rm dom}f)^{\bar x}$
 
-\ceq{\#\hfill\N\models r_{\phi\,;\alpha}(\bar a)}{\Rightarrow}{\N\models r_{\phi\,;\alpha}(f\bar a)}.
+\ceq{\#\hfill\N\models r_{\phi}(\bar a)}{\Rightarrow}{\N\models r_{\phi}(f\bar a)}.
 
 As $\equiv_{\Delta,M}$ is definable by a p-type, p-morphisms induce well-defined maps on the quotient $\N/{\equiv_{\Delta,M}}$.
 We say that two p-morphisms $f$ and $g$ are \emph{equivalent,} and write $f\sim g$, if they induce the same map on $\N/{\equiv_{\Delta,M}}$.
@@ -143,9 +145,9 @@ A total p-morphism is called a p-endomorphism.
 We write ${\rm End}(\N)$ for the set of p-endomorphisms of $\N$.
 We endow ${\rm End}(\N)$ with the topology that has as basic closed sets those of the form 
 
-\ceq{\hfill\Big\{\ f\in{\rm End}(\N)}{:}{\N\ \models\ r_{\phi\,;\alpha}\big(f\!a_1,\dots,f\!a_n,c_1,\dots,c_m\big)\Big\}}
+\ceq{\hfill\Big\{\ f\in{\rm End}(\N)}{:}{\N\ \models\ r_{\phi}\big(f\!a_1,\dots,f\!a_n,c_1,\dots,c_m\big)\Big\}}
 
-for $\phi(x\,;z)\in\Delta$, $\alpha(z)\in L$, and $a_1,\dots,a_n,c_1,\dots,c_m\in\N$.
+for $\phi(x\,;z)\in\Delta$ and $a_1,\dots,a_n,c_1,\dots,c_m\in\N$.
 Note that, by Remark~\ref{rem_first}, if $f\sim g$ then $f$ and $g$ belong to the same basic closed sets, therefore this topology naturally induces a topology on ${\rm End}(\N)/{\sim}$.
 
 \begin{fact}
@@ -164,7 +166,7 @@ Note that, by Remark~\ref{rem_first}, if $f\sim g$ then $f$ and $g$ belong to th
   We prove compactness.
   Assume the following intersection is finitely consistent (we have slightly compressed the notation)
 
-  % \ceq{\hfill\bigcap_{i<\lambda}\Big\{\ f\in{\rm End}(\N)}{:}{\N\ \models\ r_{\phi\,;\alpha}\big(f\!a_1,\dots,f\!a_{n_i},a'_1,\dots,a'_m_{i}\big)\Big\}}
+  % \ceq{\hfill\bigcap_{i<\lambda}\Big\{\ f\in{\rm End}(\N)}{:}{\N\ \models\ r_{\phi}\big(f\!a_1,\dots,f\!a_{n_i},a'_1,\dots,a'_m_{i}\big)\Big\}}
 
 
   \ceq{\#.\hfill}{~}{\bigcap_{i<\lambda}\Big\{\ f\in{\rm End}(\N)\ :\ \N\ \models\ r_i\big(f\!\bar a,\bar c\big)\Big\}.}
@@ -195,65 +197,24 @@ Note that, by Remark~\ref{rem_first}, if $f\sim g$ then $f$ and $g$ belong to th
 % If $\bar a=\langle a_i:i<\lambda\rangle$ and $\bar b=\langle b_i:i<\lambda\rangle$ we write $\langle \bar a,\bar b\rangle\in R$ to abbreviate: $\langle a_i,b_i\rangle\in R$ for all $i<\lambda$.
 % We say that $R$ is a \emph{p-morphism} if the following condition holds 
 
-% \ceq{\#\hfill\U^x\models r_{\phi\,;\alpha}(\bar a)}{\Rightarrow}{\U^x\models r_{\phi\,;\alpha}(\bar b)}\hfill for every $r_{\phi\,;\alpha}\in L^{\rm p}$ and every $\langle \bar a,\bar b\rangle\in R$.
+% \ceq{\#\hfill\U^x\models r_{\phi}(\bar a)}{\Rightarrow}{\U^x\models r_{\phi}(\bar b)}\hfill for every $r_{\phi}\in L^{\rm p}$ and every $\langle \bar a,\bar b\rangle\in R$.
 
 % When the converse implication in \# also holds, i.e.\@ when also $R^{-1}$ is a p-morphism, we say that $R$ is a \emph{partial p-isomorphism.}
 % When $\A\subseteq{\rm dom}\,R$, $\B\subseteq{\rm range}\,R$, and $R\cap (\A\times\B)$ is a partial p-isomorphism, we say that $R$ is an \emph{p-isomorphism} between $\A$ and $\B$ or, when $\A=\B$, a \emph{p-automorphism} of $\A$.
 
-If $R$ is a p-morphism, also $\mathrel{\equiv_M}\circ \mathrel{R}\circ\mathrel{\equiv_M}$ is a p-morphism.
-This we call the \emph{full} p-morphism generated by $R$.
-We say that $R$ and $R'$ are \emph{equivalent} if they generate the same full p-morphism.
-
-\begin{remark}
-  We can identify p-morphisms with maps $f:\U^x/{\equiv_M}\to\U^x/{\equiv_M}$.
-  In fact, to any such map we can associate the relation $R=\bigcup_{a\in\U^x}\big((a/{\equiv_M})\times f(a/{\equiv_M})\big)$.\smallskip
-
-  Vice versa, to any p-morphisms $R$ we can associate $f:\U^x/{\equiv_M}\to\U^x/{\equiv_M}$ that maps $a/{\equiv_M}\mapsto b/{\equiv_M}$ for some/any $b$ such that $\langle a,b\rangle\in R$.
-  This is well-defined because if $\langle a,b\rangle,\langle a',b'\rangle\in R$  and $a\equiv_M a'$, then we necessarily have $b\equiv_M b'$.\smallskip
-
-  We find more convenient to work with relations.
-\end{remark}
-
-% Note that $R\circ R^{-1}$ and $R^{-1}\!\circ R$ are contained in the (trivial) p-isomorphism $\equiv_M$.
-
-We say that the p-morphism $R$ is \emph{reduced\/} if there is no $R'\ \subset\ R$ that is equivalent to $R$.
-It is clear that if $A, B\subseteq\U^x$ are any two sets of represetative of $\equiv_M$ then $f=R\cap (A\times B)$ is a reduced morphism equivalent to $R$.
-
-\begin{fact}\label{fact_reduced_funct}
-  Any reduced p-morphism is the graph of a (partial) map.
-  Therefore every reduced p-isomorphism is a bijection.
-\end{fact}
-
-\begin{proof}
-  Suppose not, then there are $a,b,c$ such that $\langle a,b\rangle,\langle a,b'\rangle\in R$ but $b\neq b'$.
-  As $R$ is reduced, then $b\not\equiv_M b'$.
-  As noted above, this  is not possible.
-  The second claim follows immediately.
-\end{proof}
-
-% Clearly two p-morphisms $R$ and $R'$ are equivalent if and only if $f_{R}=f_{R'}$.
-
-% \begin{fact}\label{fact_fR}
-%   Let $R\subseteq R'$ be two p-isomorphisms.
-%   Let $f\subseteq R$ be a reduced p-isomorphism equivalent to $R$.
-%   Then there is reduced p-isomorphism equivalent to $R'$ such that $f\subseteq f'\subseteq R'$.     
-% \end{fact}
-
 \begin{fact}\label{fact_phogeneity}
-  Every p-morphism extends to a p-morphism defined on the whole of $\U^x$.
-  Also, every p-isomorphism extends to a p-automorphism of $\U^x$.
+  Every p-morphism extends to a p-morphism defined on the whole of $\N$.
+  Also, every p-isomorphism extends to a p-automorphism of $\N$.
 \end{fact}
 
 \begin{proof}
-  Let $R$ be a p-morphism.
-  Pick be a reduced p-morphism $f$ equivalent to $R$.
-  Let $\bar a$ be an enumeration of ${\rm dom} f$ and let $b\in\U^x$.
+  Let $f:\N\to\N$ be a p-morphism.
+  Let $\bar a$ be an enumeration of ${\rm dom} f$ and let $b\in\N$.
   Let $p(\bar x)=\textrm{p-tp}(\bar a)$ and let $q(\bar x,y)=\textrm{p-tp}(\bar a,b)$.
   By $\infty$-p-saturation $\exists y\,q(\bar x,y)$ is equivalent to the type containing the existential closure of the formulas in $q(\bar x,y)$.
   By Fact~\ref{fact_p_qe}, the latter is equivalent to a p-type, which is necessarily coicides with $p(\bar x)$.
-  Then $q(f\bar a,y)$ is consistent hence by $\infty$-p-saturation it is realized by some $c\in\U^x$.
+  Then $q(f\bar a,y)$ is consistent hence by $\infty$-p-saturation it is realized by some $c\in\N$.
   Then $f\cup\{\langle b,c\rangle\}$ is a p-morphism defined in $b$ that extends $f$.
-  Then $R$ can be extended as well.
 
   The second claim is obtained by back-and-forth.
 \end{proof}
@@ -271,7 +232,7 @@ For a more convenient notation, $x$ is taken of infinite length~--~then, up to e
 
 \begin{remark}
   We stress a simple fact which is used in the proof below. 
-  We say that $\phi'(a\,;z)$ is an alphabetic variant of $\phi(a\,;z)$ if it is obtained by replacing the vartiables effectively occurring in $\phi(a\,;z)$ by other variables among those in $z$.
+  Recall that $\phi'(a\,;z)$ is an alphabetic variant of $\phi(a\,;z)$ if it is obtained by replacing the vartiables effectively occurring in $\phi(a\,;z)$ by other variables among those in $z$.
   The following are clearly equivalent
   \begin{itemize}
     \item[1.] $\phi(a\,;M^z)=M^z$
@@ -296,7 +257,7 @@ The $N,\Delta$-topology on $\B/{\equiv_{N,\Delta}}$ is the quotient of that on $
   1.\ 
   Let $f: \N\to \N$ be an p-epimorphism.
   Let $p(z)$ be the type containing the formulas $\phi(a\,;z)$ for $\phi(x\,;z)\in\Delta$ and $a\in \N$ such that $\phi(f\!a\,;\hat m)$.
-  Clearly $p(z)$ contains $p_{\hat m}(z)$ and is complete over $N,\Delta$.
+  Clearly $p(z)\vdash\hat m\equiv z$ and is complete over $N,\Delta$.
   We prove that $p(z)$ is finitely satisfied in $M$, then $b_f$ is some/any realization of $p(z)$.
 
   If for a contradiction that $p(z)$ is not finitely satisfied in $M$, then $\psi(a_1,\dots,a_n\,;M^z)=\varnothing$, where 
@@ -304,7 +265,7 @@ The $N,\Delta$-topology on $\B/{\equiv_{N,\Delta}}$ is the quotient of that on $
   \ceq{\hfill\psi(x_1,\dots,x_n\,;z)}{=}{\bigwedge_{i=n}^n\phi_i(x_i\,;z)}
   
   for some $\phi_i(x\,;z)\in L$ and $a_i\in \N$ such that $\phi_i(f\!a_i\,;\hat m)$ for every $i$.
-  Then $r_{\neg\psi\,;\top}(a_1,\dots,a_n)$ and $\neg r_{\neg\psi\,;\top}(f\!a_1,\dots,f\!a_n)$.
+  Then $r_{\neg\psi}(a_1,\dots,a_n)$ and $\neg r_{\neg\psi}(f\!a_1,\dots,f\!a_n)$.
   This is not possible because $f$ is a p-morphism.
 
   2.\ 
@@ -322,17 +283,17 @@ The $N,\Delta$-topology on $\B/{\equiv_{N,\Delta}}$ is the quotient of that on $
   Then we can define $f_b(a)$ to be some/any realization of $p(x,a,b)$.
 
   We prove that $f_b$ is a p-morphism.
-  Let $\psi(x_1,\dots,x_n\,;z)\in\Delta$, $\alpha(z)\in L$, and $a_1,\dots,a_n\in\U^x$ be such that $r_{\psi\,;\alpha}(a_1,\dots,a_n)$.
-  % We can assume $\alpha(M^z)\neq\varnothing$, otherwise $r_{\psi\,;\alpha}(f\!a_1,\dots,f\!a_n)$ trivially holds.
+  Let $\psi(x_1,\dots,x_n\,;z)\in\Delta$ and $a_1,\dots,a_n\in\U^x$ be such that $r_{\psi}(a_1,\dots,a_n)$.
+  % We can assume $\alpha(M^z)\neq\varnothing$, otherwise $r_{\psi}(f\!a_1,\dots,f\!a_n)$ trivially holds.
   Assume
 
   \ceq{\hfill\psi(x_1,\dots,x_n\,;z)}{=}{\bigvee_{h=1}^m\bigwedge_{k=1}^m\phi_{h,k}(x_{i_{h,k}}\,;z)}
 
   for some $i_{h,k}\in\{1,\dots,n\}$.
-  Now, after re-indexing, from $r_{\psi\,;\alpha}(a_1,\dots,a_n)$ we obtain that $\alpha(M^z)\subseteq\phi_k(a_k;M^z)$ for $k=1,\dots,m$.
-  Then from $b\nonfork_MN$ we obtain that $b$ satiesfies $\alpha(z)\rightarrow\phi_k(a_k\,;z)$ and all its alphabetic variants.
-  Therefore $\hat m$ satisfies $\alpha(z)\rightarrow\phi_k(f_ba_k\,;z)$ and all its alphabetic variants.
-  Therefore $\alpha(M^z)\subseteq\phi_k(f_ba_k;M^z)$ and $r_{\psi\,;\alpha}(f_ba_1,\dots,f_ba_n)$ follows.
+  After re-indexing, from $r_{\psi}(a_1,\dots,a_n)$ we obtain $\phi_k(a_k;M^z)=M^z$ for $k=1,\dots,m$.
+  Then from $b\nonfork_MN$ we obtain that $b$ satiesfies $\phi_k(a_k\,;z)$ and all its alphabetic variants.
+  Therefore $\hat m$ satisfies $\phi_k(f_ba_k\,;z)$ and all its alphabetic variants.
+  Therefore $\phi_k(f_ba_k;M^z)=M^z$, and $r_{\psi}(f_ba_1,\dots,f_ba_n)$ follows.
 
   3.\ We prove that the map defined in 1 is continuous.
   Pick any basic closed set in $\B$, say $\big\{b\,:\,\phi(\bar a\,;b)\big\}$.
@@ -340,15 +301,15 @@ The $N,\Delta$-topology on $\B/{\equiv_{N,\Delta}}$ is the quotient of that on $
 
   \ceq{\hfill\big\{f\ :\ \phi\big(\bar a\,;b_f\big)\}}{=}{\Big\{f\ :\ \phi\big(f\bar a\,;\hat m\big)\Big\}}
 
-  \ceq{\#}{=}{\Big\{f\ :\ r_{\psi\,;\top}\big(f\bar a,c\big)\Big\}}
+  \ceq{\#}{=}{\Big\{f\ :\ r_{\psi}\big(f\bar a,c\big)\Big\}}
 
-  where $\psi(\bar x,y;z)$ and $c$ are choosen so that $r_{\psi,\top}(\bar x,c)$ is equivalent to $\phi(\bar x\,;\hat m)$.
+  where $\psi(\bar x,y;z)$ and $c$ are choosen so that $r_{\psi}(\bar x,c)$ is equivalent to $\phi(\bar x\,;\hat m)$.
   As the set in $\#$ is closed in ${\rm End}(\N)$, continuity of the map $f\mapsto b_f$ follows.
 
   We show how to choose $\psi(\bar x,y;z)$ and $c$.
   Let $y$ be a copy of $x$.
-  The formula $\psi(\bar x,y;z)$ is obtained from $\phi(\bar x\,;z)$ by replacing the variables in the tuple $z$ with variables in the tuple $y$.
-  Note that $z$ is dummy in $\psi(\bar x,y;z)$.
+  The formula $\psi(\bar x,y;z)$ is obtained from $\phi(\bar x\,;z)$ by replacing the variables in the tuple $z$ effectively occurring in $\phi(\bar x\,;z)$ with variables in the tuple $y$.
+  Note that $z$ is dummy in $\psi(\bar x,y\,;z)$.
   Finally, we choose $c\in M^{y}$ such that $\psi(\bar x,c\,;z)$ is equivalent to $\phi(\bar x\,;\hat m)$.
 
   4.\ 
@@ -361,8 +322,8 @@ The $N,\Delta$-topology on $\B/{\equiv_{N,\Delta}}$ is the quotient of that on $
   is closed in $\B$ because $r\big(\bar x,\bar c\big)$ is definable by a $N,\Delta$-type.
 \end{proof}
 
-We define a semigroup operation on $\B$.
-Namely, if $f_b,f_c:\to$ are the p-morphisms the correspond to $b,c\in\B$ we write $b{*}c$ for the element of $B$ that corresponds to the p-morphism $f_b\circ f_c$.
+% We define a semigroup operation on $\B$.
+% Namely, if $f_b,f_c:\to$ are the p-morphisms the correspond to $b,c\in\B$ we write $b{*}c$ for the element of $B$ that corresponds to the p-morphism $f_b\circ f_c$.
 
 % On $\B/{\equiv_{\Delta,M}}$ the operation $*$ is well-defined and turns it into a semigroup.
 
@@ -404,9 +365,6 @@ Namely, if $f_b,f_c:\to$ are the p-morphisms the correspond to $b,c\in\B$ we wri
 % q⊗p={φ(e,z) : φ(e',z)∈q for some/any e' such that e'b≡eb' for any b' realising p|e}.
 % We can further check that q⊗p is finitely satisfiable in A if q is finitely satisfiable in B and p is finitely satisfiable in A.  
 
-
-
-
 %%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%
@@ -414,36 +372,28 @@ Namely, if $f_b,f_c:\to$ are the p-morphisms the correspond to $b,c\in\B$ we wri
 %%%%%%%%%%%%%%%%%%%%
 \section{Semigroups}
 
-Assume $\U$ is a semigroup w.r.t.\@ some definable operation which we denote by $\cdot$.
-In this section $|x|=1$.
-We could assume that also $|z|=1$ but, we prefer to stick to the very same tuple of variables $z=\langle z_i:i<\lambda\rangle$ used above.
-We may write $z\cdot x$ for the tuple $z\cdot x$.
-% We write $z\cdot x$ for the tuple $\langle z_0\cdot x,\, z_1,\, z_2,\, \dots\rangle$.
-% We write $z\cdot x$ for the term $z_0\cdot x$ with the same of sort $x$.
-In this section $\Delta(x,z)$ contains $L_z$ and the formulas $\phi(z\cdot x)$ for all $\phi(x)\in L$.
-% Note that $b/{\equiv_{N,\Delta}}$ only depends on $b_0$.
+Assume $\U$ is a unital semigroup (a monoid) w.r.t.\@ some definable operation which we denote by $\cdot$.
+The unit is denoted by $1$.
+In this section we could work with $|x|=|z|=1$ but, for uniformity with the previous section we take $|x|=|z|=\omega$.
+We write $z\cdot x$ for coordinatewise multiplication.
+In this section $\Delta(x,z)$ contains the formulas $\phi(z\cdot x)$ for all $\phi(x)\in L$.
 
 \begin{fact}
-  Let $b\in\B$ be given.
-  Let $f:\N\to\N$ be the function that maps $a\mapsto b\cdot a$.
-  Then $f$ is a p-morphism.
+  For $b\in\B$, let $g_b:\N\to\N$ be the function that maps $a\mapsto b\cdot a$.
+  Then $b\mapsto g_b$ is an homeomorphism between $\B/{\equiv_{\Delta,M}}$ and ${\rm End}(\N)/{\sim}$.
 \end{fact}
 
 \begin{proof}
-  We prove that $f$ is well-defined.
-  Pick any two $a\equiv_{\Delta,M} a'$ in $\N$.
-  As $b\nonfork_MN$ then $a\equiv_{\Delta,M,b}a'$, it follows that $b\cdot a\equiv_{\Delta,M}b\cdot a'$ as required.
-  
-  Now, assume $r_{\psi,\alpha}(a_1,\dots,a_n)$.
-  We prove $r_{\psi,\alpha}(f\!a_1,\dots,f\!a_n)$.
+  We prove that $g_b$ is a p-morphism.
+  Assume $r_{\psi,\alpha}(a_1,\dots,a_n)$.
+  We prove $r_{\psi,\alpha}(g_ba_1,\dots,g_ba_n)$.
   Assume that for some $i_{h,k}\in\{1,\dots,n\}$
 
-  \ceq{\hfill\psi(x_1,\dots,x_n\,;z)}{=}{\bigvee_{h=1}^m\bigwedge_{k=1}^m\phi_{h,k}(\,z\cdot\, x_{i_{h,k}})\wedge\phi'_{h,k}(z)}
+  \ceq{\hfill\psi(x_1,\dots,x_n\,;z)}{=}{\bigvee_{h=1}^m\bigwedge_{k=1}^m\phi_{h,k}(\,z\cdot\, x_{i_{h,k}})}
 
-  for some $\phi_{h,k}(z_0\,;z),\phi'_{h,k}(z)\in\Delta$.
-
-  From $r_{\psi\,;\alpha}(a_1,\dots,a_n)$, after re-indexing, we obtain that $\alpha(M^z)\subseteq\phi_k(M^z\cdot a_k)\cap\phi'_k(M^z)$ for $k=1,\dots,m$.
-  As $b\nonfork_MN$, we immediately obtain $\alpha(M^z)\subseteq\phi_k(M^z\cdot b\cdot a_k)$ for all $k$, so $r_{\psi,\alpha}(f\!a_1,\dots,f\!a_n)$ follows.
+  for some $\phi_{h,k}(z\cdot x)\in\Delta$.
+  From $r_{\psi}(a_1,\dots,a_n)$, after re-indexing, we obtain that $\phi_k(M^z\cdot a_k)=M^z$ for $k=1,\dots,m$.
+  As $b\nonfork_MN$, we immediately obtain $\phi_k(M^z\cdot b\cdot a_k)=M^z$ for all $k$, so $r_{\psi,\alpha}(g_ba_1,\dots,g_ba_n)$ follows.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%
@@ -473,8 +423,8 @@ In this section $\Delta(x,z)$ contains $L_z$ and the formulas $\phi(z\cdot x)$ f
 A set $A\subseteq\N$ is \emph{p-maximal} if it satisfies the following (obviously) equivalent conditions for every $\bar a\in A$ and every p-morphism $f$
 
 \begin{itemize}
-  \item[a.] $r_{\phi\,;\alpha}(\,\bar a\,)\ \ \Leftrightarrow\ \ r_{\phi\,;\alpha}(\,f\!\bar a\;)$ \hfill
-  for every $r_{\phi\,;\alpha}\in L^{\rm\! p}$
+  \item[a.] $r_{\phi}(\,\bar a\,)\ \ \Leftrightarrow\ \ r_{\phi}(\,f\!\bar a\;)$ \hfill
+  for every $r_{\phi}\in L^{\rm\! p}$
 
   \item[b.] $\textrm{p-tp}(\,\bar a\,)\ \ =\ \ \textrm{p-tp}(\,f\!\bar a\;)$.
 \end{itemize}
@@ -499,15 +449,15 @@ A set $A\subseteq\N$ is \emph{p-maximal} if it satisfies the following (obviousl
   2$\Rightarrow$3. If $\bar c$ is an enumeration of $A$ that witnesses the failure of 3, then some finite subtuple of $\bar c$ witnesses the failure of 2.
 
   3$\Rightarrow$4. Negate 4. Let $f$ be a p-morphism defined on $A$ that is not a p-isomorphism.
-  Let $\bar a\in A^{\bar x}$ and $\bar b$ be such that $\langle \bar a,\bar b\rangle\in R$ and $\textrm{p-tp}(\bar a)\smallsetminus \textrm{p-tp}(\bar b)\neq\varnothing$.
-  To contradict 3, it suffices to extend $\{\langle \bar a,\bar b\rangle\}$ to a p-morphism defined on $A$.
+  Let $\bar a\in A^{\bar x}$ be such that  $\textrm{p-tp}(\bar a)\smallsetminus \textrm{p-tp}(f\bar a)\neq\varnothing$.
+  To contradict 3, it suffices to extend $f$ to a p-morphism defined on $A$.
   This is possible by $\infty$-p-homogeneity.
 
   4$\Rightarrow$1. Clear.
 \end{proof}
 
 \begin{example}
-  Assume that $a\in\U^x$ is such that $\phi(a\,;M^z)$ is definable over ${\rm acl^{eq}}\varnothing$ for every $\phi(x\,;z)\in L$.
+  Assume that $a\in\N$ is such that $\phi(a\,;M^z)$ is definable over ${\rm acl^{eq}}\varnothing$ for every $\phi(x\,;z)\in L$.
   Then the orbit of $a$ under ${\rm Aut}(\U/\{M\})$ is p-maximal.
 \end{example}
 
@@ -516,9 +466,9 @@ A set $A\subseteq\N$ is \emph{p-maximal} if it satisfies the following (obviousl
   We prove that $\{a\}$ is p-maximal.
 
   Let $\phi'(z)\in L$ be such that $\phi(a\,;M^z)\leftrightarrow\phi'(M^z)$.
-  Then, if we set $\phi''(x\,;z)=\phi(x\,;z)\leftrightarrow\phi'(z)$, the formula $r_{\phi''\,;\top}(a)$ holds.
+  Then, if we set $\phi''(x\,;z)=\phi(x\,;z)\leftrightarrow\phi'(z)$, the formula $r_{\phi''}(a)$ holds.
 
-  If $\{\langle a,b\rangle\}$ is a p-morphism then $r_{\phi''\,;\top}(b)$ also holds.
+  If $f$ is a p-morphism then $r_{\phi''}(fa)$ also holds.
   Then $a\equiv_{\Delta,M}b$ follows.
   This shows that p-morphism are trivial and therefore p-isomorphisms.
 
@@ -530,30 +480,30 @@ A set $\J\subseteq\U^x$ is called a \emph{core} if it is p-maximal and, among th
 \begin{fact}\label{fact_onto}
   Let $\J$ be a core.
   Let $\A$ be a p-maximal set.
-  Then every p-morphism $R\subseteq\A\times\J$ extends to a p-morphism $R'$ such that $\A={\rm dom}R'$ and ${\rm range}R'\subseteq\J$. 
+  Then every p-morphism $f:\A\to\J$ extends to a p-isomorphism between $\A$ and $\J$. 
 \end{fact}
 
 \begin{proof}
   Reason as in the proof of Fact~\ref{fact_phogeneity} with the same notation but choose $b\in\A$.
-  Let $R'$ be a p-morphism defined on $\A$ that extends $f\cup\{\langle b,c\rangle\}$.
-  Then $R'[\A]$, i.e.\@ the image of $\A$ under $R'$, is a p-maximal set that contains $\J$.
-  By maximality $R'[\A]$ coincides with $\J$, hence $c\in\J$.
+  Let $f'$ be a p-morphism defined on $\A$ that extends $f\cup\{\langle b,c\rangle\}$.
+  Then $f'[\A]$, i.e.\@ the image of $\A$ under $f'$, is a p-maximal set that contains $\J$.
+  By maximality $f'[\A]$ coincides with $\J$, hence $c\in\J$.
 \end{proof}
 
 By back-and-forth we obtain the following.
 
 \begin{corollary}[ ($\infty$-p-homogeneity of the core)]\label{fact_corephogeneity}
-  If $\J$ and $\J'$ are cores, then every p-morphism $R\subseteq\J\times\J'$ extends to a p-isomorphism between $\J$ and $\J'$.
+  If $\J$ and $\J'$ are cores, then every p-morphism $f:\J\to\J'$ extends to a p-isomorphism between $\J$ and $\J'$.
 \end{corollary}
 
-A \emph{p-retraction} of $\U^x$ onto $\A$ is a total p-morphism $R$ that coincides with $\equiv_{\Delta,M}$ on $\A$, i.e.\@ such that $R\cap (\A\times\A)\ \ =\ \ ({\equiv_{\Delta,M}})\cap (\A\times\A)$.
+A \emph{p-retraction} of $\N$ onto $\A$ is a total p-morphism $f:\N\to\A$ that is the identity on $\A$.
 
 \begin{theorem}
-  If $\J$ and is a core then there is a p-retraction of $\U^x$ onto $\J$
+  If $\J$ and is a core then there is a p-retraction of $\N$ onto $\J$
 \end{theorem}
 
 \begin{proof}
-  Let $\bar c$ enumerate $\U^x$.
+  Let $\bar c$ enumerate $\N$.
   Let $\bar a$ be a tuple such that $\textrm{p-tp}(\bar a)\supseteq \textrm{p-tp}(\bar c)$ is p-maximal.
   By Fact~\ref{fact_pmaximalset} the relation $R\ =\ (\equiv_M\circ\;\{\langle\bar c,\bar a\rangle\}\;\circ\equiv_M)$ is a p-morphism onto the p-maximal set $\A\,=\,{\rm range}\,R$.
   As $\A$ is  p-maximal, by Fact~\ref{fact_onto} we can extend $\big(R\cap(\J\times\A)\big)^{-1}$ to a p-isomorphism $R'$ defined on $\A$.
@@ -572,13 +522,8 @@ A \emph{p-retraction} of $\U^x$ onto $\A$ is a total p-morphism $R$ that coincid
   ???
 \end{proof}
 
-\begin{definition}
-  Let $\J$ be a core; we define a topology on $\J$.
-  The closed sets in the p-topology on $\J$ are those defined by p-types with (arbitrary many) parameters in $\J$.
-\end{definition}
-
 \begin{fact}
-  The p-topology is compact and T$_1$.
+  $\J$ is compact subset of $\N$.
 \end{fact}
 
 \begin{proof}
