@@ -58,7 +58,7 @@ By the remark, it would be natural to define the interpretation of $L^{\rm\! p}$
 % or even on $\N/{\equiv_{\{M\}}}$~--~albeit the latter is more perplexing and will not be considered here.
 But we prefer to keep the original domain $\N$ to have a common playground with $L$.
 
-A \emph{p-type\/} is a set of (atomic) formulas in $L^{\rm\! p}(\N)$.
+A \emph{p-type\/} is a set of formulas in $L^{\rm\! p}(\N)$.
 We write \emph{$\textrm{p-tp}(\bar a)$} for the p-type of $\bar a$, i.e.\@ the set of formulas $r_{\phi}(\bar x)$ such that $r_{\phi}(\bar a)$ holds.
 
 Note incidentally that the relation $x_0\equiv_{\Delta,M} x_1$ is definable by a p-type.
@@ -73,10 +73,10 @@ Namely the p-type containing the formulas $r_{\theta}(x_0,x_1)$ for every $\thet
 \begin{proof}
   The claim about dummy variables is clear, so we tacitatly use it below.
   
-  We say that $\phi'(\bar x\,;z)$ is an alphabetic variant of $\phi(\bar x\,;z)$ if it is obtained by replacing the vartiables effectively occurring in $\phi(\bar x\,;z)$ by other variables among those in $z$.
+  We say that $\phi'(\bar x\,;z)$ is an \emph{alphabetic variant\/} of $\phi(\bar x\,;z)$ if it is obtained by replacing the vartiables effectively occurring in $\phi(\bar x\,;z)$ by other variables among those in $z$.
   Clearly, if $\phi'(\bar x\,;z)$ is an alphabetic variant of $\phi(\bar x\,;z)$, then $r_{\phi}(\bar x)$ and $r_{\phi'}(\bar x)$ are equivalent.
 
-  Up to replacing $\phi(\bar x\,;z)$ with an alphabetic variant, we can assume that the $z$-variables are disjoint from those in $\psi(\bar x\,;z)$.
+  Up to replacing $\phi(\bar x\,;z)$ with an alphabetic variant, we can assume that the $z$-variables that effectively occur in $\phi(\bar x\,;z)$ and are disjoint from those that occurin $\psi(\bar x\,;z)$.
   Therefore the following equivalences hold 
   
   \ceq{\hfill r_{\phi}(\bar a)\vee r_{\psi}(\bar a)}{\Leftrightarrow}{\forall z\in M^z\ \phi(\bar a\,;z)\ \ \vee\ \ \forall z\in M^z\ \psi(\bar a\,;z)}
@@ -103,11 +103,10 @@ Namely the p-type containing the formulas $r_{\theta}(x_0,x_1)$ for every $\thet
 
   where 
   
-  \ceq{\hfill\theta(\bar x\,;z)}{=}{\bigwedge_{i=1}^m\phi'_i(\bar x\,;z)\ \wedge\ \exists y\,\psi_i(y\,;z)}
+  \ceq{\hfill\theta(\bar x\,;z)}{=}{\bigwedge_{i=1}^m\phi'_i(\bar x\,;z)\ \wedge\ \exists y\,\psi_i(y\,;z).}
 
-  is a  Boolean combination of formulas in $\ \bigcup_{x'\in V} L_{x'\,;z}$, as required.
+  As $\exists y\,\psi_i(y\,;z)\in L_z\subseteq\Delta$, the above formula in $\Delta$ as required.
 \end{proof}
-
 
 \begin{fact}[ ($\infty$-p-saturation)]\label{fact_psat}
   Let $A\subseteq \N$ have arbitrary cardinality.
@@ -141,8 +140,8 @@ As $\equiv_{\Delta,M}$ is definable by a p-type, p-morphisms induce well-defined
 We say that two p-morphisms $f$ and $g$ are \emph{equivalent,} and write $f\sim g$, if they induce the same map on $\N/{\equiv_{\Delta,M}}$.
 We often confuse equivalent p-morphisms and we use the same symbol $f$ to denote the map induced on the quotient.
 
-A total p-morphism is called a p-endomorphism.
-We write ${\rm End}(\N)$ for the set of p-endomorphisms of $\N$.
+A total p-morphism is called a \emph{p-endomorphism.}
+We write \emph{${\rm End}(\N)$} for the set of p-endomorphisms of $\N$.
 We endow ${\rm End}(\N)$ with the topology that has as basic closed sets those of the form 
 
 \ceq{\hfill\Big\{\ f\in{\rm End}(\N)}{:}{\N\ \models\ r_{\phi}\big(f\!a_1,\dots,f\!a_n,c_1,\dots,c_m\big)\Big\}}
@@ -151,7 +150,7 @@ for $\phi(x\,;z)\in\Delta$ and $a_1,\dots,a_n,c_1,\dots,c_m\in\N$.
 Note that, by Remark~\ref{rem_first}, if $f\sim g$ then $f$ and $g$ belong to the same basic closed sets, therefore this topology naturally induces a topology on ${\rm End}(\N)/{\sim}$.
 
 \begin{fact}
-  With the above topology ${\rm End}(\N)$ is T$_1$ (singletons are closed) and compact.
+  With the above topology ${\rm End}(\N)$ is T$_1$ (i.e.\@ singletons are closed) and compact.
   Composition of p-morphisms is a left continuous operation.
 \end{fact}
 
@@ -252,7 +251,7 @@ The $N,\Delta$-topology on $\B/{\equiv_{N,\Delta}}$ is the quotient of that on $
 \begin{proof}
   In 1 below, we define a map $f\mapsto b_f$ from ${\rm End}(\N)$ into $\B$. In 2, we define a map $b\mapsto f_b$ from $\B$ into ${\rm End}(\N)$.
   The reader may check that these maps induce maps between ${\rm End}(\N)/{\sim}$ and $\B/{\equiv_{N,\Delta}}$ that are each other's inverse.
-  In 3 we prove the continuity of the first map and in 4 the continuity of the second.
+  In 3 we prove the continuity of the second map.
 
   1.\ 
   Let $f: \N\to \N$ be an p-epimorphism.
@@ -295,24 +294,24 @@ The $N,\Delta$-topology on $\B/{\equiv_{N,\Delta}}$ is the quotient of that on $
   Therefore $\hat m$ satisfies $\phi_k(f_ba_k\,;z)$ and all its alphabetic variants.
   Therefore $\phi_k(f_ba_k;M^z)=M^z$, and $r_{\psi}(f_ba_1,\dots,f_ba_n)$ follows.
 
-  3.\ We prove that the map defined in 1 is continuous.
-  Pick any basic closed set in $\B$, say $\big\{b\,:\,\phi(\bar a\,;b)\big\}$.
-  We claim that the set $\big\{f\,:\,\phi(\bar a\,;b_f)\big\}$ is closed in ${\rm End}(\N)$. Indeed, by the definition of $b_f$ in 1
+  % 3.\ We prove that the map defined in 1 is continuous.
+  % Pick any basic closed set in $\B$, say $\big\{b\,:\,\phi(\bar a\,;b)\big\}$.
+  % We claim that the set $\big\{f\,:\,\phi(\bar a\,;b_f)\big\}$ is closed in ${\rm End}(\N)$. Indeed, by the definition of $b_f$ in 1
 
-  \ceq{\hfill\big\{f\ :\ \phi\big(\bar a\,;b_f\big)\}}{=}{\Big\{f\ :\ \phi\big(f\bar a\,;\hat m\big)\Big\}}
+  % \ceq{\hfill\big\{f\ :\ \phi\big(\bar a\,;b_f\big)\}}{=}{\Big\{f\ :\ \phi\big(f\bar a\,;\hat m\big)\Big\}}
 
-  \ceq{\#}{=}{\Big\{f\ :\ r_{\psi}\big(f\bar a,c\big)\Big\}}
+  % \ceq{\#}{=}{\Big\{f\ :\ r_{\psi}\big(f\bar a,c\big)\Big\}}
 
-  where $\psi(\bar x,y;z)$ and $c$ are choosen so that $r_{\psi}(\bar x,c)$ is equivalent to $\phi(\bar x\,;\hat m)$.
-  As the set in $\#$ is closed in ${\rm End}(\N)$, continuity of the map $f\mapsto b_f$ follows.
+  % where $\psi(\bar x,y;z)$ and $c$ are choosen so that $r_{\psi}(\bar x,c)$ is equivalent to $\phi(\bar x\,;\hat m)$.
+  % As the set in $\#$ is closed in ${\rm End}(\N)$, continuity of the map $f\mapsto b_f$ follows.
 
-  We show how to choose $\psi(\bar x,y;z)$ and $c$.
-  Let $y$ be a copy of $x$.
-  The formula $\psi(\bar x,y;z)$ is obtained from $\phi(\bar x\,;z)$ by replacing the variables in the tuple $z$ effectively occurring in $\phi(\bar x\,;z)$ with variables in the tuple $y$.
-  Note that $z$ is dummy in $\psi(\bar x,y\,;z)$.
-  Finally, we choose $c\in M^{y}$ such that $\psi(\bar x,c\,;z)$ is equivalent to $\phi(\bar x\,;\hat m)$.
+  % We show how to choose $\psi(\bar x,y;z)$ and $c$.
+  % Let $y$ be a copy of $x$.
+  % The formula $\psi(\bar x,y;z)$ is obtained from $\phi(\bar x\,;z)$ by replacing the variables in the tuple $z$ effectively occurring in $\phi(\bar x\,;z)$ with variables in the tuple $y$.
+  % Note that $z$ is dummy in $\psi(\bar x,y\,;z)$.
+  % Finally, we choose $c\in M^{y}$ such that $\psi(\bar x,c\,;z)$ is equivalent to $\phi(\bar x\,;\hat m)$.
 
-  4.\ 
+  3.\ 
   We prove that the map defined in 2 is continuous.
   Pick any basic closed set in ${\rm End}(\N)$, say $\big\{ h\, :\, r(h\bar a,\bar c)\big\}$.
   We claim that the set $\big\{b\, :\, r(f_b\bar a,\bar c\big)\}$ is closed. Indeed, by the definition of $f_b$ in 2,
@@ -420,7 +419,7 @@ In this section $\Delta(x,z)$ contains the formulas $\phi(z\cdot x)$ for all $\p
 %   The second claim follows by back-and-forth.
 % \end{proof}
 
-A set $A\subseteq\N$ is \emph{p-maximal} if it satisfies the following (obviously) equivalent conditions for every $\bar a\in A$ and every p-morphism $f$
+A set $A\subseteq\N$ is \emph{p-maximal} if it satisfies the following (obviously) equivalent conditions for every $\bar a\in A^{<\omega}$ and every p-morphism $f$ defined on $\bar a$:
 
 \begin{itemize}
   \item[a.] $r_{\phi}(\,\bar a\,)\ \ \Leftrightarrow\ \ r_{\phi}(\,f\!\bar a\;)$ \hfill
@@ -465,17 +464,17 @@ A set $A\subseteq\N$ is \emph{p-maximal} if it satisfies the following (obviousl
   First consider the case when $\phi(a\,;M^z)$ is definable over $\varnothing$.
   We prove that $\{a\}$ is p-maximal.
 
-  Let $\phi'(z)\in L$ be such that $\phi(a\,;M^z)\leftrightarrow\phi'(M^z)$.
+  Let $\phi'(z)\in L$ be such that $\phi(a\,;M^z)=\phi'(M^z)$.
   Then, if we set $\phi''(x\,;z)=\phi(x\,;z)\leftrightarrow\phi'(z)$, the formula $r_{\phi''}(a)$ holds.
 
   If $f$ is a p-morphism then $r_{\phi''}(fa)$ also holds.
-  Then $a\equiv_{\Delta,M}b$ follows.
-  This shows that p-morphism are trivial and therefore p-isomorphisms.
+  Then $a\equiv_{\Delta,M}f\!a$ follows.
+  This shows that p-morphism are trivial, i.e.\@ equivalent to the identity, and therefore p-isomorphisms.
 
   Now assume that $\phi(a\,;M^z)$ is definable over ${\rm acl^{eq}}\varnothing$.???
 \end{proof}
 
-A set $\J\subseteq\U^x$ is called a \emph{core} if it is p-maximal and, among the p-maximal sets, it is maximal w.r.t.\@ inclusion.
+A set $\J\subseteq\N$ is called a \emph{core} if it is p-maximal and, among the p-maximal sets, it is maximal w.r.t.\@ inclusion.
 
 \begin{fact}\label{fact_onto}
   Let $\J$ be a core.
@@ -496,7 +495,7 @@ By back-and-forth we obtain the following.
   If $\J$ and $\J'$ are cores, then every p-morphism $f:\J\to\J'$ extends to a p-isomorphism between $\J$ and $\J'$.
 \end{corollary}
 
-A \emph{p-retraction} of $\N$ onto $\A$ is a total p-morphism $f:\N\to\A$ that is the identity on $\A$.
+A \emph{p-retraction} of $\N$ onto $\A$ is a total p-morphism $f:\N\to\A$ that is equivalent to the identity on $\A$.
 
 \begin{theorem}
   If $\J$ and is a core then there is a p-retraction of $\N$ onto $\J$
@@ -505,9 +504,10 @@ A \emph{p-retraction} of $\N$ onto $\A$ is a total p-morphism $f:\N\to\A$ that i
 \begin{proof}
   Let $\bar c$ enumerate $\N$.
   Let $\bar a$ be a tuple such that $\textrm{p-tp}(\bar a)\supseteq \textrm{p-tp}(\bar c)$ is p-maximal.
-  By Fact~\ref{fact_pmaximalset} the relation $R\ =\ (\equiv_M\circ\;\{\langle\bar c,\bar a\rangle\}\;\circ\equiv_M)$ is a p-morphism onto the p-maximal set $\A\,=\,{\rm range}\,R$.
-  As $\A$ is  p-maximal, by Fact~\ref{fact_onto} we can extend $\big(R\cap(\J\times\A)\big)^{-1}$ to a p-isomorphism $R'$ defined on $\A$.
-  It is easy to verify that $R'\circ R$ is a retraction.
+  Let $f\ =\{\langle\bar c,\bar a\rangle\}$.
+  Then $f:\N\to\A$ is a p-morphism onto the p-maximal set $\A={\rm range(\bar a)}$.
+  As $\A$ is  p-maximal, by Fact~\ref{fact_onto} we can extend $f^{-1}$ to a p-isomorphism $f'$ defined on $\A$.
+  It is easy to verify that $f'\circ f$ is a retraction.
 \end{proof}
 
 \begin{fact}
